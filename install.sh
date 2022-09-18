@@ -62,4 +62,31 @@ function backup {
     sudo cp -r ~/.config/nvim ./.config
 }
 
-backup
+while test $# -gt 0; do 
+  case "$1" in
+    --help)
+      echo "Help"
+      exit
+      ;;
+    --macos)
+      install_macos
+      backup
+      link_dotfiles
+      zsh
+      source ~/.zshrc
+      exit
+      ;;
+    --backup)
+      backup
+      exit
+      ;;
+    --dotfiles)
+      link_dotfiles
+      exit
+      ;;
+  esac
+
+  shift
+done
+Footer
+
