@@ -12,20 +12,22 @@ function is_installed {
 
 # Install softwares
 function install_alacritty {
-    sudo apt install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
-    git clone https://github.com/alacritty/alacritty.git
-    cargo build --release
-    cd alacritty
-    sudo cp target/release/alacritty /usr/local/bin # or anywhere else in $PATH
-    sudo cp extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg
-    sudo desktop-file-install extra/linux/Alacritty.desktop
-    sudo update-desktop-database
-    cd .. 
-    rm -r ../alacritty
+    if [ "$(is_installed alacritty)" == "0" ]; then
+        sudo apt install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
+        git clone https://github.com/alacritty/alacritty.git
+        cargo build --release
+        cd alacritty
+        sudo cp target/release/alacritty /usr/local/bin # or anywhere else in $PATH
+        sudo cp extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg
+        sudo desktop-file-install extra/linux/Alacritty.desktop
+        sudo update-desktop-database
+        cd .. 
+        rm -r ../alacritty
+    fi
 }
 
 function install_neovim {
-  if [ "(is_installed nvim)" == "0" ]; then
+  if [ "$(is_installed nvim)" == "0" ]; then
     echo "Neovim not found! Please install neovim first!"
     return
   fi
@@ -111,33 +113,32 @@ function backup {
   mkdir -p .config
   sudo cp -r ~/.config/alacritty ./.config
   sudo cp -r ~/.config/nvim ./.config
+  sudo cp .zshrc ./.zshrc
+  sudo cp .tmux.conf ./.tmux.conf
 }
 
-# -- while test $# -gt 0; do 
-# --   case "$1" in
-# --     --help)
-# --       echo "Help"
-# --       exit
-# --       ;;
-# --     --macos)
-# --       install_macos
-# --       backup
-# --       link_dotfiles
-# --       zsh
-# --       source ~/.zshrc
-# --       exit
-# --       ;;
-# --     --backup)
-# --       backup
-# --       exit
-# --       ;;
-# --     --dotfiles)
-# --       link_dotfiles
-# --       exit
-# --       ;;
-# --   esac
-# -- 
-# --   shift
-# -- done
+function link_dotfiles {
+    ln -s $(pwd)/.config/alacritty/ $HOME/.config/alacritty
+    ln -s $(pwd)/.config/nvim/ $HOME/.config/nvim
+}
+
+while test $# -gt 0; do 
+  case "$1" in
+    --help)
+      echo "Help"
+      exit
+      ;;
+    --backup)
+      backup
+      exit
+      ;;
+    --dotfiles)
+      link_dotfiles
+      exit
+      ;;
+  esac
+
+  shift
+done
 # install_programminglanguage
-install_alacritty
+# is_installed alacritty
