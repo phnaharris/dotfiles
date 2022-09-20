@@ -11,6 +11,19 @@ function is_installed {
 }
 
 # Install softwares
+function install_alacritty {
+    sudo apt install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
+    git clone https://github.com/alacritty/alacritty.git
+    cargo build --release
+    cd alacritty
+    sudo cp target/release/alacritty /usr/local/bin # or anywhere else in $PATH
+    sudo cp extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg
+    sudo desktop-file-install extra/linux/Alacritty.desktop
+    sudo update-desktop-database
+    cd .. 
+    rm -r ../alacritty
+}
+
 function install_neovim {
   if [ "(is_installed nvim)" == "0" ]; then
     echo "Neovim not found! Please install neovim first!"
@@ -127,4 +140,4 @@ function backup {
 # --   shift
 # -- done
 # install_programminglanguage
-install_tmux
+install_alacritty
