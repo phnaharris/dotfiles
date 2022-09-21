@@ -12,18 +12,18 @@ function is_installed {
 
 # Install softwares
 function install_alacritty {
-    if [ "$(is_installed alacritty)" == "0" ]; then
-        sudo apt install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
-        git clone https://github.com/alacritty/alacritty.git
-        cargo build --release
-        cd alacritty
-        sudo cp target/release/alacritty /usr/local/bin # or anywhere else in $PATH
-        sudo cp extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg
-        sudo desktop-file-install extra/linux/Alacritty.desktop
-        sudo update-desktop-database
-        cd .. 
-        rm -r ../alacritty
-    fi
+  if [ "$(is_installed alacritty)" == "0" ]; then
+    sudo apt install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
+    git clone https://github.com/alacritty/alacritty.git
+    cargo build --release
+    cd alacritty
+    sudo cp target/release/alacritty /usr/local/bin # or anywhere else in $PATH
+    sudo cp extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg
+    sudo desktop-file-install extra/linux/Alacritty.desktop
+    sudo update-desktop-database
+    cd .. 
+    rm -r ../alacritty
+  fi
 }
 
 function install_neovim {
@@ -94,15 +94,16 @@ function install_tools {
   # sudo apt-get install texlive-full -y
 }
 
-function install_zsh { 
-  local current_date=$(date +%s)
-  sudo apt install zsh -y
-  if [ -d ~/.oh-my-zsh ]; then
-    echo "oh-my-zsh is installed"
-  else
-    echo "oh-my-zsh is not installed"
-    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+function install_zsh { # DONEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE 
+  echo "Removing old zsh files"
+  sudo rm -r ~/.zshrc*
+  sudo rm -r ~/.oh-my-zsh*
+  echo "Installing new ZSH"
+  if [ "$(is_installed zsh)" == "0" ]; then
+    echo "Installing zsh"
+    sudo apt install zsh -y
   fi
+  sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   echo $'OhMyZsh plugin\n'
   echo $'Downloading zsh-syntax-highlighting zsh-autosuggestions\n'
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
@@ -118,14 +119,30 @@ function backup {
 }
 
 function link_dotfiles {
-    ln -s $(pwd)/.config/alacritty/ $HOME/.config/alacritty
-    ln -s $(pwd)/.config/nvim/ $HOME/.config/nvim
+  echo "Linking dotfiles"
+
+  rm ~/.zshrc
+  rm ~/.tmux.conf
+  rm ~/.aliasrc
+  rm -rf ~/.config/alacritty
+  rm -rf ~/.config/nvim
+
+  ln -s $(pwd)/.zshrc ~/.zshrc
+  ln -s $(pwd)/.tmux.conf ~/.tmux.conf
+  ln -s $(pwd)/.aliasrc ~/.aliasrc
+  ln -s $(pwd)/.config/alacritty/ ~/.config/alacritty
+  ln -s $(pwd)/.config/nvim/ ~/.config/nvim
 }
 
 while test $# -gt 0; do 
   case "$1" in
     --help)
       echo "Help"
+      exit
+      ;;
+    --install_zsh)
+      install_zsh
+      link_dotfiles
       exit
       ;;
     --backup)
@@ -137,8 +154,5 @@ while test $# -gt 0; do
       exit
       ;;
   esac
-
   shift
 done
-# install_programminglanguage
-# is_installed alacritty
