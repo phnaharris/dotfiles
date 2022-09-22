@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Utils
-function is_installed {
+function is_installed { # DONEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
   # set to 1 initially
   local return_=1
   # set to 0 if not found
@@ -11,7 +11,7 @@ function is_installed {
 }
 
 # Install softwares
-function install_alacritty {
+function install_alacritty { # DONEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
   if [ "$(is_installed alacritty)" == "0" ]; then
     sudo apt install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
     git clone https://github.com/alacritty/alacritty.git
@@ -26,7 +26,7 @@ function install_alacritty {
   fi
 }
 
-function install_neovim {
+function install_neovim { # DONEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
   if [ "$(is_installed nvim)" == "0" ]; then
     echo "Neovim not found! Please install neovim first!"
     return
@@ -36,7 +36,7 @@ function install_neovim {
   npm install -g @fsouza/prettierd
 }
 
-function install_dracula {
+function install_dracula { # DONEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
   mkdir -p ~/.local/share/nvim/site/pack/themes/start
   cd ~/.local/share/nvim/site/pack/themes/start
   git clone https://github.com/dracula/vim.git dracula
@@ -67,7 +67,7 @@ function install_programminglanguage {
   fi
 }
 
-function install_tmux {
+function install_tmux { # DONEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
   if [ "$(is_installed tmux)" == "0" ]; then
     echo "Installing tmux"
     sudo apt install tmux -y
@@ -77,7 +77,7 @@ function install_tmux {
   fi
 }
 
-function install_tools { 
+function install_tools { # DONEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
   sudo apt install build-essential zlib1g-dev -y
   sudo apt install aptitude -y
   sudo apt install snapd
@@ -138,6 +138,10 @@ while test $# -gt 0; do
   case "$1" in
     --help)
       echo "Help"
+      exit
+      ;;
+    --install_tools)
+      install_tools
       exit
       ;;
     --install_zsh)
