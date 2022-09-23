@@ -20,10 +20,11 @@ bind('n', '-', '<C-x>')
 -- tab
 bind('n', 'te', ':tabedit %:p:h<CR>')
 bind('n', 'tc', ':tabclose<CR>')
-bind('n', 'to', ':tabonly<CR>')
+bind('n', 'to', ':tabonly<CR>') -- Only current tab
 -- split
 bind('n', 'ss', ':split<CR>')
 bind('n', 'sv', ':vsplit<CR>')
+bind('n', 'so', ':only<CR>') -- Only current window
 -- moving around windows in NORMAL, VISUAL, SELECT, OPERATOR-PENDING mode
 bind('', 'sh', '<C-w>h')
 bind('', 'sj', '<C-w>j')
