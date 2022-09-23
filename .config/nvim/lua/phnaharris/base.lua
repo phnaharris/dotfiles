@@ -1,3 +1,4 @@
+-- vim.opt.exrc = true -- Auto detect .nvimrc/.exrc -- It's not worked!?
 vim.opt.shell = 'zsh'
 vim.scriptencoding = 'utf-8'
 vim.opt.encoding = 'utf-8'
@@ -11,7 +12,7 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.numberwidth = 5
 
-vim.opt.autoindent = true -- Auto indent to next line 
+vim.opt.autoindent = true -- Auto indent to next line
 vim.opt.smartindent = true -- Smart indent reacts to the syntax
 vim.opt.tabstop = 4 -- 1 tab = 4 spaces
 vim.opt.softtabstop = 4

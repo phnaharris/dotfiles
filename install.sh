@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Utils
-function is_installed { # DONEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+function is_installed { 
   # set to 1 initially
   local return_=1
   # set to 0 if not found
@@ -39,7 +39,7 @@ function install_neovim { # DONEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
 function install_dracula { # DONEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
   mkdir -p ~/.local/share/nvim/site/pack/themes/start
   cd ~/.local/share/nvim/site/pack/themes/start
-  git clone https://github.com/dracula/vim.git dracula
+  git clone https://github.com/dracula/vim.git dracula >/dev/null
 }
 
 function install_programminglanguage {
@@ -74,6 +74,7 @@ function install_tmux { # DONEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
     echo "Installing tpm"
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
     source ~/.tmux.conf
+    gem install tmuxinator
   fi
 }
 
@@ -140,17 +141,46 @@ while test $# -gt 0; do
       echo "Help"
       exit
       ;;
+    --install_alacritty)
+      install_alacritty
+      exit
+      ;;
+    --install_neovim)
+      install_neovim
+      exit
+      ;;
+    --install_dracula)
+      install_dracula
+      exit
+      ;;
+    --install_programminglanguage)
+      install_programminglanguage
+      exit
+      ;;
+    --install_tmux)
+      install_tmux
+      exit
+      ;;
     --install_tools)
       install_tools
       exit
       ;;
     --install_zsh)
       install_zsh
-      link_dotfiles
       exit
       ;;
     --backup)
       backup
+      exit
+      ;;
+    --linux)
+      install_tools
+      install_zsh
+      install_programminglanguage
+      install_alacritty
+      install_tmux
+      install_neovim
+      install_dracula
       exit
       ;;
     --dotfiles)
@@ -160,3 +190,4 @@ while test $# -gt 0; do
   esac
   shift
 done
+link_dotfiles
