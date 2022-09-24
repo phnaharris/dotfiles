@@ -3,12 +3,17 @@ if (not status) then return end
 
 local augroup_format = vim.api.nvim_create_augroup("Format", { clear = true })
 
+local formatting = null_ls.builtins.formatting
+local diagnostics = null_ls.builtins.diagnostics
+
 null_ls.setup {
     sources = {
-        null_ls.builtins.diagnostics.eslint_d.with({
+        formatting.eslint_d.with({
             diagnostics_format = '[eslint] #{m}\n(#{c})'
         }),
-        null_ls.builtins.diagnostics.zsh
+        formatting.shfmt,
+        formatting.rustfmt,
+        diagnostics.zsh,
     },
     on_attach = function(client, bufnr)
         if client.server_capabilities.documentFormattingProvider then

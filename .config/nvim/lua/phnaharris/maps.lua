@@ -25,6 +25,7 @@ bind('n', 'to', ':tabonly<CR>') -- Only current tab
 bind('n', 'ss', ':split<CR>')
 bind('n', 'sv', ':vsplit<CR>')
 bind('n', 'so', ':only<CR>') -- Only current window
+bind('n', 'sc', ':close<CR>') -- Close current window
 -- moving around windows in NORMAL, VISUAL, SELECT, OPERATOR-PENDING mode
 bind('', 'sh', '<C-w>h')
 bind('', 'sj', '<C-w>j')
