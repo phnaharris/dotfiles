@@ -7,6 +7,7 @@ vim.opt.wrap = false -- No wrap line
 
 vim.opt.backup = false
 vim.opt.backupskip = '/tmp/*, /private/tmp/*'
+vim.opt.wildignore:append { '*/node_modules/*' }
 
 vim.opt.number = true
 vim.opt.relativenumber = true

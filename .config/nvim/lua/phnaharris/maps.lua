@@ -1,6 +1,7 @@
+local opts = { noremap = true, silent = true }
 local function bind(mode, old, new)
     if vim.fn.has("nvim-0.7") then
-        vim.keymap.set(mode, old, new)
+        vim.keymap.set(mode, old, new, opts)
     end
 end
 
@@ -11,7 +12,6 @@ bind('n', '<up>', ':echoe "use k"<cr>')
 
 bind('n', '<C-a>', 'gg<S-v>G') -- Select all
 bind('n', 'x', '"_x') -- Do not yank with x
-
 
 -- Increment/Decrement
 bind('n', '+', '<C-a>')
