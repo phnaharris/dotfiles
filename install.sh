@@ -33,6 +33,7 @@ function install_neovim { # DONEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
 	fi
 	git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 	sudo apt install ripgrep -y
+	sudo apt install xsel -y # install clipboard tool for neovim
 	npm install -g @fsouza/prettierd
 }
 

@@ -6,6 +6,14 @@ end
 
 vim.cmd [[packadd packer.nvim]]
 
+-- Auto run :PackerCompile whenever plugins.lua is updated
+vim.cmd([[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+  augroup end
+]])
+
 packer.startup(function(use)
     use 'wbthomason/packer.nvim'
 
@@ -38,4 +46,6 @@ packer.startup(function(use)
     use 'windwp/nvim-ts-autotag' -- Auto close, rename html tag
 
     use 'tpope/vim-surround'
+
+    -- use { 'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview' }
 end)

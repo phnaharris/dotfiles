@@ -8,5 +8,5 @@ mason.setup({
 })
 
 lspconfig.setup {
-    ensure_installed = { "sumneko_lua", "tsserver", "bashls" },
+    ensure_installed = { "sumneko_lua", "tsserver", "bashls", "eslint_d" },
 }

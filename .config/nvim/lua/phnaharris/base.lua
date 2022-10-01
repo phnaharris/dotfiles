@@ -5,6 +5,10 @@ vim.opt.encoding = 'utf-8'
 vim.opt.fileencoding = 'utf-8'
 vim.opt.wrap = false -- No wrap line
 
+-- Split setting
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+
 vim.opt.backup = false
 vim.opt.backupskip = '/tmp/*, /private/tmp/*'
 vim.opt.wildignore:append { '*/node_modules/*' }
@@ -26,8 +30,5 @@ vim.opt.mouse = 'a'
 vim.opt.path:append { '**' } -- Finding files - Search down into subfolders
 vim.opt.inccommand = 'split'
 
--- Split setting
-vim.opt.splitbelow = true
-vim.opt.splitright = true
-
 vim.opt.clipboard:append { 'unnamedplus' }
+vim.opt.iskeyword:append { '-' } -- treat dash separated words as a word text object
