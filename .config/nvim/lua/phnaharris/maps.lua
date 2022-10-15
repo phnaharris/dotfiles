@@ -10,24 +10,32 @@ bind('n', '<right>', ':echoe "use l"<cr>')
 bind('n', '<down>', ':echoe "use j"<cr>')
 bind('n', '<up>', ':echoe "use k"<cr>')
 
-bind('n', '<C-a>', 'gg<S-v>G') -- Select all
-bind('n', 'x', '"_x') -- Do not yank with x
+bind('n', '<C-a>', 'gg<S-v>G') -- select all
+bind('n', 'x', '"_x') -- do not yank with x
 
--- Increment/Decrement
+-- increment/decrement
 bind('n', '+', '<C-a>')
 bind('n', '-', '<C-x>')
 
 -- tab
 bind('n', 'te', ':tabedit %:p:h<CR>')
 bind('n', 'tc', ':tabclose<CR>')
-bind('n', 'to', ':tabonly<CR>') -- Only current tab
+bind('n', 'to', ':tabonly<CR>') -- only current tab
 -- split
 bind('n', 'ss', ':split<CR>')
 bind('n', 'sv', ':vsplit<CR>')
-bind('n', 'so', ':only<CR>') -- Only current window
-bind('n', 'sc', ':close<CR>') -- Close current window
+bind('n', 'so', ':only<CR>') -- only current window
+bind('n', 'sc', ':close<CR>') -- close current window
 -- moving around windows in NORMAL, VISUAL, SELECT, OPERATOR-PENDING mode
 bind('', 'sh', '<C-w>h')
 bind('', 'sj', '<C-w>j')
 bind('', 'sk', '<C-w>k')
 bind('', 'sl', '<C-w>l')
+-- resize split
+bind('n', 's<left>', ':vertical resize -2<CR>')
+bind('n', 's<right>', ':vertical resize +2<CR>')
+bind('n', 's<up>', ':resize +2<CR>')
+bind('n', 's<down>', ':resize -2<CR>')
+
+-- nvim-tree keymaps
+bind('n', '<leader>sf', ':NvimTreeToggle<CR>')

@@ -12,6 +12,19 @@ local on_attach = function(client, bufnr)
         vim.api.nvim_command [[augroup END]]
     end
 end
+--Enable (broadcasting) snippet capability for completion
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+nvim_lsp.clangd.setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+})
+
+nvim_lsp.jsonls.setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+})
 
 nvim_lsp.pyright.setup({
     on_attach = on_attach,
@@ -47,7 +60,8 @@ nvim_lsp.sumneko_lua.setup({
                 },
             },
         }
-    }
+    },
+    capabilities = capabilities,
 })
 local rt = {
     server = {

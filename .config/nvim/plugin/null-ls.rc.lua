@@ -5,6 +5,7 @@ local augroup_format = vim.api.nvim_create_augroup("Format", { clear = true })
 
 local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
+local completion = null_ls.builtins.completion
 
 null_ls.setup {
     sources = {
@@ -13,6 +14,7 @@ null_ls.setup {
         }),
         formatting.shfmt,
         formatting.rustfmt,
+
         diagnostics.zsh,
     },
     on_attach = function(client, bufnr)

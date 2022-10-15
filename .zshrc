@@ -108,3 +108,10 @@ export PATH="/home/phnaharris/.local/share/solana/install/active_release/bin:$PA
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+if [[ "$TERM" != "screen-256color" ]]
+then
+    tmux attach-session -t "$USER" || tmux new-session -s "$USER"
+fi
+# Clangd import
+# export LD_LIBRARY_PATH="/usr/lib/llvm-11/lib/clang/11.0.0/lib"
