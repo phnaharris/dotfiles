@@ -39,3 +39,8 @@ bind('n', 's<down>', ':resize -2<CR>')
 
 -- nvim-tree keymaps
 bind('n', '<leader>sf', ':NvimTreeToggle<CR>')
+
+-- vim.api.nvim_set_keymap("i", "<C-n>", "<Plug>luasnip-next-choice", {})
+-- vim.api.nvim_set_keymap("s", "<C-n>", "<Plug>luasnip-next-choice", {})
+-- vim.api.nvim_set_keymap("i", "<C-p>", "<Plug>luasnip-prev-choice", {})
+-- vim.api.nvim_set_keymap("s", "<C-p>", "<Plug>luasnip-prev-choice", {})

@@ -6,6 +6,7 @@ if (not status2) then return end
 local servers = {
     "bashls",
     "clangd",
+    "gopls",
     "jsonls",
     "pyright",
     "rust_analyzer",
