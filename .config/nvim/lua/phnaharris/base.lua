@@ -37,7 +37,6 @@ local options = {
     timeoutlen = 500, -- time to wait for key mapping (in ms), default = 1000 ms
 }
 
-
 vim.opt.wildignore:append { '*/node_modules/*' }
 vim.opt.path:append { '**' } -- finding files - Search down into subfolders
 vim.opt.iskeyword:append { '-' } -- treat dash separated words as a word text object

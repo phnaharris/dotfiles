@@ -10,7 +10,8 @@ ts.setup {
         enable = true,
         disable = {},
     },
-    ensure_installed = { 'c', 'cpp', 'tsx', 'lua', 'json', 'html', 'css', 'javascript', 'typescript', 'rust' },
+    ensure_installed = { 'c', 'cpp', 'tsx', 'lua', 'json', 'toml', 'yaml', 'html', 'css', 'javascript', 'typescript',
+        'rust', 'go', 'python', 'markdown', 'bash', 'dockerfile', 'julia', 'latex', 'ruby', 'php' },
     autotag = {
         enable = true,
     }

@@ -1,0 +1,201 @@
+-- local status, nvim_lsp = pcall(require, 'lspconfig')
+-- if not status then return end
+--
+--
+-- local protocol = require('vim.lsp.protocol')
+--
+--
+-- nvim_lsp.clangd.setup({
+--     on_attach = on_attach,
+--     capabilities = capabilities,
+--     -- cmd = { "clangd", "--query-driver" }
+-- })
+--
+-- nvim_lsp.jsonls.setup({
+--     on_attach = on_attach,
+--     capabilities = capabilities,
+-- })
+--
+-- nvim_lsp.pyright.setup({
+--     on_attach = on_attach,
+-- })
+--
+-- nvim_lsp.tsserver.setup({
+--     on_attach = on_attach,
+--     filetypes = { "typescript", "typescriptreact", "typescript.tsx", "javascript" },
+--     cmd = { "typescript-language-server", "--stdio" }
+-- })
+--
+-- nvim_lsp.sumneko_lua.setup({
+--     on_attach = on_attach;
+--     capabilities = capabilities,
+--     -- An example of settings for an LSP server.
+--     --    For more options, see nvim-lspconfig
+--     settings = {
+--         Lua = {
+--             runtime = {
+--                 -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+--                 version = 'LuaJIT',
+--                 -- Setup your lua path
+--                 path = vim.split(package.path, ';'),
+--             },
+--             diagnostics = {
+--                 -- Get the language server to recognize the `vim` global
+--                 globals = { 'vim' },
+--             },
+--             workspace = {
+--                 -- Make the server aware of Neovim runtime files
+--                 library = {
+--                     [vim.fn.expand('$VIMRUNTIME/lua')] = true,
+--                     [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
+--                 },
+--             },
+--             ["completion.enable"] = true,
+--         }
+--     },
+-- })
+-- local rt = {
+--     server = {
+--         on_attach = on_attach,
+--         settings = {
+--             -- on_attach = function(_, bufnr)
+--             --     -- Hover actions
+--             --     vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
+--             --     -- Code action groups
+--             --     vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
+--             --     require 'illuminate'.on_attach(client)
+--             -- end,
+--             ["rust-analyzer"] = {
+--                 checkOnSave = {
+--                     command = "clippy"
+--                 },
+--             },
+--         }
+--     },
+-- }
+-- require('rust-tools').setup(rt)
+-- -- require('rust-tools').setup({})
+--
+-- nvim_lsp.bashls.setup({
+--     on_attach = on_attach,
+--     capabilities = capabilities,
+-- })
+--
+-- -- -- Rust area
+-- -- local M = {}
+-- -- local function lsp_keymaps(bufnr)
+-- --     local opts = { noremap = true, silent = true }
+-- --     vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
+-- --     -- vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>Telescope lsp_declarations<CR>", opts)
+-- --     vim.api.nvim_buf_set_keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+-- --     vim.api.nvim_buf_set_keymap(bufnr, "n", "gI", "<cmd>Telescope lsp_implementations<CR>", opts)
+-- --     vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
+-- --     vim.api.nvim_buf_set_keymap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+-- --     vim.cmd [[ command! Format execute 'lua vim.lsp.buf.format({ async = true })' ]]
+-- --     vim.api.nvim_buf_set_keymap(bufnr, "n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+-- --     -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<M-f>", "<cmd>Format<cr>", opts)
+-- --     -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<M-a>", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
+-- --     -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<M-s>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+-- --     -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+-- --     -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+-- --     -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>f", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+-- --     -- vim.api.nvim_buf_set_keymap(bufnr, "n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
+-- --     -- vim.api.nvim_buf_set_keymap(bufnr, "n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
+-- --     -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
+-- -- end
+-- --
+-- -- M.on_attach = function(client, bufnr)
+-- --     lsp_keymaps(bufnr)
+-- -- end
+-- -- M.capabilities = vim.lsp.protocol.make_client_capabilities()
+-- -- M.capabilities.textDocument.completion.completionItem.snippetSupport = true
+-- --
+-- -- local rust_opts = {
+-- --     tools = {
+-- --         -- autoSetHints = false,
+-- --         on_initialized = function()
+-- --             vim.api.nvim_create_autocmd({ "BufWritePost", "BufEnter", "CursorHold", "InsertLeave" }, {
+-- --                 pattern = { "*.rs" },
+-- --                 callback = function()
+-- --                     -- vim.lsp.codelens.refresh()
+-- --                 end,
+-- --             })
+-- --         end,
+-- --
+-- --         auto = false,
+-- --         inlay_hints = {
+-- --             -- Only show inlay hints for the current line
+-- --             only_current_line = false,
+-- --             auto = false,
+-- --
+-- --             -- Event which triggers a refersh of the inlay hints.
+-- --             -- You can make this "CursorMoved" or "CursorMoved,CursorMovedI" but
+-- --             -- not that this may cause higher CPU usage.
+-- --             -- This option is only respected when only_current_line and
+-- --             -- autoSetHints both are true.
+-- --             only_current_line_autocmd = "CursorHold",
+-- --
+-- --             -- whether to show parameter hints with the inlay hints or not
+-- --             -- default: true
+-- --             show_parameter_hints = false,
+-- --
+-- --             -- whether to show variable name before type hints with the inlay hints or not
+-- --             -- default: false
+-- --             show_variable_name = false,
+-- --
+-- --             -- prefix for parameter hints
+-- --             -- default: "<-"
+-- --             -- parameter_hints_prefix = "<- ",
+-- --             parameter_hints_prefix = " ",
+-- --
+-- --             -- prefix for all the other hints (type, chaining)
+-- --             -- default: "=>"
+-- --             -- other_hints_prefix = "=> ",
+-- --             other_hints_prefix = " ",
+-- --
+-- --             -- whether to align to the lenght of the longest line in the file
+-- --             max_len_align = false,
+-- --
+-- --             -- padding from the left if max_len_align is true
+-- --             max_len_align_padding = 1,
+-- --
+-- --             -- whether to align to the extreme right or not
+-- --             right_align = false,
+-- --
+-- --             -- padding from the right if right_align is true
+-- --             right_align_padding = 7,
+-- --
+-- --             -- The color of the hints
+-- --             highlight = "Comment",
+-- --         },
+-- --         hover_actions = {
+-- --             auto_focus = false,
+-- --             border = "rounded",
+-- --             width = 60,
+-- --             -- height = 30,
+-- --         },
+-- --     },
+-- --     server = {
+-- --         --[[
+-- --         $ mkdir -p ~/.local/bin
+-- --         $ curl -L https://github.com/rust-analyzer/rust-analyzer/releases/latest/download/rust-analyzer-x86_64-unknown-linux-gnu.gz | gunzip -c - > ~/.local/bin/rust-analyzer
+-- --         $ chmod +x ~/.local/bin/rust-analyzer
+-- --     --]]
+-- --         -- cmd = { os.getenv "HOME" .. "/.local/bin/rust-analyzer" },
+-- --         -- cmd = { "rustup", "run", "nightly", os.getenv "HOME" .. "/.local/bin/rust-analyzer" },
+-- --         on_attach = M.on_attach,
+-- --         capabilities = M.capabilities,
+-- --
+-- --         settings = {
+-- --             ["rust-analyzer"] = {
+-- --                 lens = {
+-- --                     enable = true,
+-- --                 },
+-- --                 checkOnSave = {
+-- --                     command = "clippy",
+-- --                 },
+-- --             },
+-- --         },
+-- --     },
+-- -- }
+-- -- require('rust-tools').setup(rust_opts)

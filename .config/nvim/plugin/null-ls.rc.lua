@@ -7,11 +7,12 @@ local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
 local completion = null_ls.builtins.completion
 
-null_ls.setup {
+null_ls.setup({
     sources = {
         formatting.eslint_d.with({
             diagnostics_format = '[eslint] #{m}\n(#{c})'
         }),
+        formatting.prettierd,
         formatting.shfmt,
         formatting.rustfmt,
 
@@ -27,4 +28,4 @@ null_ls.setup {
             })
         end
     end,
-}
+})

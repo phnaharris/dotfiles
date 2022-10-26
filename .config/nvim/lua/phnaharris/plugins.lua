@@ -24,7 +24,6 @@ packer.startup(function(use)
     }
     use 'williamboman/mason.nvim'
     use 'williamboman/mason-lspconfig.nvim'
-    use 'glepnir/lspsaga.nvim' -- LSP UIs
     use 'onsails/lspkind-nvim' -- vscode-like pictograms
     use 'saadparwaiz1/cmp_luasnip' -- nvim-cmp source for luasnip
     use 'L3MON4D3/LuaSnip'
