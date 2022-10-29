@@ -28,20 +28,24 @@ packer.startup(function(use)
     use 'j-hui/fidget.nvim' -- nvim-lsp progress
     use 'saadparwaiz1/cmp_luasnip' -- nvim-cmp source for luasnip
     use 'L3MON4D3/LuaSnip'
+    use 'MunifTanjim/prettier.nvim' -- Prettier plugin for Neovim's built-in LSP client
+    use 'jose-elias-alvarez/null-ls.nvim' -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
 
     use 'hrsh7th/cmp-buffer' -- nvim-cmp source for buffer words
     use 'hrsh7th/cmp-nvim-lsp' -- nvim-cmp source for neovim's built-in LSP
     use 'hrsh7th/nvim-cmp' -- Completion
 
     use 'simrat39/rust-tools.nvim'
-    use 'MunifTanjim/prettier.nvim' -- Prettier plugin for Neovim's built-in LSP client
-    use 'jose-elias-alvarez/null-ls.nvim' -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
+    -- use { 'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview' }
+    use 'mfussenegger/nvim-dap' -- Debug Adapter Protocal
 
-    -- use 'fgheng/winbar.nvim' -- Only support neovim >= 0.8.*
+    use 'lewis6991/gitsigns.nvim'
     use 'nvim-lualine/lualine.nvim' -- Statusline
     use 'nvim-lua/plenary.nvim' -- Common utilities
     use 'kyazdani42/nvim-web-devicons' -- File icons
+    -- use 'fgheng/winbar.nvim' -- Only support neovim >= 0.8.*
 
+    -- File browser
     use 'nvim-tree/nvim-tree.lua'
     use 'nvim-telescope/telescope.nvim'
     use 'nvim-telescope/telescope-file-browser.nvim'
@@ -54,5 +58,4 @@ packer.startup(function(use)
     -- Commenting
     use 'numToStr/Comment.nvim'
     -- use 'JoosepAlviste/nvim-ts-context-commentstring'
-    -- use { 'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview' }
 end)

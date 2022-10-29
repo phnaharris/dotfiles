@@ -22,6 +22,7 @@ mason.setup({
 
 mason_lspconfig.setup {
     ensure_installed = servers,
+    automatic_installation = true,
 }
 
 local status_nvim_lsp, nvim_lsp = pcall(require, 'lspconfig')
