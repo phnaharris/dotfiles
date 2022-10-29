@@ -5,13 +5,14 @@ local function bind(mode, old, new)
     end
 end
 
-bind('n', '<left>', ':echoe "use h"<cr>')
-bind('n', '<right>', ':echoe "use l"<cr>')
-bind('n', '<down>', ':echoe "use j"<cr>')
-bind('n', '<up>', ':echoe "use k"<cr>')
+bind('n', '<left>', ':echoe "use h"<CR>')
+bind('n', '<right>', ':echoe "use l"<CR>')
+bind('n', '<down>', ':echoe "use j"<CR>')
+bind('n', '<up>', ':echoe "use k"<CR>')
 
 bind('n', '<C-a>', 'gg<S-v>G') -- select all
 bind('n', 'x', '"_x') -- do not yank with x
+bind('n', '<C-h>', ':nohlsearch<CR>') -- Turn off highlighting search
 
 -- increment/decrement
 bind('n', '+', '<C-a>')
