@@ -128,12 +128,14 @@ function link_dotfiles {
 	rm ~/.aliasrc
 	rm -rf ~/.config/alacritty
 	rm -rf ~/.config/nvim
+	rm -rf ~/.config/awesome
 
 	ln -s $(pwd)/.zshrc ~/.zshrc
 	ln -s $(pwd)/.tmux.conf ~/.tmux.conf
 	ln -s $(pwd)/.aliasrc ~/.aliasrc
 	ln -s $(pwd)/.config/alacritty/ ~/.config/alacritty
 	ln -s $(pwd)/.config/nvim/ ~/.config/nvim
+	ln -s $(pwd)/.config/awesome/ ~/.config/awesome
 }
 
 while test $# -gt 0; do
