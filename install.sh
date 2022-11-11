@@ -127,6 +127,7 @@ function link_dotfiles {
 	rm ~/.czrc
 	rm ~/.tmux.conf
 	rm ~/.aliasrc
+	rm ~/.gitconfig
 	rm -rf ~/.config/alacritty
 	rm -rf ~/.config/nvim
 	rm -rf ~/.config/awesome
@@ -134,6 +135,7 @@ function link_dotfiles {
 	ln -s $(pwd)/.zshrc ~/.zshrc
 	ln -s $(pwd)/.czrc ~/.czrc
 	ln -s $(pwd)/.tmux.conf ~/.tmux.conf
+	ln -s $(pwd)/.gitconfig ~/.gitconfig
 	ln -s $(pwd)/.aliasrc ~/.aliasrc
 	ln -s $(pwd)/.config/alacritty/ ~/.config/alacritty
 	ln -s $(pwd)/.config/nvim/ ~/.config/nvim
