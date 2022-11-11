@@ -37,7 +37,10 @@ packer.startup(function(use)
 
     use 'simrat39/rust-tools.nvim'
     -- use { 'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview' }
+
     use 'mfussenegger/nvim-dap' -- Debug Adapter Protocal
+    use 'mfussenegger/nvim-dap-python' -- Extension for nvim-dap providing default configuration for nvim-dap-python
+    use "rcarriga/nvim-dap-ui" -- Better UI for debugging
 
     use 'lewis6991/gitsigns.nvim'
     use 'nvim-lualine/lualine.nvim' -- Statusline
