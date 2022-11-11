@@ -59,10 +59,10 @@ function install_programminglanguage {
 		echo "Installing golang"
 		sudo apt install golang -y
 	fi
-	if [ "$(is_installed nvm)" == "0" ]; then # Cannot detect if nvm was installed or not
-		echo "Installing nvm"
-		curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-		nvm install node
+	if [ "$(is_installed fnm)" == "0" ]; then # Cannot detect if nvm was installed or not
+		echo "Installing fnm - Fast Node Manager"
+		curl -fsSL https://github.com/Schniz/fnm/raw/master/.ci/install.sh | bash
+		fnm install node
 		npm install -g yarn -y
 		npm install -g gulp -y
 	fi
@@ -124,6 +124,7 @@ function link_dotfiles {
 	echo "Linking dotfiles"
 
 	rm ~/.zshrc
+	rm ~/.czrc
 	rm ~/.tmux.conf
 	rm ~/.aliasrc
 	rm -rf ~/.config/alacritty
@@ -131,6 +132,7 @@ function link_dotfiles {
 	rm -rf ~/.config/awesome
 
 	ln -s $(pwd)/.zshrc ~/.zshrc
+	ln -s $(pwd)/.czrc ~/.czrc
 	ln -s $(pwd)/.tmux.conf ~/.tmux.conf
 	ln -s $(pwd)/.aliasrc ~/.aliasrc
 	ln -s $(pwd)/.config/alacritty/ ~/.config/alacritty

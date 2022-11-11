@@ -72,8 +72,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-export NVM_LAZY=1
-plugins=(git nvm zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
 # ZSH_TMUX_AUTOSTART=true
 
 source $ZSH/oh-my-zsh.sh
@@ -115,3 +114,7 @@ then
 fi
 # Clangd import
 # export LD_LIBRARY_PATH="/usr/lib/llvm-11/lib/clang/11.0.0/lib"
+
+# fnm
+export PATH=/home/phnaharris/.fnm:$PATH
+eval "`fnm env`"
