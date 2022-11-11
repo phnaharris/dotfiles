@@ -12,7 +12,7 @@ bind('n', '<up>', ':echoe "use k"<CR>')
 
 bind('n', '<C-a>', 'gg<S-v>G') -- select all
 bind('n', 'x', '"_x') -- do not yank with x
-bind('n', '<C-h>', ':nohlsearch<CR>') -- Turn off highlighting search
+-- bind('n', '<C-h>', ':nohlsearch<CR>') -- Turn off highlighting search -- Use CTRL_l instead
 
 -- increment/decrement
 bind('n', '+', '<C-a>')

@@ -14,7 +14,7 @@ null_ls.setup({
         }),
         formatting.prettierd,
         formatting.shfmt,
-        formatting.rustfmt,
+        formatting.autopep8,
 
         diagnostics.zsh,
     },

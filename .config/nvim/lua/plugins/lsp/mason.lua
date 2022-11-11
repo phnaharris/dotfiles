@@ -7,6 +7,7 @@ local servers = {
     "bashls",
     "clangd",
     "gopls",
+    "html",
     "jsonls",
     "pyright",
     "rust_analyzer",
