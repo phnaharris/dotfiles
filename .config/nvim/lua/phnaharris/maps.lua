@@ -41,6 +41,10 @@ bind('n', 's<down>', ':resize -2<CR>')
 -- nvim-tree keymaps
 bind('n', '<leader>sf', ':NvimTreeToggle<CR>')
 
+-- faster moving part of text keeping indent, src: ThePrimagen
+bind('v', "J", ":m '>+1<CR>gv=gv")
+bind('v', "K", ":m '<-2<CR>gv=gv")
+
 -- vim.api.nvim_set_keymap("i", "<C-n>", "<Plug>luasnip-next-choice", {})
 -- vim.api.nvim_set_keymap("s", "<C-n>", "<Plug>luasnip-next-choice", {})
 -- vim.api.nvim_set_keymap("i", "<C-p>", "<Plug>luasnip-prev-choice", {})
