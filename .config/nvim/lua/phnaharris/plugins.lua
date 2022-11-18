@@ -28,6 +28,7 @@ packer.startup(function(use)
     use 'j-hui/fidget.nvim' -- nvim-lsp progress
     use 'saadparwaiz1/cmp_luasnip' -- nvim-cmp source for luasnip
     use 'L3MON4D3/LuaSnip'
+    use "rafamadriz/friendly-snippets"
     use 'MunifTanjim/prettier.nvim' -- Prettier plugin for Neovim's built-in LSP client
     use 'jose-elias-alvarez/null-ls.nvim' -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
 
