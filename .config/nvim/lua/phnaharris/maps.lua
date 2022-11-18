@@ -33,10 +33,10 @@ bind('', 'sj', '<C-w>j')
 bind('', 'sk', '<C-w>k')
 bind('', 'sl', '<C-w>l')
 -- resize split
-bind('n', 's<left>', ':vertical resize -2<CR>')
-bind('n', 's<right>', ':vertical resize +2<CR>')
-bind('n', 's<up>', ':resize +2<CR>')
-bind('n', 's<down>', ':resize -2<CR>')
+bind('n', '<M-h>', ':vertical resize -2<CR>')
+bind('n', '<M-l>', ':vertical resize +2<CR>')
+bind('n', '<M-k>', ':resize +2<CR>')
+bind('n', '<M-j>', ':resize -2<CR>')
 
 -- nvim-tree keymaps
 bind('n', '<leader>sf', ':NvimTreeToggle<CR>')
