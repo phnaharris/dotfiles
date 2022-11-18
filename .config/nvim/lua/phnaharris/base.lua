@@ -42,10 +42,6 @@ vim.opt.path:append { '**' } -- finding files - Search down into subfolders
 vim.opt.iskeyword:append { '-' } -- treat dash separated words as a word text object
 vim.scriptencoding = 'utf-8'
 
--- Disable netrw
-vim.g.loaded_netrw       = 1
-vim.g.loaded_netrwPlugin = 1
-
 vim.g.mapleader = ' '
 
 for k, v in pairs(options) do
