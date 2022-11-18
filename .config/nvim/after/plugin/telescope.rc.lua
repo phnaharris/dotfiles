@@ -46,29 +46,35 @@ telescope.setup {
 
 telescope.load_extension("file_browser")
 
-vim.keymap.set('n', '<leader>f',
+bind('n', '<leader>f',
     function()
         builtin.find_files({
             no_ignore = false,
             hidden = true
         })
     end)
-vim.keymap.set('n', '<leader>r', function()
+bind('n', '<leader>r', function()
     builtin.live_grep()
 end)
-vim.keymap.set('n', '\\\\', function()
-    builtin.buffers()
-end)
-vim.keymap.set('n', '<leader>t', function()
+bind('n', '<leader>h', function()
     builtin.help_tags()
 end)
-vim.keymap.set('n', '<leader><leader>', function()
+bind('n', '<leader>qf', function()
+    builtin.quickfixhistory()
+end)
+bind('n', '\\\\', function()
+    builtin.buffers()
+end)
+bind('n', '<leader>t', function()
+    builtin.help_tags()
+end)
+bind('n', '<leader><leader>', function()
     builtin.resume()
 end)
-vim.keymap.set('n', '<leader>e', function()
+bind('n', '<leader>e', function()
     builtin.diagnostics()
 end)
-vim.keymap.set("n", "sf", function()
+bind("n", "sf", function()
     telescope.extensions.file_browser.file_browser({
         path = "%:p:h",
         cwd = telescope_buffer_dir(),

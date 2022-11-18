@@ -1,5 +1,6 @@
 local opts = { noremap = true, silent = true }
-local function bind(mode, old, new)
+
+function bind(mode, old, new)
     if vim.fn.has("nvim-0.7") then
         vim.keymap.set(mode, old, new, opts)
     end
