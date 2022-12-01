@@ -7,6 +7,7 @@ local servers = {
     "bashls",
     "clangd",
     "gopls",
+    "hls",
     "html",
     "jsonls",
     "pyright",
@@ -14,6 +15,8 @@ local servers = {
     "sumneko_lua",
     "tsserver",
     "yamlls",
+    "elixirls",
+    "taplo"
 }
 
 mason.setup({
@@ -27,7 +30,7 @@ mason_lspconfig.setup {
     automatic_installation = true,
 }
 
-local status_nvim_lsp, nvim_lsp = pcall(require, 'lspconfig')
+local status_nvim_lsp, nvim_lsp = pcall(require, "lspconfig")
 if not status_nvim_lsp then return end
 
 for _, server in pairs(servers) do
@@ -39,14 +42,16 @@ for _, server in pairs(servers) do
     if (server == "rust_analyzer") then
         local status_rust_tools, rust_tools = pcall(require, "rust-tools")
         if not status_rust_tools then return end
-        local status_rust_opts, rust_opts = pcall(require, "plugins.lsp.settings.rust_analyzer")
+        local status_rust_opts, rust_opts = pcall(require,
+            "plugins.lsp.settings.rust_analyzer")
         if not status_rust_opts then return end
 
         rust_tools.setup(rust_opts)
         goto continue
     end
 
-    local status_lsopts, language_specific_opts = pcall(require, "plugins.lsp.settings." .. server)
+    local status_lsopts, language_specific_opts = pcall(require,
+        "plugins.lsp.settings." .. server)
     if not status_lsopts then goto continue end
     opts = vim.tbl_deep_extend("force", language_specific_opts, opts)
 

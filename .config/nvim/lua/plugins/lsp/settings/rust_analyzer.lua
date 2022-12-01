@@ -4,9 +4,10 @@ return {
         capabilities = require("plugins.lsp.handlers").capabilities,
         settings = {
             ["rust-analyzer"] = {
-                checkOnSave = {
-                    command = "clippy"
-                },
+                -- checkOnSave = {
+                --     command = "clippy"
+                -- },
+                checkOnSave = false
             },
         }
     },

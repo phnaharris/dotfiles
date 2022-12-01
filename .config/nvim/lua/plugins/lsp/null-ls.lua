@@ -8,15 +8,18 @@ local diagnostics = null_ls.builtins.diagnostics
 local completion = null_ls.builtins.completion
 
 null_ls.setup({
+    debug = true,
     sources = {
-        formatting.eslint_d.with({
-            diagnostics_format = '[eslint] #{m}\n(#{c})'
-        }),
+        formatting.eslint_d,
         formatting.prettierd,
         formatting.shfmt,
-        formatting.black,
+        formatting.taplo, -- for toml
+        formatting.black.with({ extra_args = { "--fast" } }),
 
         diagnostics.zsh,
+        -- diagnostics.eslint_d.with({
+        --     diagnostics_format = '[eslint] #{m}\n(#{c})'
+        -- }),
     },
     on_attach = function(client, bufnr)
         if client.server_capabilities.documentFormattingProvider then
@@ -24,7 +27,7 @@ null_ls.setup({
             vim.api.nvim_create_autocmd("BufWritePre", {
                 group = augroup_format,
                 buffer = 0,
-                callback = function() vim.lsp.buf.formatting_seq_sync() end
+                callback = function() vim.lsp.buf.format() end
             })
         end
     end,

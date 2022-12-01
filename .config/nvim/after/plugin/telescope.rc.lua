@@ -46,43 +46,27 @@ telescope.setup {
 
 telescope.load_extension("file_browser")
 
-bind('n', '<leader>f',
-    function()
-        builtin.find_files({
-            no_ignore = false,
-            hidden = true
+local function keymaps_finder()
+    bind('n', '<leader>f', function() builtin.find_files({ no_ignore = false, hidden = true }) end)
+    bind('n', '<leader>r', function() builtin.live_grep() end)
+    bind('n', '<leader>h', function() builtin.help_tags() end)
+    bind('n', '<leader>qf', function() builtin.quickfixhistory() end)
+    bind('n', '\\\\', function() builtin.buffers() end)
+    bind('n', '<leader><leader>', function() builtin.resume() end)
+    bind('n', '<leader>e', function() builtin.diagnostics() end)
+    bind("n", "sf", function()
+        telescope.extensions.file_browser.file_browser({
+            path = "%:p:h",
+            cwd = telescope_buffer_dir(),
+            respect_gitignore = false,
+            hidden = true,
+            grouped = true,
+            previewer = false,
+            initial_mode = "normal",
+            layout_config = { height = 40 }
         })
-    end)
-bind('n', '<leader>r', function()
-    builtin.live_grep()
-end)
-bind('n', '<leader>h', function()
-    builtin.help_tags()
-end)
-bind('n', '<leader>qf', function()
-    builtin.quickfixhistory()
-end)
-bind('n', '\\\\', function()
-    builtin.buffers()
-end)
-bind('n', '<leader>t', function()
-    builtin.help_tags()
-end)
-bind('n', '<leader><leader>', function()
-    builtin.resume()
-end)
-bind('n', '<leader>e', function()
-    builtin.diagnostics()
-end)
-bind("n", "sf", function()
-    telescope.extensions.file_browser.file_browser({
-        path = "%:p:h",
-        cwd = telescope_buffer_dir(),
-        respect_gitignore = false,
-        hidden = true,
-        grouped = true,
-        previewer = false,
-        initial_mode = "normal",
-        layout_config = { height = 40 }
-    })
-end)
+    end
+    )
+end
+
+keymaps_finder()

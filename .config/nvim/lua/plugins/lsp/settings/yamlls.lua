@@ -1,6 +1,5 @@
 return {
     yaml = {
-        -- other settings. note this overrides the lspconfig defaults.
         schemaStore = {
             enable = true
         },
