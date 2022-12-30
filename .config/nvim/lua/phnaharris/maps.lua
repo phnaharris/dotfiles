@@ -63,4 +63,34 @@ bind("n", "<leader>li", "<cmd>LspInfo<CR>")
 bind("n", "<leader>ni", "<cmd>NullLsInfo<CR>")
 bind("n", "<leader>m", "<cmd>Mason<CR>")
 
-bind("n", "<leader>xc", ":g/console.lo/d<CR>") -- remove console.log line
+bind("n", "<leader>ce", "<cmd>Copilot enable<CR>")
+bind("n", "<leader>cd", "<cmd>Copilot disable<CR>")
+
+bind("n", "<M-q>", "<cmd>qa<CR>")
+bind("n", "<M-w>", "<cmd>wa<CR>")
+
+local function has_value(tbl, val)
+    for k, v in pairs(tbl) do
+        if v == val then return true end
+    end
+
+    return false
+end
+
+bind("n", "<leader>xc", -- remove console.log, println!... and other sucks logs
+    function()
+        local console_log = {
+            "javascript",
+            "javascriptreact",
+            "typescript",
+            "typescriptreact",
+        }
+
+        if (vim.bo.filetype == "rust") then
+            vim.api.nvim_command("g/println!(/d")
+        elseif (vim.bo.filetype == "python") then
+            vim.api.nvim_command("g/print(/d")
+        elseif (has_value(console_log, vim.bo.filetype)) then
+            vim.api.nvim_command("g/console.lo/d")
+        end
+    end)

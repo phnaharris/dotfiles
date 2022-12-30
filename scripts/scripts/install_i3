@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+function install_i3 {
+	sudo apt install parrot-desktop-i3 i3-gaps rofi -y
+	gsettings set org.mate.session.required-components windowmanager i3
+	gsettings set org.mate.background show-desktop-icons false
+	gsettings set org.mate.session.required-components panel ''
+	killall caja
+
+	mypref=config1 # or 2 or 3 or whatever, see the themes directory -- I use 1
+	curl https://raw.githubusercontent.com/dracula/rofi/master/theme/${mypref}.rasi -o ~/.config/rofi/config.rasi
+}
+
+install_i3

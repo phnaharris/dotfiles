@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+function install_haskell {
+	curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
+	cabal install --lib extra
+}
+
+install_haskell

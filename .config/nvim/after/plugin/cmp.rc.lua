@@ -85,4 +85,4 @@ cmp.setup({
     }
 })
 
-vim.cmd("set completeopt=menuone,noinsert,noselect")
+vim.g.completeopt = { "menuone", "noinsert", "noselect" }

@@ -16,7 +16,8 @@ local servers = {
     "tsserver",
     "yamlls",
     "elixirls",
-    "taplo"
+    "taplo",
+    -- "solidity"
 }
 
 mason.setup({
@@ -47,6 +48,17 @@ for _, server in pairs(servers) do
         if not status_rust_opts then return end
 
         rust_tools.setup(rust_opts)
+        goto continue
+    end
+    if (server == "hls") then
+        local status_haskell_tools, haskell_tools = pcall(require,
+            "haskell-tools")
+        if not status_haskell_tools then return end
+        local status_haskell_opts, haskell_opts = pcall(require,
+            "plugins.lsp.settings.hls")
+        if not status_haskell_opts then return end
+
+        haskell_tools.setup(haskell_opts)
         goto continue
     end
 

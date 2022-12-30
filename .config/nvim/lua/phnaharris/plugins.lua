@@ -5,7 +5,7 @@ local ensure_packer = function()
     if fn.empty(fn.glob(install_path)) > 0 then
         fn.system({ "git", "clone", "--depth", "1",
             "https://github.com/wbthomason/packer.nvim", install_path })
-        vim.cmd [[packadd packer.nvim]]
+        vim.cmd.packadd("packer.nvim")
         return true
     end
     return false
@@ -19,7 +19,7 @@ if (not status) then
     return
 end
 
-vim.cmd [[packadd packer.nvim]]
+vim.cmd.packadd("packer.nvim")
 
 -- Auto run :PackerCompile whenever plugins.lua is updated
 vim.cmd([[
@@ -30,7 +30,13 @@ vim.cmd([[
 ]])
 
 packer.startup(function(use)
-    use "wbthomason/packer.nvim"
+    use { "wbthomason/packer.nvim",
+        config = function()
+            bind("n", "<leader>pi", "<cmd>PackerInstall<CR>")
+            bind("n", "<leader>pc", "<cmd>PackerClean<CR>")
+        end
+
+    }
 
     use "neovim/nvim-lspconfig" -- LSP
     use {
@@ -51,11 +57,26 @@ packer.startup(function(use)
     use "hrsh7th/cmp-nvim-lsp" -- nvim-cmp source for neovim's built-in LSP
 
     use "simrat39/rust-tools.nvim"
-    -- use { 'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview' }
+    use "MrcJkb/haskell-tools.nvim"
+    use({
+        "iamcco/markdown-preview.nvim",
+        run = function() vim.fn["mkdp#util#install"]() end,
+        config = function()
+            bind("n", "<leader>M", "<cmd>MarkdownPreview<CR>")
+            bind("n", "<leader>Ms", "<cmd>MarkdownPreviewStop<CR>")
+        end
+
+    })
 
     use "mfussenegger/nvim-dap" -- Debug Adapter Protocal
     use "mfussenegger/nvim-dap-python" -- Extension for nvim-dap providing default configuration for nvim-dap-python
     use "rcarriga/nvim-dap-ui" -- Better UI for debugging
+    use "mxsdev/nvim-dap-vscode-js"
+    use {
+        "microsoft/vscode-js-debug",
+        opt = true,
+        run = "npm install --legacy-peer-deps && npm run compile"
+    }
 
     use "rest-nvim/rest.nvim"
     use "lewis6991/gitsigns.nvim"
@@ -85,13 +106,15 @@ packer.startup(function(use)
         after = "nvim-treesitter", -- You may want to specify Telescope here as well
     }
 
+    use "mbbill/undotree"
+
     -- Themes
     use {
         "dracula/vim",
         as = "dracula",
         after = "nvim-treesitter",
         config = function()
-            vim.cmd("colorscheme dracula")
+            vim.cmd.colorscheme("dracula")
         end
 
     }

@@ -1,2 +1,2 @@
 alias g='git'
-alias dots='cd ~/Repos/dotfiles; nvim .'
+alias tmx='tmuxinator'

@@ -10,21 +10,11 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     end,
 })
 
-vim.api.nvim_create_autocmd({ "FileType" }, {
-    pattern = {
-        "qf",
-        "help",
-        "man",
-        "httpResult",
-    },
-    command = [[nnoremap <buffer><silent> q :close<CR>]],
-})
-
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
     pattern = {
         "tsconfig.json"
     },
-    command = [[set filetype=jsonc]],
+    command = "set filetype=jsonc",
 })
 
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
@@ -50,5 +40,37 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
     pattern = {
         "*"
     },
-    command = [[Copilot disable]],
+    command = "Copilot disable",
 })
+
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead", "BufEnter" }, {
+    pattern = {
+        "*"
+    },
+    callback = function()
+        if not vim.bo.modifiable then
+            bind("n", "q", ":close<CR>")
+        end
+    end
+})
+
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead", "BufEnter" }, {
+    pattern = {
+        "*.conf"
+    },
+    command = "set filetype=sh"
+})
+
+-- Turn off paste mode when leaving insert
+vim.api.nvim_create_autocmd("InsertLeave", {
+    pattern = "*",
+    command = "set nopaste"
+})
+
+-- auto hover, not really helpful, sometime so annoying
+-- vim.api.nvim_create_autocmd({ "CursorHold" }, {
+--     pattern = {
+--         "*"
+--     },
+--     command = [[ lua vim.diagnostic.open_float() ]]
+-- })

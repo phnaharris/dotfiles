@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+function install_neovim { # DONEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+	apt-get install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl doxygen
+	git clone https://github.com/neovim/neovim "$HOME/Repos/neovim/"
+	cd "$HOME/Repos/neovim/" || exit
+	git checkout stable
+	make CMAKE_BUILD_TYPE=RelWithDebInfo
+	make install
+
+	git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+	apt install ripgrep -y
+	apt install xsel -y # install clipboard tool for neovim
+	npm install -g @fsouza/prettierd
+}
+
+install_neovim

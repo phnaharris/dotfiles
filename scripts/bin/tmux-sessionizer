@@ -1,12 +1,14 @@
 #!/usr/bin/env bash
 
-beowulf_dir=/media/phnaharris/DATA/WORKING/Beowulf
+beowulf_dir=/media/phnaharris/DATA/WORKING/Beowulf/Projects
 personal_dir=/media/phnaharris/DATA/WORKING/Personal
+repos_dir=$HOME/Repos
+tokio_tutorial_dir=/media/phnaharris/DATA/PERSONAL/Learning/rustlang/tokio_tutorial
 
 if [[ $# -eq 1 ]]; then
 	selected=$1
 else
-	selected=$(find $personal_dir $beowulf_dir -mindepth 1 -maxdepth 1 -type d | fzf)
+	selected=$(find $beowulf_dir $personal_dir $repos_dir $tokio_tutorial_dir -mindepth 1 -maxdepth 1 -type d | fzf)
 fi
 
 if [[ -z $selected ]]; then
