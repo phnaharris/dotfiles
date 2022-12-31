@@ -6,18 +6,18 @@ if (not status2) then return end
 local servers = {
     "bashls",
     "clangd",
+    "elixirls",
     "gopls",
     "hls",
     "html",
     "jsonls",
     "pyright",
     "rust_analyzer",
+    "solang",
     "sumneko_lua",
+    "taplo",
     "tsserver",
     "yamlls",
-    "elixirls",
-    "taplo",
-    -- "solidity"
 }
 
 mason.setup({
