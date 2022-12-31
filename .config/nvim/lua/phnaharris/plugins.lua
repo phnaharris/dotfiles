@@ -56,6 +56,7 @@ packer.startup(function(use)
     use "hrsh7th/cmp-buffer" -- nvim-cmp source for buffer words
     use "hrsh7th/cmp-nvim-lsp" -- nvim-cmp source for neovim's built-in LSP
 
+    use "norcalli/nvim-colorizer.lua"
     use "simrat39/rust-tools.nvim"
     use "MrcJkb/haskell-tools.nvim"
     use({
