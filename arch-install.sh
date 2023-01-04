@@ -6,6 +6,9 @@ systemctl start NetworkManager
 systemctl enable NetworkManager
 nmtui
 
+pacman -S tlp tlp-rdw
+systemctl enable tlp.service
+
 # create user
 useradd -m -g wheel phnaharris
 passwd phnaharris

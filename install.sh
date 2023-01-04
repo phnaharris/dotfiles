@@ -25,6 +25,7 @@ function install_tools { # DONEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
 	apt install build-essential zlib1g-dev -y
 	apt install aptitude -y
 	apt install snapd
+	apt install tlp tlp-rdw
 	# snap install telegram-desktop
 	# snap install discord
 	# snap install skype
