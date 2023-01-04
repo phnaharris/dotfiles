@@ -1,20 +1,5 @@
-# Configuration for Alacritty, the GPU enhanced terminal emulator.
-
-# Import additional configuration files
-#
-# Imports are loaded in order, skipping all missing files, with the importing
-# file being loaded last. If a field is already present in a previous import, it
-# will be replaced.
-#
-# All imports must either be absolute paths starting with `/`, or paths relative
-# to the user's home directory starting with `~/`.
 import:
   - ~/.config/alacritty/themes/dracula.yml
-#  - ~/.config/alacritty/themes/nord.yml
-#  - ~/.config/alacritty/catppuccin/catppuccin-mocha.yml
-#  - ~/.config/alacritty/catppuccin/catppuccin-macchiato.yml
-#  - ~/.config/alacritty/catppuccin/catppuccin-frappe.yml
-#  - ~/.config/alacritty/catppuccin/catppuccin-latte.yml
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
 # set by alacritty itself.
@@ -34,7 +19,7 @@ window:
   # must be non-zero for this to take effect. The number of columns must be at
   # least `2`, while using a value of `0` for columns and lines will fall back
   # to the window manager's recommended size
-  #dimensions:
+  # dimensions:
   #  columns: 0
   #  lines: 0
 
@@ -50,39 +35,20 @@ window:
   #
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
-  #padding:
-  #  x: 0
-  #  y: 0
-
-  # Spread additional padding evenly around the terminal content.
-  #dynamic_padding: false
+  # padding:
+  #   x: 0
+  #   y: 0
 
   # Window decorations
-  #
-  # Values for `decorations`:
-  #     - full: Borders and title bar
-  #     - none: Neither borders nor title bar
-  #
-  # Values for `decorations` (macOS only):
-  #     - transparent: Title bar, transparent background and title bar buttons
-  #     - buttonless: Title bar, transparent background and no title bar buttons
+  # - full: Borders and title bar
+  # - none: Neither borders nor title bar
   decorations: full
-
-  # Background opacity
-  #
-  # Window opacity as a floating point number from `0.0` to `1.0`.
-  # The value `0.0` is completely transparent and `1.0` is opaque.
-  # opacity: 1.0
+  opacity: 0.8
 
   # Startup Mode (changes require restart)
-  #
-  # Values for `startup_mode`:
-  #   - Windowed
-  #   - Maximized
-  #   - Fullscreen
-  #
-  # Values for `startup_mode` (macOS only):
-  #   - SimpleFullscreen
+  # - Windowed
+  # - Maximized
+  # - Fullscreen
   startup_mode: Maximized
 
   # Window title
@@ -112,96 +78,23 @@ window:
     # Scrolling distance multiplier.
     multiplier: 15
 
-# Font configuration
 font:
-  # Normal (roman) font face
   normal:
-    # Font family
-    #
-    # Default:
-    #   - (macOS) Menlo
-    #   - (Linux/BSD) monospace
-    #   - (Windows) Consolas
     family: JetbrainsMono Nerd Font
-
-    # The `style` can be specified to pick a specific face.
     style: Regular
-
-  # Bold font face
   bold:
-    # Font family
-    #
-    # If the bold family is not specified, it will fall back to the
-    # value specified for the normal font.
     family: JetbrainsMono Nerd Font
-
-    # The `style` can be specified to pick a specific face.
     style: Bold
-
-  # Italic font face
   italic:
-    # Font family
-    #
-    # If the italic family is not specified, it will fall back to the
-    # value specified for the normal font.
     family: JetbrainsMono Nerd Font
-
-    # The `style` can be specified to pick a pecific face.
     style: Italic
-
-  # Bold italic font face
   bold_italic:
-    # Font family
-    #
-    # If the bold italic family is not specified, it will fall back to the
-    # value specified for the normal font.
     family: JetbrainsMono Nerd Font
-
-    # The `style` can be specified to pick a specific face.
     style: Bold Italic
-
-  # Point size
   size: 11.0
-
-  # Offset is the extra space around each character. `offset.y` can be thought
-  # of as modifying the line spacing, and `offset.x` as modifying the letter
-  # spacing.
-  #offset:
-  #  x: 0
-  #  y: 0
-
-  # Glyph offset determines the locations of the glyphs within their cells with
-  # the default being at the bottom. Increasing `x` moves the glyph to the
-  # right, increasing `y` moves the glyph upward.
-  #glyph_offset:
-  #  x: 0
-  #  y: 0
-
-  # Use built-in font for box drawing characters.
-  #
-  # If `true`, Alacritty will use a custom built-in font for box drawing
-  # characters (Unicode points 2500 - 259f).
-  #
-  builtin_box_drawing: true
 
   # If `true`, bold text is drawn using the bright color variants.
   draw_bold_text_with_bright_colors: true
-# Colors (Tomorrow Night)
-#colors:
-# Default colors
-#primary:
-#  background: '#1d1f21'
-#  foreground: '#c5c8c6'
-
-# Bright and dim foreground colors
-#
-# The dimmed foreground color is calculated automatically if it is not
-# present. If the bright foreground color is not set, or
-# `draw_bold_text_with_bright_colors` is `false`, the normal foreground
-# color will be used.
-#dim_foreground: '#828482'
-#bright_foreground: '#eaeaea'
-
 # Cursor colors
 #
 # Colors which should be used to draw the terminal cursor.
@@ -446,37 +339,12 @@ font:
 #     - -l
 #     - -c
 #     - 'tmux attach-session -t "$USER" || tmux new-session -s "$USER"'
-# Startup directory
-#
-# Directory the shell is started in. If this is unset, or `None`, the working
-# directory of the parent process will be used.
-#working_directory: None
 
 # Send ESC (\x1b) before characters when alt is pressed.
 #alt_send_esc: true
 
 # Offer IPC using `alacritty msg` (unix only)
 #ipc_socket: true
-
-#mouse:
-# Click settings
-#
-# The `double_click` and `triple_click` settings control the time
-# alacritty should wait for accepting multiple clicks as one double
-# or triple click.
-#double_click: { threshold: 300 }
-#triple_click: { threshold: 300 }
-
-# If this is `true`, the cursor is temporarily hidden when typing.
-#hide_when_typing: false
-
-# Hints
-#
-# Terminal hints can be used to find text or hyperlink in the visible part of
-# the terminal and pipe it to other applications.
-#hints:
-# Keys used for the hint labels.
-#alphabet: "jfkdls;ahgurieowpq"
 
 # List with all available hints
 #
@@ -708,10 +576,6 @@ font:
 #   - SearchHistoryNext
 #       Go to the next regex in the search history.
 #
-# - macOS exclusive actions:
-#   - ToggleSimpleFullscreen
-#       Enter fullscreen without occupying another space.
-#
 # - Linux/BSD exclusive actions:
 #
 #   - CopySelection
@@ -873,26 +737,11 @@ font:
 #- { key: F,              mods: Command, mode: ~Search,     action: SearchForward         }
 #- { key: B,              mods: Command, mode: ~Search,     action: SearchBackward        }
 
-#debug:
-# Display the time it takes to redraw each frame.
-#render_timer: false
-
-# Keep the log file after quitting Alacritty.
-#persistent_logging: false
-
-# Log level
-#
-# Values for `log_level`:
-#   - Off
-#   - Error
-#   - Warn
-#   - Info
-#   - Debug
-#   - Trace
-#log_level: Warn
-
-# Print all received window events.
-#print_events: false
+debug:
+  # Display the time it takes to redraw each frame.
+  #render_timer: false
+  persistent_logging: false # Keep the log file after quitting Alacritty.
+  log_level: Warn # Off/Error/Warn/Info/Debug/Trace
 
 # Highlight window damage information.
 #highlight_damage: falses
