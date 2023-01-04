@@ -21,7 +21,7 @@ set $myWallpaper $HOME/Pictures/netflix-the-witcher-cm.jpg
 # lock image must be in png format
 set $myLockImage /home/phnaharris/Pictures/witcher-wallpaper.png
 set $term alacritty
-set $fileBrowser /usr/bin/caja
+set $fileBrowser /usr/bin/nautilus
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
 new_window pixel 2
@@ -41,7 +41,7 @@ smart_borders on
 # Start Applications
 # bindsym $mod+Ctrl+b exec $term -e 'bmenu'
 bindsym $mod+Return exec $term
-bindsym $mod+Shift+Return exec $fileBrowser --no-desktop --browser .
+bindsym $mod+Shift+Return exec $fileBrowser --no-desktop --new-window
 bindsym $mod+Escape exec shutdown now
 
 bindsym $mod+F1 exec google-chrome
@@ -68,7 +68,8 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
-exec_always --no-startup-id /usr/bin/feh --bg-fill $myWallpaper
+exec --no-startup-id nitrogen --restore &
+exec --no-startup-id fcitx5 -d
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -77,17 +78,15 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
-# ## Screenshots
-bindsym Print exec --no-startup-id mate-screenshot --area
-# bindsym Print exec --no-startup-id mate-screenshot "$HOME/Pictures/$(date)"
-# bindsym $mod+Print exec --no-startup-id mate-screenshot --window $(xdotool getactivewindow) "/home/$USER/Pictures/$(date)"
-# bindsym Shift+Print exec --no-startup-id mate-screenshot --area "/home/$USER/Pictures/$(date)"
+# Screenshots
+bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/$(date)"
+bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/$USER/Pictures/$(date)"
+bindsym Shift+Print exec --no-startup-id maim --select "/home/$USER/Pictures/$(date)"
 
-# ## Clipboard Screenshots
-# bindsym Ctrl+Print exec --no-startup-id mate-screenshot | xsel -ib clipboard -t image/png
-# bindsym Ctrl+$mod+Print exec --no-startup-id mate-screenshot --window $(xdotool getactivewindow) | xsel -ib clipboard -t image/png
-# # use these keys for focus, movement, and resize directions when reaching for
-# bindsym Ctrl+Shift+Print exec --no-startup-id mate-screenshot --area | xsel -ib clipboard -t image/png
+## Clipboard Screenshots
+bindsym Ctrl+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
+bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
+bindsym Ctrl+Shift+Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
 
 # the arrows is not convenient
 set $up k
