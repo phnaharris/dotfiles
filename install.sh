@@ -78,6 +78,9 @@ function link_dotfiles {
 	rm -rf ~/.config/picom
 	rm -rf ~/.config/xmonad
 	rm -rf ~/.config/xmobar
+	rm -rf ~/.config/fcitx5
+	rm -rf ~/.config/hypr
+	rm -rf ~/.config/waybar
 
 	ln -s $(pwd)/.zshrc ~/.zshrc
 	ln -s $(pwd)/.czrc ~/.czrc
@@ -94,6 +97,9 @@ function link_dotfiles {
 	ln -s $(pwd)/.config/picom/ ~/.config/picom
 	ln -s $(pwd)/.config/xmonad/ ~/.config/xmonad
 	ln -s $(pwd)/.config/xmobar/ ~/.config/xmobar
+	ln -s $(pwd)/.config/fcitx5/ ~/.config/fcitx5
+	ln -s $(pwd)/.config/hypr/ ~/.config/hypr
+	ln -s $(pwd)/.config/waybar/ ~/.config/waybar
 }
 
 while test $# -gt 0; do

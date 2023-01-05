@@ -1,0 +1,18 @@
+#!/bin/bash
+
+enable_services() {
+	echo "Do you want to enable ssh? (y/n)"
+	read -r ssh
+	if [[ "$ssh" == "y" ]]; then
+		systemctl enable sshd
+	fi
+
+	systemctl enable NetworkManager
+	systemctl enable cups
+	systemctl enable avahi-daemon
+	systemctl enable fstrim.timer
+	systemctl enable firewalld
+	systemctl enable acpid
+}
+
+enable_services

@@ -10,7 +10,7 @@ export PATH="$HOME/Repos/dotfiles/scripts/bin:$PATH"
 export PATH="$HOME/Repos/dotfiles/scripts/scripts:$PATH"
 
 # fnm
-export PATH=$HOME/.fnm:$PATH
+export PATH=$HOME/.local/share/fnm:$PATH
 eval "$(fnm env)"
 # Install Ruby Gems to ~/gems
 export GEM_HOME="$HOME/gems"
