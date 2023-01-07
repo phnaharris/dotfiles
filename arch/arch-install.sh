@@ -37,15 +37,12 @@ pacman -S zathura
 pacman -S tmux zsh git
 chsh -s "$(which zsh)"
 # for audio
-pacman -S pulseaudio pavucontrol 
+pacman -S pulseaudio pavucontrol
 # for unikey
-pacman -S fcitx5 fcitx5-qt fcitx5-gtk fcitx5-unikey kcm-fcitx5
+# pacman -S fcitx5 fcitx5-qt fcitx5-gtk fcitx5-unikey kcm-fcitx5
 
 pacman -S unzip htop lm_sensors neofetch man curl wget
 pacman -S neovim fzf ripgrep fd
 pacman -S go
 
 pacman -S telegram-desktop
-
-# AUR package
-yay -S brave-bin

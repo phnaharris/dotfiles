@@ -81,6 +81,7 @@ function link_dotfiles {
 	rm -rf ~/.config/fcitx5
 	rm -rf ~/.config/hypr
 	rm -rf ~/.config/waybar
+	rm -rf ~/.config/dunst
 
 	ln -s $(pwd)/.zshrc ~/.zshrc
 	ln -s $(pwd)/.czrc ~/.czrc
@@ -100,6 +101,7 @@ function link_dotfiles {
 	ln -s $(pwd)/.config/fcitx5/ ~/.config/fcitx5
 	ln -s $(pwd)/.config/hypr/ ~/.config/hypr
 	ln -s $(pwd)/.config/waybar/ ~/.config/waybar
+	ln -s $(pwd)/.config/dunst/ ~/.config/dunst
 }
 
 while test $# -gt 0; do
