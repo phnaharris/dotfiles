@@ -13,6 +13,7 @@ enable_services() {
 	systemctl enable fstrim.timer
 	systemctl enable firewalld
 	systemctl enable acpid
+	systemctl enable bluetooth
 }
 
 enable_services
