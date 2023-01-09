@@ -1,14 +1,18 @@
 alacritty
 anydesk-bin
 base
+blueman
 brave-bin
 brightnessctl
+cronie
 discord
 docker
 dunst
 efibootmgr
+fcitx5
 fcitx5-configtool
 fcitx5-gtk
+fcitx5-qt
 fcitx5-unikey
 fd
 firefox
@@ -18,6 +22,7 @@ fzf
 gimp
 git
 go
+google-chrome
 grimblast-git
 grub
 htop
@@ -36,6 +41,7 @@ neovim
 nerd-fonts-jetbrains-mono
 network-manager-applet
 networkmanager
+nomacs
 nvidia
 nvidia-settings
 obs-studio
@@ -46,6 +52,7 @@ qbittorrent
 skypeforlinux-stable-bin
 spotify
 steam
+swappy
 swaylock
 teamviewer
 telegram-desktop
@@ -54,8 +61,11 @@ tmux
 unzip
 vim
 visual-studio-code-bin
+vlc
 waybar-hyprland
+wf-recorder
 wget
+wireguard-tools
 wl-clipboard
 wofi
 zathura
