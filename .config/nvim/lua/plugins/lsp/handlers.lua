@@ -4,18 +4,30 @@ if not status_cmp_nvim_lsp then return end
 
 local function lsp_keymaps(bufnr)
     local opts = { noremap = true, silent = true }
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "<M-a>", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "i", "<M-a>", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "grr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "i", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "<C-k>", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "<C-j>", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "gd",
+        "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "gD",
+        "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "gi",
+        "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "<M-a>",
+        "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "i", "<M-a>",
+        "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "K",
+        "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "gr",
+        "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "grr",
+        "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "i", "<C-k>",
+        "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "<C-k>",
+        "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "<C-j>",
+        "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "gl",
+        "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
 
     -- vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
     -- vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>Telescope lsp_declarations<CR>", opts)
@@ -50,8 +62,10 @@ local function config_handler()
     local float = {
         -- border = "single",
     }
-    vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, float)
-    vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, float)
+    vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover
+        , float)
+    vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers
+        .signature_help, float)
 end
 
 local handlers = {}
@@ -65,9 +79,7 @@ handlers.on_attach = function(client, bufnr)
     if client.server_capabilities.documentFormattingProvider then
         vim.api.nvim_command [[augroup Format]]
         vim.api.nvim_command [[autocmd! * <buffer>]]
-        vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format {
-            filter = function(client) return client.name ~= "tsserver" end
-        }]]
+        vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
         vim.api.nvim_command [[augroup END]]
     end
 
