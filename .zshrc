@@ -21,6 +21,7 @@ export EDITOR='nvim'
 [ -f "$HOME/.local/share/zap/zap.zsh" ] && source "$HOME/.local/share/zap/zap.zsh"
 [ -f "$HOME/.fzf.zsh" ] && source "$HOME/.fzf.zsh"
 [ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
+[ -f "$HOME/Repos/dotfiles/scripts/bin/ssh-agent-script" ] && source "$HOME/Repos/dotfiles/scripts/bin/ssh-agent-script" 
 
 if [[ "$TERM" != "screen-256color" ]]
 then
