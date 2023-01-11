@@ -14,6 +14,9 @@ enable_services() {
 	systemctl enable firewalld
 	systemctl enable acpid
 	systemctl enable bluetooth
+
+	systemctl enable docker.service
+	systemctl enable containerd.service
 }
 
 enable_services
