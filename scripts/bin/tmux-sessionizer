@@ -1,14 +1,13 @@
 #!/usr/bin/env bash
 
-beowulf_dir=/DATA/WORK/Beowulf/Projects
-personal_dir=/DATA/WORK/Personal
-repos_dir=$HOME/Repos
-tokio_tutorial_dir=/DATA/PERSONAL/Learning/rustlang/tokio_tutorial
+repos_path=~/tmux-sessionizer.local
+
+[ -f $repos_path ] && readarray -t folders <$repos_path
 
 if [[ $# -eq 1 ]]; then
 	selected=$1
 else
-	selected=$(find $beowulf_dir $personal_dir $repos_dir $tokio_tutorial_dir -mindepth 1 -maxdepth 1 -type d | fzf)
+	selected=$(find ${folders[@]} -mindepth 1 -maxdepth 1 -type d | fzf)
 fi
 
 if [[ -z $selected ]]; then
