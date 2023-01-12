@@ -49,6 +49,7 @@ paru
 pavucontrol
 pulseaudio
 qbittorrent
+qt5-wayland
 skypeforlinux-stable-bin
 spotify
 steam
@@ -68,6 +69,7 @@ wget
 wireguard-tools
 wl-clipboard
 wofi
+xdg-desktop-portal-wlr
 zathura
 zathura-pdf-mupdf
 zram-generator
