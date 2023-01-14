@@ -10,6 +10,15 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     end,
 })
 
+vim.api.nvim_create_autocmd({ "FileType" }, {
+    pattern = {
+        "python"
+    },
+    callback = function()
+        vim.opt_local.foldmethod = "indent"
+    end,
+})
+
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
     pattern = {
         "tsconfig.json"

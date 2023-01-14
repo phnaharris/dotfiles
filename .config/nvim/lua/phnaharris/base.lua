@@ -40,7 +40,9 @@ local options = {
     timeoutlen = 500, -- time to wait for key mapping (in ms), default = 1000 ms
     updatetime = 50, -- default = 4000
 
-    scrolloff = 8
+    scrolloff = 8,
+    foldmethod = "marker",
+    foldmarker = "{,}"
 }
 
 vim.opt.wildignore:append { "*/node_modules/*" }

@@ -10,10 +10,10 @@ configs.setup {
         enable = true,
         disable = {},
     },
-    ensure_installed = { "c", "cpp", "tsx", "lua", "json", "toml", "yaml", "html",
-        "css", "javascript", "typescript", "norg", "help", "rust", "go", "python",
-        "markdown", "bash", "dockerfile", "julia", "latex", "ruby", "php", "http",
-        "vim" },
+    ensure_installed = { "astro", "c", "cpp", "tsx", "lua", "json", "toml",
+        "yaml", "html", "css", "javascript", "typescript", "norg", "help", "rust",
+        "go", "python", "markdown", "bash", "dockerfile", "julia", "latex",
+        "ruby", "php", "http", "vim" },
     autotag = {
         enable = true,
     }

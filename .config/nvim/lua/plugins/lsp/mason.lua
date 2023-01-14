@@ -4,6 +4,7 @@ local status2, mason_lspconfig = pcall(require, "mason-lspconfig")
 if (not status2) then return end
 
 local servers = {
+    "astro",
     "bashls",
     "clangd",
     "elixirls",
