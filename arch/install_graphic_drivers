@@ -4,7 +4,7 @@ install_graphics_drivers() {
 	echo "Do you have an nvidia card? (y/n)"
 	read -r nvidia
 	if [[ "$nvidia" == "y" ]]; then
-		pacman -S nvidia nvidia-utils nvidia-settings
+		pacman -S nvidia-dkms nvidia-utils nvidia-settings
 	fi
 
 	echo "Do you have an amd card? (y/n)"

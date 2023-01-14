@@ -4,6 +4,8 @@ base
 blueman
 brave-bin
 brightnessctl
+clang
+croc
 cronie
 discord
 docker
@@ -30,11 +32,17 @@ hyprland-bin
 hyprpaper-git
 hyprpicker-git
 intel-ucode
+lazygit
+leptonica
+libudev0-shim
 linux
 linux-firmware
+linux-headers
 llvm
 ly
 man-db
+mongodb-bin
+mongodb-compass
 nautilus
 neofetch
 neovim
@@ -42,7 +50,7 @@ nerd-fonts-jetbrains-mono
 network-manager-applet
 networkmanager
 nomacs
-nvidia
+nvidia-dkms
 nvidia-settings
 obs-studio
 paru
@@ -51,12 +59,14 @@ pulseaudio
 qbittorrent
 qt5-wayland
 skypeforlinux-stable-bin
+slack-desktop-wayland
 spotify
 steam
 swappy
 swaylock
 teamviewer
 telegram-desktop
+tesseract
 tlp-rdw
 tmux
 unzip
@@ -72,5 +82,6 @@ wofi
 xdg-desktop-portal-wlr
 zathura
 zathura-pdf-mupdf
+zoom
 zram-generator
 zsh
