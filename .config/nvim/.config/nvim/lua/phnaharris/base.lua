@@ -40,15 +40,17 @@ local options = {
     timeoutlen = 500, -- time to wait for key mapping (in ms), default = 1000 ms
     updatetime = 50, -- default = 4000
 
+    foldmethod = "expr",
+    -- foldlevelstart = 1,
     scrolloff = 8,
-    foldmethod = "marker",
-    foldmarker = "{,}"
 }
 
 vim.opt.wildignore:append { "*/node_modules/*" }
 vim.opt.path:append { "**" } -- finding files - Search down into subfolders
 vim.opt.iskeyword:append { "-" } -- treat dash separated words as a word text object
 vim.scriptencoding = "utf-8"
+
+vim.cmd("set foldexpr=nvim_treesitter#foldexpr()")
 
 vim.g.mapleader = " "
 
