@@ -1,0 +1,3 @@
+alias g='git'
+alias tmx='tmuxinator'
+alias de_arch_virt='docker exec -it --user phnaharris arch_virt bash'
