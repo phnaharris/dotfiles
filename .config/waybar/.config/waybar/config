@@ -6,8 +6,8 @@
     "spacing": 0, // Gaps between modules 
 
     "modules-left": ["wlr/workspaces"],
-    "modules-center": ["hyprland/window"],
-    "modules-right": ["idle_inhibitor", "pulseaudio", "network",  "cpu", "memory", "temperature", "backlight", "keyboard-state", "battery", "battery#bat2", "clock", "tray"],
+    // "modules-center": ["hyprland/window"],
+    "modules-right": ["custom/updater", "idle_inhibitor", "pulseaudio", "network",  "cpu", "memory", "temperature", "backlight", "keyboard-state", "battery", "battery#bat2", "clock", "tray"],
 
     // Modules configuration
     "wlr/workspaces": {
@@ -39,6 +39,15 @@
             "locked": "",
             "unlocked": ""
         }
+    },
+    "custom/updater": {
+        "format": " {} packages",
+        "exec": "checkupdates | wc -l",
+        "exec-if": "[[ $(checkupdates | wc -l) ]]",
+        "interval": 15,
+        // "on-click": "foot -e yay -Syu &&
+        //     notify-send 'The system has been
+        //     updated' "
     },
     "idle_inhibitor": {
         "format": "{icon}",

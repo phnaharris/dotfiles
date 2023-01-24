@@ -84,6 +84,7 @@ button:hover {
 #pulseaudio,
 #wireplumber,
 #custom-media,
+#custom-updater,
 #tray,
 #mode,
 #idle_inhibitor,
@@ -151,6 +152,10 @@ label:focus {
 #fan {
   background-color: #2ecc71;
   color: #000000;
+}
+
+#custom-updater {
+  background-color: #964b00;
 }
 
 #memory {
