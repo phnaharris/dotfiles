@@ -13,7 +13,7 @@ configs.setup {
     ensure_installed = { "astro", "c", "cpp", "tsx", "lua", "json", "toml",
         "yaml", "html", "css", "javascript", "typescript", "norg", "help", "rust",
         "go", "python", "markdown", "bash", "dockerfile", "julia", "latex",
-        "ruby", "php", "http", "vim", "elixir" },
+        "ruby", "php", "http", "vim", "elixir", "heex", "eex" },
     autotag = {
         enable = true,
     }
