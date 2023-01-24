@@ -17,6 +17,7 @@ null_ls.setup({
         formatting.black.with({ extra_args = { "--fast" } }),
 
         diagnostics.zsh,
+        diagnostics.credo,
         -- diagnostics.eslint_d.with({
         --     diagnostics_format = '[eslint] #{m}\n(#{c})'
         -- }),

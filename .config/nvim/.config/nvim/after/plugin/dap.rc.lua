@@ -54,6 +54,12 @@ local liblldb_path = extension_path .. "lldb/lib/liblldb.so"
 
 dap.adapters.codelldb = rt.dap.get_codelldb_adapter(codelldb_path, liblldb_path)
 
+dap.adapters.mix_task = {
+    type = "executable",
+    command = vim.env.HOME ..
+        "/.local/share/nvim/mason/packages/elixir-ls/debugger.sh", -- debugger.bat for windows
+    args = {}
+}
 -- dap.adapters.node2 = {
 --     type = "executable",
 --     command = "node",
@@ -76,6 +82,21 @@ dap.configurations.cpp = {
 }
 dap.configurations.c = dap.configurations.cpp
 
+dap.configurations.elixir = {
+    {
+        type = "mix_task",
+        name = "mix test",
+        task = "test",
+        taskArgs = { "--trace" },
+        request = "launch",
+        startApps = true, -- for Phoenix projects
+        projectDir = "${workspaceFolder}",
+        requireFiles = {
+            "test/**/test_helper.exs",
+            "test/**/*_test.exs"
+        }
+    },
+}
 -- dap.configurations.javascript = {
 --     {
 --         name = "Launch",
