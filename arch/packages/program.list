@@ -2,6 +2,7 @@ alacritty
 anydesk-bin
 base
 blueman
+bolt
 brave-bin
 brightnessctl
 clang
@@ -46,7 +47,6 @@ mongodb-compass
 nautilus
 neofetch
 neovim
-nerd-fonts-jetbrains-mono
 network-manager-applet
 networkmanager
 nomacs
@@ -55,13 +55,18 @@ nvidia-settings
 obs-studio
 paru
 pavucontrol
+polkit-gnome
+postman-bin
 pulseaudio
 qbittorrent
 qt5-wayland
+robo3t-bin
 skypeforlinux-stable-bin
 slack-desktop-wayland
 spotify
 steam
+stow
+sublime-text
 swappy
 swaylock
 teamviewer
@@ -69,8 +74,11 @@ telegram-desktop
 tesseract
 tlp-rdw
 tmux
+tree
+ttf-jetbrains-mono-nerd
 unzip
 vim
+virt-manager
 visual-studio-code-bin
 vlc
 waybar-hyprland
@@ -78,6 +86,7 @@ wf-recorder
 wget
 wireguard-tools
 wl-clipboard
+wlr-randr
 wofi
 xdg-desktop-portal-wlr
 zathura

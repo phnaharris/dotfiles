@@ -75,6 +75,7 @@ button:hover {
 #clock,
 #battery,
 #cpu,
+#fan,
 #memory,
 #disk,
 #temperature,
@@ -86,8 +87,7 @@ button:hover {
 #tray,
 #mode,
 #idle_inhibitor,
-#scratchpad,
-#mpd {
+#scratchpad {
   padding: 0 10px;
   color: #ffffff;
 }
@@ -144,6 +144,11 @@ label:focus {
 }
 
 #cpu {
+  background-color: #2ecc71;
+  color: #000000;
+}
+
+#fan {
   background-color: #2ecc71;
   color: #000000;
 }
