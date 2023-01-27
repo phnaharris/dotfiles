@@ -41,7 +41,7 @@ local options = {
     updatetime = 50, -- default = 4000
 
     foldmethod = "expr",
-    -- foldlevelstart = 1,
+    foldlevelstart = 20,
     scrolloff = 8,
 }
 
