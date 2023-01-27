@@ -68,6 +68,7 @@ bind("n", "<leader>cd", "<cmd>Copilot disable<CR>")
 
 bind("n", "<M-q>", "<cmd>qa<CR>")
 bind("n", "<M-w>", "<cmd>wa<CR>")
+bind("n", "<M-=>", "<cmd>register<CR>")
 
 local function has_value(tbl, val)
     for k, v in pairs(tbl) do
