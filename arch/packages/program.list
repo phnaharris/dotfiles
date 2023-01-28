@@ -1,5 +1,6 @@
 alacritty
 anydesk-bin
+asdf-vm
 base
 blueman
 bolt
@@ -27,6 +28,7 @@ fuse2
 fzf
 gimp
 git
+gnome-keyring
 go
 google-chrome
 grimblast-git
@@ -71,7 +73,6 @@ shfmt
 skypeforlinux-stable-bin
 slack-desktop-wayland
 spotify
-steam
 stow
 sublime-text
 swappy
