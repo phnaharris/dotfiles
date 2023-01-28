@@ -15,6 +15,7 @@ local servers = {
     "pyright",
     "rust_analyzer",
     "solang",
+    "solargraph",
     "sumneko_lua",
     "taplo",
     "tsserver",

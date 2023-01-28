@@ -55,7 +55,7 @@ local function config_diagnostic()
         --     style = "minimal",
         -- }
     }
-    vim.diagnostic.config(config)
+    -- vim.diagnostic.config(config)
 end
 
 local function config_handler()

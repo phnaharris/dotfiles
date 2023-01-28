@@ -8,15 +8,13 @@ export PATH="$HOME/.cabal/bin:$PATH"
 export PATH="/snap/bin:$PATH"
 export PATH="$HOME/Repos/dotfiles/scripts/bin:$PATH"
 export PATH="$HOME/Repos/dotfiles/scripts/scripts:$PATH"
-
 # fnm
 export PATH=$HOME/.local/share/fnm:$PATH
 eval "$(fnm env)"
-# Install Ruby Gems to ~/gems
-export GEM_HOME="$HOME/gems"
 
 export EDITOR='nvim'
 
+[ -f "/opt/asdf-vm/asdf.sh" ] && source "/opt/asdf-vm/asdf.sh"
 [ -f "$HOME/.aliasrc" ] && source "$HOME/.aliasrc"
 [ -f "$HOME/.local/share/zap/zap.zsh" ] && source "$HOME/.local/share/zap/zap.zsh"
 [ -f "$HOME/.fzf.zsh" ] && source "$HOME/.fzf.zsh"
@@ -46,5 +44,3 @@ for f in "$HOME"/.config/zsh/*; do source $f; done
 # [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 # zprof
-
-

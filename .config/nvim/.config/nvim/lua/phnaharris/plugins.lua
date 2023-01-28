@@ -108,7 +108,6 @@ packer.startup(function(use)
     }
 
     use "mbbill/undotree"
-    use "vimwiki/vimwiki"
 
     -- Themes
     use {

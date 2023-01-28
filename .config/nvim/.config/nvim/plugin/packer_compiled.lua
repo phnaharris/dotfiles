@@ -272,11 +272,6 @@ _G.packer_plugins = {
     path = "/home/phnaharris/.local/share/nvim/site/pack/packer/start/vim-surround",
     url = "https://github.com/tpope/vim-surround"
   },
-  vimwiki = {
-    loaded = true,
-    path = "/home/phnaharris/.local/share/nvim/site/pack/packer/start/vimwiki",
-    url = "https://github.com/vimwiki/vimwiki"
-  },
   ["vscode-js-debug"] = {
     loaded = false,
     needs_bufread = false,
