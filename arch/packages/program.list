@@ -68,7 +68,6 @@ python-black
 qbittorrent
 qemu-base
 qt5-wayland
-robo3t-bin
 shfmt
 skypeforlinux-stable-bin
 slack-desktop-wayland
@@ -80,6 +79,18 @@ swaylock
 teamviewer
 telegram-desktop
 tesseract
+texlive-bibtexextra
+texlive-core
+texlive-fontsextra
+texlive-formatsextra
+texlive-games
+texlive-humanities
+texlive-latexextra
+texlive-music
+texlive-pictures
+texlive-pstricks
+texlive-publishers
+texlive-science
 tlp-rdw
 tmux
 tree
