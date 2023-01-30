@@ -10,14 +10,14 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     end,
 })
 
-vim.api.nvim_create_autocmd({ "FileType" }, {
-    pattern = {
-        "python"
-    },
-    callback = function()
-        vim.opt_local.foldmethod = "indent"
-    end,
-})
+-- vim.api.nvim_create_autocmd({ "FileType" }, {
+--     pattern = {
+--         "python"
+--     },
+--     callback = function()
+--         vim.opt_local.foldmethod = "indent"
+--     end,
+-- })
 
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
     pattern = {
@@ -26,14 +26,14 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
     command = "set filetype=jsonc",
 })
 
-vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
-    pattern = {
-        ".env"
-    },
-    callback = function()
-        vim.diagnostic.disable()
-    end,
-})
+-- vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+--     pattern = {
+--         ".env"
+--     },
+--     callback = function()
+--         vim.diagnostic.disable() -- cause lost highlighting
+--     end,
+-- })
 
 vim.api.nvim_create_autocmd({ "TextYankPost" }, {
     pattern = "*",
