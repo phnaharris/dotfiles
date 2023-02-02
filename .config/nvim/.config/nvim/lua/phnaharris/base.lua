@@ -43,6 +43,9 @@ local options = {
     foldmethod = "expr",
     foldlevelstart = 20,
     scrolloff = 8,
+
+    undodir = os.getenv("HOME") .. "/.vim/undodir",
+    undofile = true
 }
 
 vim.opt.wildignore:append { "*/node_modules/*" }
