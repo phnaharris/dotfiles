@@ -1,6 +1,2 @@
-require "phnaharris.base"
-require "phnaharris.maps"
-require "phnaharris.plugins"
-require "phnaharris.autocmds"
-
+require "phnaharris"
 require "plugins.lsp"
