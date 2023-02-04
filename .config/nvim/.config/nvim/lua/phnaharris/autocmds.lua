@@ -71,10 +71,10 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead", "BufEnter" }, {
 })
 
 -- Turn off paste mode when leaving insert
-vim.api.nvim_create_autocmd("InsertLeave", {
-    pattern = "*",
-    command = "set nopaste"
-})
+-- vim.api.nvim_create_autocmd("InsertLeave", {
+--     pattern = "*",
+--     command = "set nopaste"
+-- })
 
 -- auto hover, not really helpful, sometime so annoying
 -- vim.api.nvim_create_autocmd({ "CursorHold" }, {
