@@ -9,6 +9,7 @@ enable_services() {
 
 	systemctl enable NetworkManager
 	systemctl enable cups
+	systemctl enable ly.service
 	systemctl enable avahi-daemon
 	systemctl enable fstrim.timer
 	systemctl enable firewalld
@@ -16,6 +17,7 @@ enable_services() {
 	systemctl enable bluetooth
 	systemctl enable libvirtd
 	systemctl enable cronie
+	systemctl enable teamviewerd
 
 	systemctl enable docker.service
 	systemctl enable containerd.service
