@@ -6,6 +6,7 @@ blueman
 bolt
 brave-bin
 brightnessctl
+bun-bin
 clang
 codelldb-bin
 croc
@@ -39,7 +40,6 @@ hyprpaper-git
 hyprpicker-git
 intel-ucode
 lazygit
-leptonica
 libudev0-shim
 linux
 linux-firmware
@@ -55,9 +55,8 @@ neovim
 network-manager-applet
 networkmanager
 ngrok
+nodejs-commitizen
 nomacs
-nvidia-dkms
-nvidia-settings
 obs-studio
 openresolv
 paru
@@ -80,7 +79,6 @@ swappy
 swaylock
 teamviewer
 telegram-desktop
-tesseract
 texlive-bibtexextra
 texlive-core
 texlive-fontsextra
@@ -112,6 +110,5 @@ wofi
 xdg-desktop-portal-wlr
 zathura
 zathura-pdf-mupdf
-zoom
 zram-generator
 zsh
