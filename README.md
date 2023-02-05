@@ -1,2 +1,3 @@
 # dotfiles
-My dotfiles configuration for workflow with tmux, neovim
+
+My dotfiles configuration for workflow with tmux, neovim and some linux stuff.
