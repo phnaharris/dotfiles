@@ -1,4 +1,5 @@
 alacritty
+ansible
 anydesk-bin
 asdf-vm
 base
@@ -7,7 +8,9 @@ bolt
 brave-bin
 brightnessctl
 bun-bin
+cargo-tauri
 clang
+clickhouse
 codelldb-bin
 croc
 cronie
@@ -40,6 +43,7 @@ hyprpaper-git
 hyprpicker-git
 intel-ucode
 lazygit
+libayatana-appindicator
 libudev0-shim
 linux
 linux-firmware
@@ -47,6 +51,7 @@ linux-headers
 llvm
 ly
 man-db
+mattermost
 mongodb-bin
 mongodb-compass
 nautilus
@@ -91,6 +96,7 @@ texlive-pictures
 texlive-pstricks
 texlive-publishers
 texlive-science
+tidy
 tlp-rdw
 tmux
 tree
@@ -101,6 +107,7 @@ virt-manager
 visual-studio-code-bin
 vlc
 waybar-hyprland
+webkit2gtk
 wf-recorder
 wget
 wireguard-tools
