@@ -18,5 +18,8 @@
     llog = log --graph --name-status --pretty=format:\"%C(red)%h %C(reset)(%cd) %C(green)%an %Creset%s %C(yellow)%d%Creset\" --date=relative
     open = "!hub browse"
     st = status
+    wta = worktree add
+    wtl = worktree list
+    wtr = worktree remove
 [remote]
 	pushDefault = origin
