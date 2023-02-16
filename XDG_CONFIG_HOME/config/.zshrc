@@ -2,10 +2,8 @@
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$PATH:/usr/sbin
-export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
-export PATH="$HOME/gems/bin:$PATH"
-export PATH="$HOME/.cabal/bin:$PATH"
-export PATH="/snap/bin:$PATH"
+# export PATH="$HOME/gems/bin:$PATH"
+# export PATH="$HOME/.cabal/bin:$PATH"
 export PATH="$HOME/Repos/dotfiles/scripts/bin:$PATH"
 export PATH="$HOME/Repos/dotfiles/scripts/scripts:$PATH"
 # fnm
@@ -14,11 +12,11 @@ eval "$(fnm env)"
 
 export EDITOR='nvim'
 
-[ -f "/opt/asdf-vm/asdf.sh" ] && source "/opt/asdf-vm/asdf.sh"
+# [ -f "/opt/asdf-vm/asdf.sh" ] && source "/opt/asdf-vm/asdf.sh"
 [ -f "$HOME/.aliasrc" ] && source "$HOME/.aliasrc"
 [ -f "$HOME/.local/share/zap/zap.zsh" ] && source "$HOME/.local/share/zap/zap.zsh"
 [ -f "$HOME/.fzf.zsh" ] && source "$HOME/.fzf.zsh"
-[ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
+# [ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
 [ -f "$HOME/Repos/dotfiles/scripts/bin/ssh-agent-script" ] && source "$HOME/Repos/dotfiles/scripts/bin/ssh-agent-script" 
 
 if [[ "$TERM" != "screen-256color" ]]

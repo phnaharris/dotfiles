@@ -11,9 +11,9 @@ package_backup() {
 	done
 	#delete=(linux linux -headers linux -firmware base)
 	# ignore stuff I installed when installing arch
-	#for del in "${delete[@]}"; do
-	all_packages=("${all_packages[@]/"$del"/}")
-	#done
+	for del in "${delete[@]}"; do
+		all_packages=("${all_packages[@]/"$del"/}")
+	done
 	printf "%s\n" "${all_packages[@]}" >$location
 }
 
