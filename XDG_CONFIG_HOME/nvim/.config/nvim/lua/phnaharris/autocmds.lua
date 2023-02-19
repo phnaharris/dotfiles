@@ -3,6 +3,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
         -- "typescript",
         "javascript",
         "javascriptreact",
+        "astro",
     },
     callback = function()
         vim.opt_local.shiftwidth = 2
