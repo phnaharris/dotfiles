@@ -40,10 +40,6 @@ grimblast-git
 grub
 gzip
 htop
-hyprland-bin
-hyprpaper-git
-hyprpicker-git
-lazygit
 libayatana-appindicator
 libudev0-shim
 linux
@@ -112,7 +108,6 @@ vim
 virt-manager
 visual-studio-code-bin
 vlc
-waybar-hyprland
 wf-recorder
 wget
 which
