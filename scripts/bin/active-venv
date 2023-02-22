@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+activate="$PWD/$(basename $PWD)/bin/activate"
+[ -f "$activate" ] && source "$activate"
