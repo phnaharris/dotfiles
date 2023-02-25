@@ -21,11 +21,11 @@ end
 
 vim.cmd.packadd("packer.nvim")
 
--- Auto run :PackerCompile whenever plugins.lua is updated
+-- Auto run :PackerCompile whenever packer.lua is updated
 vim.cmd([[
   augroup packer_user_config
     autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+    autocmd BufWritePost packer.lua source <afile> | PackerCompile
   augroup end
 ]])
 
@@ -72,6 +72,7 @@ packer.startup(function(use)
     use "mfussenegger/nvim-dap" -- Debug Adapter Protocal
     use "mfussenegger/nvim-dap-python" -- Extension for nvim-dap providing default configuration for nvim-dap-python
     use "rcarriga/nvim-dap-ui" -- Better UI for debugging
+    use "leoluz/nvim-dap-go" -- DAP for Golang
     use "mxsdev/nvim-dap-vscode-js"
     use {
         "microsoft/vscode-js-debug",

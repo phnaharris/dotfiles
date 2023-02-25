@@ -292,12 +292,12 @@ time([[Config for packer.nvim]], false)
 -- Load plugins in order defined by `after`
 time([[Sequenced loading]], true)
 vim.cmd [[ packadd nvim-treesitter ]]
-vim.cmd [[ packadd neorg ]]
 vim.cmd [[ packadd dracula ]]
 
 -- Config for: dracula
 try_loadstring("\27LJ\2\n;\0\0\3\0\4\0\0066\0\0\0009\0\1\0009\0\2\0'\2\3\0B\0\2\1K\0\1\0\fdracula\16colorscheme\bcmd\bvim\0", "config", "dracula")
 
+vim.cmd [[ packadd neorg ]]
 time([[Sequenced loading]], false)
 
 _G._packer.inside_compile = false

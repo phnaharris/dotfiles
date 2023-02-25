@@ -3,6 +3,9 @@ if (not status_dap) then return end
 local status_dapui, dapui = pcall(require, "dapui")
 if (not status_dapui) then return end
 
+local status_dap_go, dap_go = pcall(require, "dap-go")
+if (status_dap_go) then dap_go.setup() end
+
 local function dapui_setup()
     dapui.setup({
         icons = { expanded = "▾", collapsed = "▸", current_frame = "▸" },
