@@ -97,7 +97,7 @@ packer.startup(function(use)
 
     use "tpope/vim-surround"
 
-    use "github/copilot.vim"
+    -- use "github/copilot.vim"
     -- Commenting
     use "numToStr/Comment.nvim"
     -- use 'JoosepAlviste/nvim-ts-context-commentstring'

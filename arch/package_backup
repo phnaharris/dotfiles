@@ -9,10 +9,11 @@ package_backup() {
 	for i in "${base_devel_packages[@]}"; do
 		all_packages=(${all_packages[@]//*$i*/})
 	done
-	#delete=(linux linux -headers linux -firmware base)
+
+	delete=(hyprland-bin hyprpaper-git hyprpicker-git waybar-hyprland intel-ucode nvidia-dkms nvidia-settings zoom alacritty tmux zsh)
 	# ignore stuff I installed when installing arch
 	for del in "${delete[@]}"; do
-		all_packages=("${all_packages[@]/"$del"/}")
+		all_packages=(${all_packages[@]//*$del*/})
 	done
 	printf "%s\n" "${all_packages[@]}" >$location
 }

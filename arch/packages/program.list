@@ -1,6 +1,7 @@
-alacritty
+android-tools
 ansible
 anydesk-bin
+archlinux-keyring
 base
 blueman
 bolt
@@ -12,6 +13,7 @@ clickhouse
 codelldb-bin
 croc
 cronie
+delve
 discord
 docker
 dunst
@@ -100,7 +102,6 @@ texlive-publishers
 texlive-science
 tidy
 tlp-rdw
-tmux
 tree
 ttf-jetbrains-mono-nerd
 unzip
@@ -120,4 +121,3 @@ xdg-desktop-portal-wlr
 zathura
 zathura-pdf-mupdf
 zram-generator
-zsh

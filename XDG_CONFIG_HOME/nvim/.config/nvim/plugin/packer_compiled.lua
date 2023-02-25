@@ -99,11 +99,6 @@ _G.packer_plugins = {
     path = "/home/phnaharris/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
-  ["copilot.vim"] = {
-    loaded = true,
-    path = "/home/phnaharris/.local/share/nvim/site/pack/packer/start/copilot.vim",
-    url = "https://github.com/github/copilot.vim"
-  },
   dracula = {
     after_files = { "/home/phnaharris/.local/share/nvim/site/pack/packer/opt/dracula/after/plugin/dracula.vim" },
     config = { "\27LJ\2\n;\0\0\3\0\4\0\0066\0\0\0009\0\1\0009\0\2\0'\2\3\0B\0\2\1K\0\1\0\fdracula\16colorscheme\bcmd\bvim\0" },
@@ -190,6 +185,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/phnaharris/.local/share/nvim/site/pack/packer/start/nvim-dap",
     url = "https://github.com/mfussenegger/nvim-dap"
+  },
+  ["nvim-dap-go"] = {
+    loaded = true,
+    path = "/home/phnaharris/.local/share/nvim/site/pack/packer/start/nvim-dap-go",
+    url = "https://github.com/leoluz/nvim-dap-go"
   },
   ["nvim-dap-python"] = {
     loaded = true,
@@ -281,14 +281,14 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: markdown-preview.nvim
-time([[Config for markdown-preview.nvim]], true)
-try_loadstring("\27LJ\2\n…\1\0\0\5\0\6\0\v6\0\0\0'\2\1\0'\3\2\0'\4\3\0B\0\4\0016\0\0\0'\2\1\0'\3\4\0'\4\5\0B\0\4\1K\0\1\0!<cmd>MarkdownPreviewStop<CR>\15<leader>Ms\29<cmd>MarkdownPreview<CR>\14<leader>M\6n\tbind\0", "config", "markdown-preview.nvim")
-time([[Config for markdown-preview.nvim]], false)
 -- Config for: packer.nvim
 time([[Config for packer.nvim]], true)
 try_loadstring("\27LJ\2\n|\0\0\5\0\6\0\v6\0\0\0'\2\1\0'\3\2\0'\4\3\0B\0\4\0016\0\0\0'\2\1\0'\3\4\0'\4\5\0B\0\4\1K\0\1\0\25<cmd>PackerClean<CR>\15<leader>pc\27<cmd>PackerInstall<CR>\15<leader>pi\6n\tbind\0", "config", "packer.nvim")
 time([[Config for packer.nvim]], false)
+-- Config for: markdown-preview.nvim
+time([[Config for markdown-preview.nvim]], true)
+try_loadstring("\27LJ\2\n…\1\0\0\5\0\6\0\v6\0\0\0'\2\1\0'\3\2\0'\4\3\0B\0\4\0016\0\0\0'\2\1\0'\3\4\0'\4\5\0B\0\4\1K\0\1\0!<cmd>MarkdownPreviewStop<CR>\15<leader>Ms\29<cmd>MarkdownPreview<CR>\14<leader>M\6n\tbind\0", "config", "markdown-preview.nvim")
+time([[Config for markdown-preview.nvim]], false)
 -- Load plugins in order defined by `after`
 time([[Sequenced loading]], true)
 vim.cmd [[ packadd nvim-treesitter ]]
