@@ -71,12 +71,15 @@ bind("n", "<M-w>", "<cmd>wa<CR>")
 bind("n", "<M-=>", "<cmd>register<CR>")
 
 local function has_value(tbl, val)
-    for k, v in pairs(tbl) do
+    for _, v in pairs(tbl) do
         if v == val then return true end
     end
 
     return false
 end
+
+bind("n", "g[", ":cprev<cr>")
+bind("n", "g]", ":cnext<cr>")
 
 bind("n", "<leader>xc", -- remove console.log, println!... and other sucks logs
     function()
