@@ -18,9 +18,9 @@ null_ls.setup({
 
         diagnostics.zsh,
         diagnostics.credo,
-        -- diagnostics.eslint_d.with({
-        --     diagnostics_format = '[eslint] #{m}\n(#{c})'
-        -- }),
+        diagnostics.eslint_d.with({
+            diagnostics_format = "[eslint] #{m}\n(#{c})"
+        }),
     },
     on_attach = function(client, bufnr)
         if client.server_capabilities.documentFormattingProvider then
