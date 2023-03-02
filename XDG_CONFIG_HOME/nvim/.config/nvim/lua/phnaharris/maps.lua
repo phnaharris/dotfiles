@@ -78,8 +78,9 @@ local function has_value(tbl, val)
     return false
 end
 
-bind("n", "g[", ":cprev<cr>")
-bind("n", "g]", ":cnext<cr>")
+bind("n", "<M-p>", ":cprev<cr>")
+bind("n", "<M-n>", ":cnext<cr>")
+bind("n", "<C-q>", ":cclose<cr>")
 
 bind("n", "<leader>xc", -- remove console.log, println!... and other sucks logs
     function()
