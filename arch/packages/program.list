@@ -3,6 +3,7 @@ ansible
 anydesk-bin
 archlinux-keyring
 base
+base-devel
 blueman
 bolt
 brave-bin
@@ -80,6 +81,7 @@ shfmt
 skypeforlinux-stable-bin
 slack-desktop-wayland
 spotify
+sqlitebrowser
 stow
 sublime-text
 sudo
