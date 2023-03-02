@@ -58,8 +58,10 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead", "BufEnter" }, {
         "*"
     },
     callback = function()
-        if not vim.bo.modifiable then
+        if not vim.o.modifiable then
             bind("n", "q", ":close<CR>")
+        else
+            bind("n", "q", "q")
         end
     end
 })
