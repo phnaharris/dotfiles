@@ -16,7 +16,7 @@ local servers = {
     "rust_analyzer",
     "solang",
     "solargraph",
-    "sumneko_lua",
+    "lua_ls",
     "taplo",
     "tsserver",
     "yamlls",
