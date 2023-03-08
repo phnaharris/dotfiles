@@ -11,5 +11,5 @@ if [[ -z $selected ]]; then
 	exit 0
 fi
 
-zathura --fork $selected
+zathura $selected
 exit 0
