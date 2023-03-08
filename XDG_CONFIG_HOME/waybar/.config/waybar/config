@@ -7,7 +7,7 @@
 
     "modules-left": ["wlr/workspaces"],
     "modules-center": ["clock"],
-    "modules-right": ["custom/updater", "idle_inhibitor", "pulseaudio", "network",  "cpu", "memory", "temperature", "backlight", "keyboard-state", "battery", "battery#bat2", "tray"],
+    "modules-right": ["custom/updater", "idle_inhibitor", "pulseaudio", /* "network", */  "cpu", "memory", "temperature", "backlight", "keyboard-state", "battery", "battery#bat2", "tray"],
 
     // Modules configuration
     "wlr/workspaces": {
@@ -23,6 +23,7 @@
             "5": "mus ",
             "6": "fun ",
             "7": "gra ",
+            "8": "virt 󱄔",
             "urgent": "",
             "focused": "",
             "default": ""
