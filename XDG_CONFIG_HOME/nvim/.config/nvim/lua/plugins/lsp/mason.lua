@@ -8,6 +8,7 @@ local servers = {
     "bashls",
     "clangd",
     "elixirls",
+    "julials",
     "gopls",
     "hls",
     "html",

@@ -5,4 +5,4 @@ alias update-grub='grub-mkconfig -o /boot/grub/grub.cfg'
 alias pacfind="pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S"
 alias parufind="paru -Slq | fzf --multi --preview 'paru -Si {1}' | xargs -ro paru -S"
 
-alias sa='source ~/Repos/dotfiles/scripts/bin/active-venv'
+alias sa='source active-venv'

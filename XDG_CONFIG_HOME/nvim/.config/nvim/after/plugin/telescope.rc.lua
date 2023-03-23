@@ -47,7 +47,9 @@ telescope.setup {
 telescope.load_extension("file_browser")
 
 local function telescope_keymaps()
-    bind("n", "<leader>f",
+    bind("n", "<leader>ff",
+        function() builtin.find_files({ no_ignore = true, hidden = true }) end)
+    bind("n", "<leader>gf",
         function() builtin.find_files({ no_ignore = false, hidden = true }) end)
     bind("n", "<leader>r", function() builtin.live_grep() end)
     bind("n", "<leader>h", function() builtin.help_tags() end)

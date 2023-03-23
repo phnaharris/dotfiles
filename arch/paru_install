@@ -1,8 +1,0 @@
-#!/bin/bash
-
-install_aur() {
-	echo "Installing aur packages..."
-	cat ./packages/paru.list | xargs paru -S --noconfirm
-}
-
-install_aur

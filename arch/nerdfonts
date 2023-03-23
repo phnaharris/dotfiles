@@ -1,8 +1,0 @@
-#!/bin/bash
-
-install_nerd_fonts() {
-	paru -S nerd-fonts-jetbrains-mono --noconfirm
-	fc-cache -fv
-}
-
-install_nerd_fonts

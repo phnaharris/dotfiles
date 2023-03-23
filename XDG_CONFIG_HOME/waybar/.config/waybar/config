@@ -63,10 +63,10 @@
     },
     "clock": {
         // "timezone": "America/New_York",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "interval": 1,
-        "format": " {:%H:%M:%S}",
-        "format-alt": "{:%Y-%m-%d}"
+        "format": "{:%I:%M:%S %p} <span color=\"#FFFFFF\"></span>",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><big>{calendar}</big></tt>",
+        "format-alt": "{:%d/%m/%Y} <span color=\"#FFFFFF\"></span>",
+        "interval": 1
     },
     "fan": {
         "format": "{usage}% ",

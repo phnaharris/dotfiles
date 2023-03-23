@@ -86,3 +86,14 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead", "BufEnter" }, {
 --     },
 --     command = [[ lua vim.diagnostic.open_float() ]]
 -- })
+
+-- vim.api.nvim_create_autocmd({ "ColorScheme" }, {
+--     pattern = {
+--         "*"
+--     },
+--     command = [[
+--         highlight Normal ctermbg=NONE guibg=NONE
+--         highlight FidgetTitle ctermbg=NONE guibg=NONE
+--         highlight FidgetTask ctermbg=NONE guibg=NONE
+--     ]]
+-- })

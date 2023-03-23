@@ -12,8 +12,7 @@ bind("n", "<down>", ':echoe "use j"<CR>')
 bind("n", "<up>", ':echoe "use k"<CR>')
 
 bind("n", "<C-a>", "gg<S-v>G") -- select all
-bind("n", "x", '"_x') -- do not yank with x
--- bind('n', '<C-h>', ':nohlsearch<CR>') -- Turn off highlighting search -- Use CTRL_l instead
+bind("n", "x", '"_x')          -- do not yank with x
 
 -- increment/decrement
 bind("n", "+", "<C-a>")
@@ -26,7 +25,7 @@ bind("n", "to", ":tabonly<CR>") -- only current tab
 -- split
 bind("n", "ss", ":split<CR>")
 bind("n", "sv", ":vsplit<CR>")
-bind("n", "so", ":only<CR>") -- only current window
+bind("n", "so", ":only<CR>")  -- only current window
 bind("n", "sc", ":close<CR>") -- close current window
 -- moving around windows in NORMAL, VISUAL, SELECT, OPERATOR-PENDING mode
 bind("", "sh", "<C-w>h")
@@ -42,6 +41,8 @@ bind("n", "<M-j>", ":resize -2<CR>")
 -- nvim-tree keymaps
 bind("n", "<leader>sf", ":NvimTreeToggle<CR>")
 
+bind("v", ">", ">gv")
+bind("v", "<", "<gv")
 -- src: ThePrimagen
 -- faster moving part of text keeping indent
 bind("v", "J", ":m '>+1<CR>gv=gv")
@@ -78,9 +79,16 @@ local function has_value(tbl, val)
     return false
 end
 
+-- qf maps
 bind("n", "<M-p>", ":cprev<cr>")
 bind("n", "<M-n>", ":cnext<cr>")
 bind("n", "<C-q>", ":cclose<cr>")
+
+-- Neorg maps
+bind("n", "<leader>N", "<cmd>Neorg return<CR>")
+bind("n", "<leader>nt", "<cmd>Neorg workspace todo<CR>")
+bind("n", "<leader>nl", "<cmd>Neorg workspace learning<CR>")
+bind("n", "<leader>nh", "<cmd>Neorg workspace hcmus<CR>")
 
 bind("n", "<leader>xc", -- remove console.log, println!... and other sucks logs
     function()

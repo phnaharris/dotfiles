@@ -1,8 +1,0 @@
-#!/bin/su root
-
-install_shell() {
-	pacman -S zsh tmux
-	sh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.sh)
-}
-
-install_shell

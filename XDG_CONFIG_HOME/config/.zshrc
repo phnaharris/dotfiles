@@ -1,11 +1,13 @@
 # zmodload zsh/zprof
 
+scripts_dir="/DATA/WORK/Personal/scripts"
+
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$PATH:/usr/sbin
 # export PATH="$HOME/gems/bin:$PATH"
 # export PATH="$HOME/.cabal/bin:$PATH"
-export PATH="$HOME/Repos/dotfiles/scripts/bin:$PATH"
-export PATH="$HOME/Repos/dotfiles/scripts/scripts:$PATH"
+export PATH="$scripts_dir:$PATH"
+export PATH="$scripts_dir/arch-only:$PATH"
 # fnm
 export PATH=$HOME/.local/share/fnm:$PATH
 eval "$(fnm env)"
@@ -17,7 +19,7 @@ export EDITOR='nvim'
 [ -f "$HOME/.local/share/zap/zap.zsh" ] && source "$HOME/.local/share/zap/zap.zsh"
 [ -f "$HOME/.fzf.zsh" ] && source "$HOME/.fzf.zsh"
 # [ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
-[ -f "$HOME/Repos/dotfiles/scripts/bin/ssh-agent-script" ] && source "$HOME/Repos/dotfiles/scripts/bin/ssh-agent-script" 
+[ -f "$scripts_dir/ssh-agent-script" ] && source "$scripts_dir/ssh-agent-script" 
 
 if [[ "$TERM" != "screen-256color" ]]
 then
@@ -42,3 +44,7 @@ for f in "$HOME"/.config/zsh/*; do source $f; done
 # [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 # zprof
+
+# tabtab source for electron-forge package
+# uninstall by removing these lines or running `tabtab uninstall electron-forge`
+[[ -f /home/phnaharris/.npm/_npx/6913fdfd1ea7a741/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /home/phnaharris/.npm/_npx/6913fdfd1ea7a741/node_modules/tabtab/.completions/electron-forge.zsh

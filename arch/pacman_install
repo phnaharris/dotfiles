@@ -1,8 +1,0 @@
-#!/bin/su root
-
-install_pacman() {
-	echo "Installing pacman packages..."
-	cat ./packages/pacman.list | xargs pacman -S --noconfirm
-}
-
-install_pacman
