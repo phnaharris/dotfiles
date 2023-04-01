@@ -52,6 +52,7 @@ local function telescope_keymaps()
     bind("n", "<leader>gf",
         function() builtin.find_files({ no_ignore = false, hidden = true }) end)
     bind("n", "<leader>r", function() builtin.live_grep() end)
+    bind("n", "<leader>*", function() builtin.grep_string() end)
     bind("n", "<leader>h", function() builtin.help_tags() end)
     bind("n", "<leader>qf", function() builtin.quickfixhistory() end)
     bind("n", "<leader>km", function() builtin.keymaps() end)

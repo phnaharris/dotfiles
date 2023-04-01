@@ -45,16 +45,16 @@ packer.startup(function(use)
     }
     use "williamboman/mason.nvim"
     use "williamboman/mason-lspconfig.nvim"
-    use "onsails/lspkind-nvim" -- vscode-like pictograms
-    use "j-hui/fidget.nvim" -- nvim-lsp progress
+    use "onsails/lspkind-nvim"     -- vscode-like pictograms
+    use "j-hui/fidget.nvim"        -- nvim-lsp progress
     use "saadparwaiz1/cmp_luasnip" -- nvim-cmp source for luasnip
     use "L3MON4D3/LuaSnip"
     use "rafamadriz/friendly-snippets"
     use "jose-elias-alvarez/null-ls.nvim" -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
 
-    use "hrsh7th/nvim-cmp" -- Completion
-    use "hrsh7th/cmp-buffer" -- nvim-cmp source for buffer words
-    use "hrsh7th/cmp-nvim-lsp" -- nvim-cmp source for neovim's built-in LSP
+    use "hrsh7th/nvim-cmp"                -- Completion
+    use "hrsh7th/cmp-buffer"              -- nvim-cmp source for buffer words
+    use "hrsh7th/cmp-nvim-lsp"            -- nvim-cmp source for neovim's built-in LSP
 
     use "norcalli/nvim-colorizer.lua"
     use "simrat39/rust-tools.nvim"
@@ -66,13 +66,12 @@ packer.startup(function(use)
             bind("n", "<leader>M", "<cmd>MarkdownPreview<CR>")
             bind("n", "<leader>Ms", "<cmd>MarkdownPreviewStop<CR>")
         end
-
     })
 
-    use "mfussenegger/nvim-dap" -- Debug Adapter Protocal
+    use "mfussenegger/nvim-dap"        -- Debug Adapter Protocal
     use "mfussenegger/nvim-dap-python" -- Extension for nvim-dap providing default configuration for nvim-dap-python
-    use "rcarriga/nvim-dap-ui" -- Better UI for debugging
-    use "leoluz/nvim-dap-go" -- DAP for Golang
+    use "rcarriga/nvim-dap-ui"         -- Better UI for debugging
+    use "leoluz/nvim-dap-go"           -- DAP for Golang
     use "mxsdev/nvim-dap-vscode-js"
     use {
         "microsoft/vscode-js-debug",
@@ -82,8 +81,8 @@ packer.startup(function(use)
 
     use "rest-nvim/rest.nvim"
     use "lewis6991/gitsigns.nvim"
-    use "nvim-lualine/lualine.nvim" -- Statusline
-    use "nvim-lua/plenary.nvim" -- Common utilities
+    use "nvim-lualine/lualine.nvim"    -- Statusline
+    use "nvim-lua/plenary.nvim"        -- Common utilities
     use "kyazdani42/nvim-web-devicons" -- File icons
     -- use 'fgheng/winbar.nvim' -- Only support neovim >= 0.8.*
 
@@ -94,7 +93,7 @@ packer.startup(function(use)
 
     use "windwp/nvim-autopairs"
     use "windwp/nvim-ts-autotag" -- Auto close, rename html tag
-
+    use "h-hg/fcitx.nvim"        -- Switch and restore fcitx state
     use "tpope/vim-surround"
 
     -- use "github/copilot.vim"
