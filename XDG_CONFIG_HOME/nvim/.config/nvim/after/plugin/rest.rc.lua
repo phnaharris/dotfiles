@@ -31,11 +31,11 @@ rest.setup({
     },
     -- Jump to request line on run
     jump_to_request = false,
-    env_file = '.env',
+    env_file = ".env",
     custom_dynamic_variables = {},
     yank_dry_run = true,
 })
 
-bind('n', '<leader>t', '<Plug>RestNvim')
-bind('n', '<leader>T', '<Plug>RestNvimPreview')
+bind("n", "<leader>t", "<Plug>RestNvim")
+bind("n", "<leader>T", "<Plug>RestNvimPreview")
 -- bind('n', '<leader>c', '<Plug>RestNvimLast')

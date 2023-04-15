@@ -19,7 +19,6 @@ local function dapui_setup()
     dap.listeners.before.event_exited["dapui_config"] = function()
         dapui.close()
     end
-
 end
 
 local function dap_keymaps(bufnr)
@@ -31,7 +30,6 @@ local function dap_keymaps(bufnr)
         if vim.bo.filetype == "rust" then
             vim.api.nvim_command("RustDebuggables")
         end
-
     end, opts)
     bind("n", "<F11>", "<cmd>DapStepInto<CR>", opts)
     bind("n", "<F10>", "<cmd>DapStepOver<CR>", opts)

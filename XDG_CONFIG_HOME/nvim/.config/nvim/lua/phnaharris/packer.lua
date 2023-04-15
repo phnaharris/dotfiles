@@ -58,6 +58,7 @@ packer.startup(function(use)
 
     use "norcalli/nvim-colorizer.lua"
     use "simrat39/rust-tools.nvim"
+    use "Saecki/crates.nvim"
     use "MrcJkb/haskell-tools.nvim"
     use({
         "iamcco/markdown-preview.nvim",

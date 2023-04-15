@@ -12,7 +12,6 @@ neorg.setup({
                     todo = "~/neorg/todo",
                     hcmus = "~/neorg/hcmus",
                     learning = "~/neorg/learning-note"
-
                 }
             }
         }

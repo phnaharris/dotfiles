@@ -76,10 +76,10 @@ cmp.setup({
         format = lspkind.cmp_format({ with_text = true, maxwidth = 100 }),
         before = function(entry, vim_item) -- look like it cannot help to dedup cmp item
             vim_item.dup = ({
-                nvim_lsp = 0,
-                luasnip = 1,
-                buffer = 1,
-            })[entry.source.name] or 0
+                    nvim_lsp = 0,
+                    luasnip = 1,
+                    buffer = 1,
+                })[entry.source.name] or 0
             return vim_item
         end
     }

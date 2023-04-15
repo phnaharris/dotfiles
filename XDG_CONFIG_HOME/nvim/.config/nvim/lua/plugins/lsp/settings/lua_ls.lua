@@ -24,7 +24,8 @@ return {
                     keep_line_after_function_define_statement = "keepLine:1",
                     keep_line_after_expression_statement = "maxLine:1",
                 },
-            }, runtime = {
+            },
+            runtime = {
                 -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
                 version = "LuaJIT",
                 -- Setup your lua path

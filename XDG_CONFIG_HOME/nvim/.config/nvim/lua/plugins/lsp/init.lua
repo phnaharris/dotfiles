@@ -18,8 +18,12 @@ init.server_capabilities = function()
             return "capabilities for: " .. item
         end
     }, function(choice)
-        print(vim.inspect(vim.lsp.get_active_clients()[active_client_map[choice]].server_capabilities.executeCommandProvider))
-        vim.pretty_print(vim.lsp.get_active_clients()[active_client_map[choice]].server_capabilities)
+        print(vim.inspect(vim.lsp
+            .get_active_clients()[active_client_map[choice]]
+            .server_capabilities
+            .executeCommandProvider))
+        vim.pretty_print(vim.lsp.get_active_clients()[active_client_map[choice]]
+            .server_capabilities)
     end)
 end
 
