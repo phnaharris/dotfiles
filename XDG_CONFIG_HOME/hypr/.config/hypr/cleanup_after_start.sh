@@ -1,5 +1,4 @@
-# sleep 10
-# hyprctl keyword windowrule "workspace unset,kitty"
-# hyprctl keyword windowrule "workspace unset,Subl"
-# hyprctl keyword windowrule "workspace unset,Mailspring"
-# hyprctl keyword windowrule "workspace unset,firefox"
+sleep 10
+hyprctl keyword windowrule "workspace unset,alacritty"
+hyprctl keyword windowrule "workspace unset,brave"
+hyprctl keyword windowrule "workspace unset,firefox"
