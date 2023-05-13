@@ -22,7 +22,7 @@
             "4": "chat ",
             "5": "mus ",
             "6": "fun ",
-            "7": "gra ",
+            "7": "gra  ",
             "8": "virt 󱄔",
             "urgent": "",
             "focused": "",
@@ -42,7 +42,7 @@
         }
     },
     "custom/updater": {
-        "format": " {} packages",
+        "format": "󰏕  {} packages",
         "exec": "checkupdates | wc -l",
         "exec-if": "[[ $(checkupdates | wc -l) ]]",
         "interval": 15,
