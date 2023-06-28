@@ -61,6 +61,7 @@ bind("n", "<C-u>", "<C-u>zz")
 -- vim.api.nvim_set_keymap("s", "<C-p>", "<Plug>luasnip-prev-choice", {})
 
 bind("n", "<leader>li", "<cmd>LspInfo<CR>")
+bind("n", "<leader>ls", "<cmd>LspRestart<CR>")
 bind("n", "<leader>ni", "<cmd>NullLsInfo<CR>")
 bind("n", "<leader>m", "<cmd>Mason<CR>")
 
