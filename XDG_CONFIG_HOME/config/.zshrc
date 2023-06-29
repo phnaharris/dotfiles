@@ -1,6 +1,6 @@
 # zmodload zsh/zprof
 
-scripts_dir="/DATA/WORK/Personal/scripts"
+scripts_dir=/data/repos/phnaharris-machos/scripts
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$PATH:/usr/sbin
