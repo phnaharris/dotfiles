@@ -100,7 +100,8 @@ packer.startup(function(use)
     -- use "github/copilot.vim"
     -- Commenting
     use "numToStr/Comment.nvim"
-    -- use 'JoosepAlviste/nvim-ts-context-commentstring'
+    use "JoosepAlviste/nvim-ts-context-commentstring"
+    use "b0o/schemastore.nvim"
 
     use {
         "nvim-neorg/neorg",

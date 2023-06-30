@@ -11,10 +11,9 @@ configs.setup {
         enable = true,
         disable = {},
     },
-    ensure_installed = { "astro", "c", "cpp", "tsx", "lua", "json", "toml",
-        "yaml", "html", "css", "javascript", "typescript", "norg", "help",
-        "rust", "go", "python", "markdown", "bash", "dockerfile", "julia",
-        "latex", "ruby", "php", "http", "vim", "elixir", "heex", "eex" },
+    context_commentstring = {
+        enable = true,
+    },
     autotag = {
         enable = true,
     }
