@@ -22,7 +22,7 @@ init.server_capabilities = function()
             .get_clients()[active_client_map[choice]]
             .server_capabilities
             .executeCommandProvider))
-        vim.pretty_print(vim.lsp.get_clients()[active_client_map[choice]]
+        vim.print(vim.lsp.get_clients()[active_client_map[choice]]
             .server_capabilities)
     end)
 end
