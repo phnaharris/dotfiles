@@ -8,3 +8,6 @@ alias swd="sudo wg-quick down wg1"
 alias swu="sudo wg-quick up wg1"
 
 alias sa='source active-venv'
+
+alias fgt='fastify generate . --lang=typescript --esm'
+alias fgj='fastify generate . --esm'

@@ -1,13 +1,9 @@
 # zmodload zsh/zprof
+scripts_dir="/data/repos/phnaharris-machos/scripts"
 
-scripts_dir=/data/repos/phnaharris-machos/scripts
-
-export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH=$PATH:/usr/sbin
+export PATH=$scripts_dir:$scripts_dir/arch-only:$HOME/bin:/usr/sbin:/usr/local/bin:$PATH
 # export PATH="$HOME/gems/bin:$PATH"
 # export PATH="$HOME/.cabal/bin:$PATH"
-export PATH="$scripts_dir:$PATH"
-export PATH="$scripts_dir/arch-only:$PATH"
 # fnm
 export PATH=$HOME/.local/share/fnm:$PATH
 eval "$(fnm env)"
@@ -29,10 +25,6 @@ fi
 # Clangd import
 # export LD_LIBRARY_PATH="/usr/lib/llvm-11/lib/clang/11.0.0/lib"
 
-
-# autoload -Uz compinit
-# compinit
-
 plug "zap-zsh/supercharge"
 plug "zsh-users/zsh-autosuggestions"
 plug "zsh-users/zsh-syntax-highlighting"
@@ -42,8 +34,6 @@ for f in "$HOME"/.config/zsh/*; do source $f; done
 # #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 # export SDKMAN_DIR="$HOME/.sdkman"
 # [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-
-# zprof
 
 # tabtab source for electron-forge package
 # uninstall by removing these lines or running `tabtab uninstall electron-forge`
@@ -61,3 +51,5 @@ esac
 # uninstall by removing these lines
 [[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
 # ==============================================================================
+
+# zprof
