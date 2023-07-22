@@ -11,9 +11,26 @@ local fb_actions = require "telescope".extensions.file_browser.actions
 
 telescope.setup {
     defaults = {
+        -- preview = {
+        --     filesize_hook = function(filepath, bufnr, opts)
+        --         local max_bytes = 10000
+        --         local cmd = { "head", "-c", max_bytes, filepath }
+        --         require("telescope.previewers.utils").job_maker(cmd, bufnr, opts)
+        --     end
+        -- },
+        vimgrep_arguments = {
+            "rg",
+            "--color=never",
+            "--no-heading",
+            "--with-filename",
+            "--line-number",
+            "--column",
+            "--smart-case",
+            "--hidden",
+        },
         mappings = {
             n = {
-                ["q"] = actions.close
+                ["q"] = actions.close,
             },
         },
     },
@@ -48,13 +65,23 @@ telescope.load_extension("file_browser")
 
 local function telescope_keymaps()
     bind("n", "<leader>ff",
-        function() builtin.find_files({ no_ignore = true, hidden = true }) end)
-    bind("n", "<leader>gf",
-        function() builtin.find_files({ no_ignore = false, hidden = true }) end)
-    bind("n", "<leader>r", function() builtin.live_grep() end)
+        function()
+            builtin.find_files({
+                file_ignore_patterns = {
+                    ".git/",
+                    "node_modules/",
+                    ".cache/",
+                    "**/target/"
+                },
+                no_ignore = true,
+                hidden = true
+            })
+        end)
+    bind("n", "<leader>gf", function() builtin.git_files({}) end)
+    bind("n", "<leader>r", function() builtin.live_grep({ hidden = true }) end)
     bind("n", "<leader>*", function() builtin.grep_string() end)
-    bind("n", "<leader>h", function() builtin.help_tags() end)
-    bind("n", "<leader>qf", function() builtin.quickfixhistory() end)
+    bind("n", "<leader>H", function() builtin.help_tags() end)
+    bind("n", "<leader>qf", function() builtin.quickfix() end)
     bind("n", "<leader>km", function() builtin.keymaps() end)
     bind("n", "\\\\", function() builtin.buffers() end)
     bind("n", "<leader><leader>", function() builtin.resume() end)

@@ -32,6 +32,7 @@ vim.cmd([[
 packer.startup(function(use)
     use { "wbthomason/packer.nvim",
         config = function()
+            bind("n", "<leader>ps", "<cmd>PackerSync<CR>")
             bind("n", "<leader>pi", "<cmd>PackerInstall<CR>")
             bind("n", "<leader>pc", "<cmd>PackerClean<CR>")
         end
@@ -97,30 +98,41 @@ packer.startup(function(use)
     use "h-hg/fcitx.nvim"        -- Switch and restore fcitx state
     use "tpope/vim-surround"
 
-    -- use "github/copilot.vim"
     -- Commenting
     use "numToStr/Comment.nvim"
     use "JoosepAlviste/nvim-ts-context-commentstring"
     use "b0o/schemastore.nvim"
 
-    use {
-        "nvim-neorg/neorg",
-        run = ":Neorg sync-parsers",
-        after = "nvim-treesitter", -- You may want to specify Telescope here as well
-    }
+    use "lervag/vimtex"
+
+    -- use {
+    --     "nvim-neorg/neorg",
+    --     run = ":Neorg sync-parsers",
+    --     after = "nvim-treesitter", -- You may want to specify Telescope here as well
+    -- }
 
     use "mbbill/undotree"
+    use "ThePrimeagen/harpoon"
 
     -- Themes
     use {
-        "dracula/vim",
+        "Mofiqul/dracula.nvim",
         as = "dracula",
         after = "nvim-treesitter",
         config = function()
             vim.cmd.colorscheme("dracula")
         end
-
     }
+    -- dracula/vim is not worked well with Gitsigns toggle_current_line_blame
+    -- (something wrong with highlighting)
+    -- use {
+    --     "dracula/vim",
+    --     as = "dracula",
+    --     after = "nvim-treesitter",
+    --     config = function()
+    --         vim.cmd.colorscheme("dracula")
+    --     end
+    -- }
     -- use({
     --     "rose-pine/neovim",
     --     as = "rose-pine",
@@ -128,6 +140,14 @@ packer.startup(function(use)
     --         vim.cmd("colorscheme rose-pine")
     --     end
     -- })
+    -- use {
+    --     "lifepillar/vim-gruvbox8",
+    --     as = "gruvbox8",
+    --     after = "nvim-treesitter",
+    --     config = function()
+    --         vim.cmd.colorscheme("gruvbox8")
+    --     end
+    -- }
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

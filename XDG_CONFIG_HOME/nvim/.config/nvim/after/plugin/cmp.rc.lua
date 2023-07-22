@@ -35,7 +35,7 @@ cmp.setup({
             select = true
         }),
         -- ["<Right>"] = cmp.mapping.confirm { select = true },
-        ["<C-h>"] = cmp.mapping(function(fallback)
+        ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()
             elseif luasnip.jumpable(1) then
@@ -54,7 +54,7 @@ cmp.setup({
             "i",
             "s",
         }),
-        ["<C-l>"] = cmp.mapping(function(fallback)
+        ["<S-Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_prev_item()
             elseif luasnip.jumpable(-1) then
@@ -71,15 +71,16 @@ cmp.setup({
         { name = "nvim_lsp" },
         { name = "luasnip" }, -- For luasnip users.
         { name = "buffer" },
+        { name = "crates" },
     }),
     formatting = {
         format = lspkind.cmp_format({ with_text = true, maxwidth = 100 }),
         before = function(entry, vim_item) -- look like it cannot help to dedup cmp item
             vim_item.dup = ({
-                    nvim_lsp = 0,
-                    luasnip = 1,
-                    buffer = 1,
-                })[entry.source.name] or 0
+                nvim_lsp = 0,
+                luasnip = 1,
+                buffer = 1,
+            })[entry.source.name] or 0
             return vim_item
         end
     }

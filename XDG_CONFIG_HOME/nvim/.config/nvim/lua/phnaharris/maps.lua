@@ -1,15 +1,23 @@
 local opts = { noremap = true, silent = true }
 
-function bind(mode, old, new)
+function bind(mode, old, new, custom_opts)
+    custom_opts = custom_opts or {} -- default value for Lua style
+
     if vim.fn.has("nvim-0.7") then
-        vim.keymap.set(mode, old, new, opts)
+        vim.keymap.set(mode, old, new,
+            vim.tbl_deep_extend("force", custom_opts, opts)
+        )
     end
 end
 
-bind("n", "<left>", ':echoe "use h"<CR>')
-bind("n", "<right>", ':echoe "use l"<CR>')
-bind("n", "<down>", ':echoe "use j"<CR>')
-bind("n", "<up>", ':echoe "use k"<CR>')
+-- bind("n", "<left>", ':echoe "use h"<CR>')
+-- bind("n", "<right>", ':echoe "use l"<CR>')
+-- bind("n", "<down>", ':echoe "use j"<CR>')
+-- bind("n", "<up>", ':echoe "use k"<CR>')
+
+bind("n", "<leader>F", ':echo expand("%:p")<CR>')
+bind("n", "<leader>E", ":edit ./.env<CR>")
+bind("n", "<leader>R", ":edit ./README.md<CR>")
 
 bind("n", "<C-a>", "gg<S-v>G") -- select all
 bind("n", "x", '"_x')          -- do not yank with x

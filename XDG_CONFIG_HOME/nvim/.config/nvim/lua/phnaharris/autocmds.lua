@@ -27,6 +27,13 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
     command = "set filetype=jsonc",
 })
 
+-- vim.api.nvim_create_autocmd({ "BufNewFile" }, {
+--     pattern = {
+--         "mix.exs"
+--     },
+--     command = "!mix deps.get",
+-- })
+
 -- vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
 --     pattern = {
 --         ".env"
@@ -40,7 +47,7 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
     pattern = "*",
     callback = function()
         vim.highlight.on_yank({
-            higroup = "IncSearch",
+            higroup = "Search",
             timeout = 40,
         })
     end,
@@ -73,12 +80,6 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead", "BufEnter" }, {
     command = "set filetype=sh"
 })
 
--- Turn off paste mode when leaving insert
--- vim.api.nvim_create_autocmd("InsertLeave", {
---     pattern = "*",
---     command = "set nopaste"
--- })
-
 -- auto hover, not really helpful, sometime so annoying
 -- vim.api.nvim_create_autocmd({ "CursorHold" }, {
 --     pattern = {
@@ -87,13 +88,13 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead", "BufEnter" }, {
 --     command = [[ lua vim.diagnostic.open_float() ]]
 -- })
 
--- vim.api.nvim_create_autocmd({ "ColorScheme" }, {
---     pattern = {
---         "*"
---     },
---     command = [[
---         highlight Normal ctermbg=NONE guibg=NONE
---         highlight FidgetTitle ctermbg=NONE guibg=NONE
---         highlight FidgetTask ctermbg=NONE guibg=NONE
---     ]]
--- })
+vim.api.nvim_create_autocmd({ "ColorScheme" }, {
+    pattern = {
+        "*"
+    },
+    command = [[
+        highlight Normal ctermbg=NONE guibg=NONE
+        highlight link FidgetTitle Normal
+        highlight link FidgetTask Normal
+    ]]
+})

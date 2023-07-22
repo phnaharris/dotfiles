@@ -8,13 +8,14 @@ return {
         capabilities = require("plugins.lsp.handlers").capabilities,
         settings = {
             ["rust-analyzer"] = {
-                -- checkOnSave = {
-                --     command = "clippy"
-                -- },
-                checkOnSave = true
+                cmd = { "rustup", "run", "stable", "rust-analyzer" },
+                checkOnSave = {
+                    command = "clippy"
+                },
             },
         },
     },
+    standalone = true,
     dap = {
         adapter = require("rust-tools.dap").get_codelldb_adapter(
             codelldb_path, liblldb_path)

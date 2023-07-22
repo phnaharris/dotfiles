@@ -22,18 +22,16 @@ local function dapui_setup()
 end
 
 local function dap_keymaps(bufnr)
-    local opts = { noremap = true, silent = true }
-
-    bind("n", "<F5>", "<cmd>DapContinue<CR>", opts)
-    bind("n", "<F8>", "<cmd>DapToggleBreakpoint<CR>", opts)
+    bind("n", "<F5>", "<cmd>DapContinue<CR>")
+    bind("n", "<F8>", "<cmd>DapToggleBreakpoint<CR>")
     bind("n", "<F1>", function()
         if vim.bo.filetype == "rust" then
             vim.api.nvim_command("RustDebuggables")
         end
-    end, opts)
-    bind("n", "<F11>", "<cmd>DapStepInto<CR>", opts)
-    bind("n", "<F10>", "<cmd>DapStepOver<CR>", opts)
-    bind("n", "<leader>D", "<cmd>DapTerminate<CR>", opts)
+    end)
+    bind("n", "<F11>", "<cmd>DapStepInto<CR>")
+    bind("n", "<F10>", "<cmd>DapStepOver<CR>")
+    bind("n", "<leader>D", "<cmd>DapTerminate<CR>")
 
     -- why it's not working??? It's just work for this file, but not other file.
     -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>b", "<cmd>DapToggleBreakpoint<CR>", opts)
@@ -82,6 +80,7 @@ dap.configurations.cpp = {
         stopOnEntry = false,
     },
 }
+
 dap.configurations.c = dap.configurations.cpp
 
 dap.configurations.elixir = {
@@ -99,6 +98,7 @@ dap.configurations.elixir = {
         }
     },
 }
+
 -- dap.configurations.javascript = {
 --     {
 --         name = "Launch",

@@ -15,9 +15,17 @@ null_ls.setup({
         formatting.shfmt,
         formatting.taplo, -- for toml
         formatting.black.with({ extra_args = { "--fast" } }),
+        formatting.cmake_format.with({
+            autosort = true
+        }),
 
         diagnostics.zsh,
-        diagnostics.credo,
+        diagnostics.credo.with({
+            diagnostics_format = "[credo] #{m}\n(#{c})"
+        }),
+        diagnostics.cmake_lint.with({
+            diagnostics_format = "[cmake_lint] #{m}\n(#{c})"
+        }),
         diagnostics.eslint_d.with({
             diagnostics_format = "[eslint] #{m}\n(#{c})"
         }),

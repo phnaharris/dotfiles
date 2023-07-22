@@ -8,7 +8,7 @@ local servers = {
     "bashls",
     "clangd",
     "elixirls",
-    "julials",
+    -- "julials",
     "gopls",
     "hls",
     "html",
@@ -19,6 +19,7 @@ local servers = {
     "solargraph",
     "lua_ls",
     "taplo",
+    "texlab",
     "tsserver",
     "yamlls",
 }
