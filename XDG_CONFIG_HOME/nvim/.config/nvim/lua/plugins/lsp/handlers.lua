@@ -39,13 +39,14 @@ local function config_diagnostic()
     local config = {
         virtual_text     = {
             format = function(diagnostic)
-                local map = {
+                local diagnostic_map = {
                     [vim.diagnostic.severity.ERROR] = "E",
                     [vim.diagnostic.severity.WARN] = "W",
                     [vim.diagnostic.severity.INFO] = "I",
                     [vim.diagnostic.severity.HINT] = "H",
                 }
-                return string.format(map[diagnostic.severity] .. ": %s",
+                return string.format(
+                    diagnostic_map[diagnostic.severity] .. ": %s",
                     diagnostic.message)
             end
 
