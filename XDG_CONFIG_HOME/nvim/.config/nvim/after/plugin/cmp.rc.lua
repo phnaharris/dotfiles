@@ -1,7 +1,8 @@
 local status_cmp, cmp = pcall(require, "cmp")
 if (not status_cmp) then return end
 
-local lspkind = require "lspkind"
+local status_lspkind, lspkind = pcall(require, "lspkind")
+if (not status_lspkind) then return end
 
 local status_luasnip, luasnip = pcall(require, "luasnip")
 if (not status_luasnip) then return end
