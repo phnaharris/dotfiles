@@ -31,6 +31,6 @@ null_ls.setup({
         }),
     },
     on_attach = function(client, bufnr)
-        require("plugins.lsp.handlers").formatOnSave(client, bufnr)
+        -- require("plugins.lsp.handlers").formatOnSave(client, bufnr)
     end,
 })

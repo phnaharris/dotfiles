@@ -28,6 +28,8 @@ local function lsp_keymaps(bufnr)
         "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "gl",
         "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "gf",
+        "<cmd>lua vim.lsp.buf.format()<CR>", opts)
 end
 
 local float = {
@@ -86,7 +88,7 @@ handlers.on_attach = function(client, bufnr)
     end
 
     -- format on save
-    handlers.formatOnSave(client, bufnr)
+    -- handlers.formatOnSave(client, bufnr)
 
     -- keymap
     lsp_keymaps(bufnr)
