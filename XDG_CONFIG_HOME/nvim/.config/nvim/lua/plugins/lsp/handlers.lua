@@ -67,18 +67,26 @@ end
 
 local handlers = {}
 
+handlers.formatOnSave = function(client, bufnr)
+    if client.server_capabilities.documentFormattingProvider then
+        local augroup_format = vim.api.nvim_create_augroup("Format",
+            { clear = true })
+        vim.api.nvim_clear_autocmds { buffer = 0, group = augroup_format }
+        vim.api.nvim_create_autocmd("BufWritePre", {
+            group = augroup_format,
+            buffer = 0,
+            callback = function() vim.lsp.buf.format() end
+        })
+    end
+end
+
 handlers.on_attach = function(client, bufnr)
     if client.name == "tsserver" then
         client.server_capabilities.documentFormattingProvider = false -- 0.8 and later
     end
 
     -- format on save
-    if client.server_capabilities.documentFormattingProvider then
-        vim.api.nvim_command [[augroup Format]]
-        vim.api.nvim_command [[autocmd! * <buffer>]]
-        vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
-        vim.api.nvim_command [[augroup END]]
-    end
+    handlers.formatOnSave(client, bufnr)
 
     -- keymap
     lsp_keymaps(bufnr)
