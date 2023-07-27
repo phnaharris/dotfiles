@@ -28,6 +28,8 @@ local function lsp_keymaps(bufnr)
         "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "gl",
         "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "gF",
+        "<cmd>lua vim.lsp.buf.format()<CR>", opts)
 end
 
 local float = {
@@ -67,10 +69,14 @@ end
 
 local handlers = {}
 
+local augroup_format = vim.api.nvim_create_augroup("Format", { clear = true })
+
 handlers.formatOnSave = function(client, bufnr)
+    -- bufnr = 0 ~ current buffer
+    -- bufnr = -1 ~ all buffer
+    -- bufnr = n ~ specific buffer
+    bufnr = bufnr or -1
     if client.server_capabilities.documentFormattingProvider then
-        local augroup_format = vim.api.nvim_create_augroup("Format",
-            { clear = true })
         vim.api.nvim_clear_autocmds { buffer = bufnr, group = augroup_format }
         vim.api.nvim_create_autocmd("BufWritePre", {
             group = augroup_format,

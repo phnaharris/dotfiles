@@ -88,13 +88,13 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead", "BufEnter" }, {
 --     command = [[ lua vim.diagnostic.open_float() ]]
 -- })
 
-vim.api.nvim_create_autocmd({ "ColorScheme" }, {
-    pattern = {
-        "*"
-    },
-    command = [[
-        highlight Normal ctermbg=NONE guibg=NONE
-        highlight link FidgetTitle Normal
-        highlight link FidgetTask Normal
-    ]]
-})
+-- vim.api.nvim_create_autocmd({ "ColorScheme" }, {
+--     pattern = {
+--         "*"
+--     },
+--     command = [[
+--         highlight Normal ctermbg=NONE guibg=NONE
+--         highlight link FidgetTitle Normal
+--         highlight link FidgetTask Normal
+--     ]]
+-- })
