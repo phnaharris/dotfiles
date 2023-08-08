@@ -63,23 +63,36 @@ telescope.setup {
 
 telescope.load_extension("file_browser")
 
+local file_ignore_patterns = {
+    ".git/",
+    "node_modules/",
+    ".cache/",
+    "**/target/"
+}
+
 local function telescope_keymaps()
     bind("n", "<leader>ff",
         function()
             builtin.find_files({
-                file_ignore_patterns = {
-                    ".git/",
-                    "node_modules/",
-                    ".cache/",
-                    "**/target/"
-                },
+                file_ignore_patterns = file_ignore_patterns,
                 no_ignore = true,
                 hidden = true
             })
         end)
     bind("n", "<leader>gf", function() builtin.git_files({}) end)
-    bind("n", "<leader>r", function() builtin.live_grep({ hidden = true }) end)
-    bind("n", "<leader>*", function() builtin.grep_string() end)
+    bind("n", "<leader>r",
+        function()
+            builtin.live_grep({
+                file_ignore_patterns = file_ignore_patterns,
+                hidden = true
+            })
+        end)
+    bind("n", "<leader>*", function()
+        builtin.grep_string({
+            file_ignore_patterns = file_ignore_patterns,
+            hidden = true
+        })
+    end)
     bind("n", "<leader>H", function() builtin.help_tags() end)
     bind("n", "<leader>qf", function() builtin.quickfix() end)
     bind("n", "<leader>km", function() builtin.keymaps() end)
