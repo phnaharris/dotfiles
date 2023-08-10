@@ -54,6 +54,7 @@ for _, server in pairs(servers) do
         rust_tools.setup(rust_opts)
         goto continue
     end
+
     if (server == "hls") then
         local status_haskell_tools, haskell_tools = pcall(require,
             "haskell-tools")
@@ -63,6 +64,18 @@ for _, server in pairs(servers) do
         if not status_haskell_opts then return end
 
         haskell_tools.setup(haskell_opts)
+        goto continue
+    end
+
+    if (server == "tsserver") then
+        local status_typescript_tools, typescript_tools = pcall(require,
+            "typescript-tools")
+        if not status_typescript_tools then return end
+        local status_typescript_opts, typescript_opts = pcall(require,
+            "plugins.lsp.settings.tsserver")
+        if not status_typescript_opts then return end
+
+        typescript_tools.setup(typescript_opts)
         goto continue
     end
 

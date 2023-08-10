@@ -61,6 +61,7 @@ packer.startup(function(use)
     use "simrat39/rust-tools.nvim"
     use "Saecki/crates.nvim"
     use "MrcJkb/haskell-tools.nvim"
+    use "pmizio/typescript-tools.nvim"
     use({
         "iamcco/markdown-preview.nvim",
         run = function() vim.fn["mkdp#util#install"]() end,
