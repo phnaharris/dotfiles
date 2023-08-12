@@ -7,9 +7,7 @@ local status_dap_go, dap_go = pcall(require, "dap-go")
 if (status_dap_go) then dap_go.setup() end
 
 local function dapui_setup()
-    dapui.setup({
-        icons = { expanded = "▾", collapsed = "▸", current_frame = "▸" },
-    })
+    dapui.setup()
     dap.listeners.after.event_initialized["dapui_config"] = function()
         dapui.open()
     end
@@ -22,20 +20,14 @@ local function dapui_setup()
 end
 
 local function dap_keymaps(bufnr)
-    bind("n", "<F5>", "<cmd>DapContinue<CR>")
-    bind("n", "<F8>", "<cmd>DapToggleBreakpoint<CR>")
-    bind("n", "<F1>", function()
-        if vim.bo.filetype == "rust" then
-            vim.api.nvim_command("RustDebuggables")
-        end
-    end)
-    bind("n", "<F11>", "<cmd>DapStepInto<CR>")
-    bind("n", "<F10>", "<cmd>DapStepOver<CR>")
-    bind("n", "<leader>D", "<cmd>DapTerminate<CR>")
-
-    -- why it's not working??? It's just work for this file, but not other file.
-    -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>b", "<cmd>DapToggleBreakpoint<CR>", opts)
-    -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>n", "<cmd>DapContinue<CR>", opts)
+    bind("n", "<F5>", function() dap.continue() end)
+    bind("n", "<F8>", function() dap.toggle_breakpoint() end)
+    bind("n", "<S-F8>", function() dap.clear_breakpoints() end)
+    bind("n", "<F11>", function() dap.step_into() end)
+    bind("n", "<S-F11>", function() dap.step_out() end)
+    bind("n", "<F10>", function() dap.step_over() end)
+    bind("n", "<S-F10>", function() dap.step_back() end)
+    bind("n", "<leader>D", function() dap.terminate() end)
 
     local api = vim.api
     local keymap_restore = {}
@@ -71,13 +63,9 @@ end
 dapui_setup()
 dap_keymaps(0)
 
--- dap.defaults.fallback.terminal_win_cmd = "50vsplit new"
-
 local status_rt, rt = pcall(require, "rust-tools")
 if not status_rt then return end
 
--- local extension_path = vim.env.HOME ..
---     "/.local/share/nvim/mason/packages/codelldb/extension/"
 local extension_path = "/usr/lib/codelldb/"
 local codelldb_path = extension_path .. "adapter/codelldb"
 local liblldb_path = extension_path .. "lldb/lib/liblldb.so"
@@ -90,6 +78,7 @@ dap.adapters.mix_task = {
         "/.local/share/nvim/mason/packages/elixir-ls/debugger.sh", -- debugger.bat for windows
     args = {}
 }
+
 -- dap.adapters.node2 = {
 --     type = "executable",
 --     command = "node",
@@ -108,7 +97,7 @@ dap.configurations.cpp = {
         end,
         cwd = "${workspaceFolder}",
         stopOnEntry = false,
-        showDisassembly = "never"
+        showDisassembly = "never" -- avoid to stop in assembly code
     },
 }
 
