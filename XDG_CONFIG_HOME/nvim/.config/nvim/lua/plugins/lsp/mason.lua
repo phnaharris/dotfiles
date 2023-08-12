@@ -79,6 +79,11 @@ for _, server in pairs(servers) do
         goto continue
     end
 
+    if (server == "lua_ls") then
+        local status_neodev, neodev = pcall(require, "neodev")
+        neodev.setup()
+    end
+
     local status_lsopts, language_specific_opts = pcall(require,
         "plugins.lsp.settings." .. server)
     if not status_lsopts then goto continue end

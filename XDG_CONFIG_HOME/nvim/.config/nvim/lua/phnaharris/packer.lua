@@ -70,6 +70,7 @@ packer.startup(function(use)
             bind("n", "<leader>Ms", "<cmd>MarkdownPreviewStop<CR>")
         end
     })
+    use "folke/neodev.nvim"            -- full signature help, docs and completion for the nvim lua API.
 
     use "mfussenegger/nvim-dap"        -- Debug Adapter Protocal
     use "mfussenegger/nvim-dap-python" -- Extension for nvim-dap providing default configuration for nvim-dap-python
