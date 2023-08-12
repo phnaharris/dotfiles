@@ -81,7 +81,7 @@ for _, server in pairs(servers) do
 
     if (server == "lua_ls") then
         local status_neodev, neodev = pcall(require, "neodev")
-        neodev.setup()
+        if status_neodev then neodev.setup() end
     end
 
     local status_lsopts, language_specific_opts = pcall(require,
