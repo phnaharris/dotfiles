@@ -36,6 +36,36 @@ local function dap_keymaps(bufnr)
     -- why it's not working??? It's just work for this file, but not other file.
     -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>b", "<cmd>DapToggleBreakpoint<CR>", opts)
     -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>n", "<cmd>DapContinue<CR>", opts)
+
+    local api = vim.api
+    local keymap_restore = {}
+    dap.listeners.after["event_initialized"]["me"] = function()
+        for _, buf in pairs(api.nvim_list_bufs()) do
+            local keymaps = api.nvim_buf_get_keymap(buf, "n")
+            for _, keymap in pairs(keymaps) do
+                if keymap.lhs == "K" then
+                    table.insert(keymap_restore, keymap)
+                    api.nvim_buf_del_keymap(buf, "n", "K")
+                end
+            end
+        end
+        api.nvim_set_keymap(
+            "n", "K", '<Cmd>lua require("dap.ui.widgets").hover()<CR>',
+            { silent = true })
+    end
+
+    dap.listeners.after["event_terminated"]["me"] = function()
+        for _, keymap in pairs(keymap_restore) do
+            api.nvim_buf_set_keymap(
+                keymap.buffer,
+                keymap.mode,
+                keymap.lhs,
+                keymap.rhs,
+                { silent = keymap.silent == 1 }
+            )
+        end
+        keymap_restore = {}
+    end
 end
 
 dapui_setup()
@@ -78,10 +108,12 @@ dap.configurations.cpp = {
         end,
         cwd = "${workspaceFolder}",
         stopOnEntry = false,
+        showDisassembly = "never"
     },
 }
 
 dap.configurations.c = dap.configurations.cpp
+dap.configurations.rust = dap.configurations.cpp
 
 dap.configurations.elixir = {
     {
