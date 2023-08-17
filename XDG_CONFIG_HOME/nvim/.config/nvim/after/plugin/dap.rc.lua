@@ -2,6 +2,9 @@ local status_dap, dap = pcall(require, "dap")
 if (not status_dap) then return end
 local status_dapui, dapui = pcall(require, "dapui")
 if (not status_dapui) then return end
+local status_persistent_breakpoints, persistent_breakpoints = pcall(require,
+    "persistent-breakpoints.api")
+if (not status_persistent_breakpoints) then return end
 
 local status_dap_go, dap_go = pcall(require, "dap-go")
 if (status_dap_go) then dap_go.setup() end
@@ -21,8 +24,8 @@ end
 
 local function dap_keymaps(bufnr)
     bind("n", "<F5>", function() dap.continue() end)
-    bind("n", "<F8>", function() dap.toggle_breakpoint() end)
-    bind("n", "<S-F8>", function() dap.clear_breakpoints() end)
+    bind("n", "<F8>", function() persistent_breakpoints.toggle_breakpoint() end)
+    bind("n", "<S-F8>", function() persistent_breakpoints.clear_breakpoints() end)
     bind("n", "<F11>", function() dap.step_into() end)
     bind("n", "<S-F11>", function() dap.step_out() end)
     bind("n", "<F10>", function() dap.step_over() end)

@@ -58,10 +58,11 @@ packer.startup(function(use)
     use "hrsh7th/cmp-nvim-lsp"            -- nvim-cmp source for neovim's built-in LSP
 
     use "norcalli/nvim-colorizer.lua"
-    use "simrat39/rust-tools.nvim"
     use "Saecki/crates.nvim"
-    use "MrcJkb/haskell-tools.nvim"
+    use "simrat39/rust-tools.nvim"
+    use { "MrcJkb/haskell-tools.nvim", tag = "1.x.x" }
     use "pmizio/typescript-tools.nvim"
+    use({ "elixir-tools/elixir-tools.nvim", tag = "stable" })
     use({
         "iamcco/markdown-preview.nvim",
         run = function() vim.fn["mkdp#util#install"]() end,
@@ -70,17 +71,19 @@ packer.startup(function(use)
             bind("n", "<leader>Ms", "<cmd>MarkdownPreviewStop<CR>")
         end
     })
-    use "folke/neodev.nvim"            -- full signature help, docs and completion for the nvim lua API.
+    use "folke/neodev.nvim"                   -- full signature help, docs and completion for the nvim lua API.
 
-    use "mfussenegger/nvim-dap"        -- Debug Adapter Protocal
-    use "mfussenegger/nvim-dap-python" -- Extension for nvim-dap providing default configuration for nvim-dap-python
-    use "rcarriga/nvim-dap-ui"         -- Better UI for debugging
-    use "leoluz/nvim-dap-go"           -- DAP for Golang
+    use "mfussenegger/nvim-dap"               -- Debug Adapter Protocal
+    use "rcarriga/nvim-dap-ui"                -- Better UI for debugging
+    use "Weissle/persistent-breakpoints.nvim" -- For storing and loading breakpoints
+    use "mfussenegger/nvim-dap-python"        -- Extension for nvim-dap providing default configuration for nvim-dap-python
+    use "leoluz/nvim-dap-go"                  -- DAP for Golang
     use "mxsdev/nvim-dap-vscode-js"
     use {
         "microsoft/vscode-js-debug",
         opt = true,
-        run = "npm install --legacy-peer-deps && npm run compile"
+        run =
+        "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out"
     }
 
     use "rest-nvim/rest.nvim"
@@ -142,14 +145,14 @@ packer.startup(function(use)
     --         vim.cmd("colorscheme rose-pine")
     --     end
     -- })
-    -- use {
-    --     "lifepillar/vim-gruvbox8",
-    --     as = "gruvbox8",
-    --     after = "nvim-treesitter",
-    --     config = function()
-    --         vim.cmd.colorscheme("gruvbox8")
-    --     end
-    -- }
+    use {
+        "ellisonleao/gruvbox.nvim",
+        as = "gruvbox",
+        after = "nvim-treesitter",
+        config = function()
+            -- vim.cmd.colorscheme("gruvbox")
+        end
+    }
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
