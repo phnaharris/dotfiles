@@ -75,7 +75,7 @@ handlers.formatOnSave = function(client, bufnr)
     -- bufnr = 0 ~ current buffer
     -- bufnr = -1 ~ all buffer
     -- bufnr = n ~ specific buffer
-    bufnr = bufnr or -1
+    bufnr = bufnr or 0
     if client.server_capabilities.documentFormattingProvider then
         vim.api.nvim_clear_autocmds { buffer = bufnr, group = augroup_format }
         vim.api.nvim_create_autocmd("BufWritePre", {
