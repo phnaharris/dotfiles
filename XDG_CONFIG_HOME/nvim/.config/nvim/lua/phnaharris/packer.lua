@@ -108,7 +108,9 @@ packer.startup(function(use)
     use "JoosepAlviste/nvim-ts-context-commentstring"
     use "b0o/schemastore.nvim"
 
-    use "lervag/vimtex"
+    use {
+        "lervag/vimtex",
+    }
 
     -- use {
     --     "nvim-neorg/neorg",

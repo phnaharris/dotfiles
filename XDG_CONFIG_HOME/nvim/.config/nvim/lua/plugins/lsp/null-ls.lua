@@ -6,6 +6,7 @@ local augroup_format = vim.api.nvim_create_augroup("Format", { clear = true })
 local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
 local completion = null_ls.builtins.completion
+local code_actions = null_ls.builtins.code_actions
 
 null_ls.setup({
     debug = true,
@@ -18,6 +19,9 @@ null_ls.setup({
         formatting.cmake_format.with({
             autosort = true
         }),
+        formatting.latexindent.with({
+            filetypes = { "tex", "latex" },
+        }),
 
         diagnostics.zsh,
         diagnostics.credo.with({
@@ -29,6 +33,8 @@ null_ls.setup({
         diagnostics.eslint_d.with({
             diagnostics_format = "[eslint] #{m}\n(#{c})"
         }),
+
+        code_actions.proselint
     },
     on_attach = function(client, bufnr)
         require("plugins.lsp.handlers").formatOnSave(client, bufnr)
