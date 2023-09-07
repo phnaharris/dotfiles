@@ -102,6 +102,7 @@ packer.startup(function(use)
     use "windwp/nvim-ts-autotag" -- Auto close, rename html tag
     use "h-hg/fcitx.nvim"        -- Switch and restore fcitx state
     use "tpope/vim-surround"
+    use "tpope/vim-fugitive"
 
     -- Commenting
     use "numToStr/Comment.nvim"
