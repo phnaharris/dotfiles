@@ -122,6 +122,7 @@ packer.startup(function(use)
     use "ThePrimeagen/harpoon"
 
     -- Themes
+
     use {
         "Mofiqul/dracula.nvim",
         as = "dracula",
@@ -130,6 +131,7 @@ packer.startup(function(use)
             vim.cmd.colorscheme("dracula")
         end
     }
+
     -- dracula/vim is not worked well with Gitsigns toggle_current_line_blame
     -- (something wrong with highlighting)
     -- use {
@@ -140,19 +142,30 @@ packer.startup(function(use)
     --         vim.cmd.colorscheme("dracula")
     --     end
     -- }
-    -- use({
-    --     "rose-pine/neovim",
-    --     as = "rose-pine",
-    --     config = function()
-    --         vim.cmd("colorscheme rose-pine")
-    --     end
-    -- })
+
+    use({
+        "rose-pine/neovim",
+        as = "rose-pine",
+        config = function()
+            -- vim.cmd("colorscheme rose-pine")
+        end
+    })
+
     use {
         "ellisonleao/gruvbox.nvim",
         as = "gruvbox",
         after = "nvim-treesitter",
         config = function()
             -- vim.cmd.colorscheme("gruvbox")
+        end
+    }
+
+    use {
+        "RRethy/nvim-base16",
+        as = "gruvbox-base16",
+        after = "nvim-treesitter",
+        config = function()
+            -- vim.cmd.colorscheme("base16-gruvbox-dark-hard")
         end
     }
 

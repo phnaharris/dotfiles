@@ -4,7 +4,7 @@ if (not status) then return end
 lualine.setup {
     options = {
         icons_enabled = true,
-        theme = "dracula", -- dracula / gruvbox
+        theme = "dracula", -- dracula / gruvbox / base16
         -- section_separators = { '', '' },
         -- component_separators = { '', '' },
         -- disabled_filetypes = {}
