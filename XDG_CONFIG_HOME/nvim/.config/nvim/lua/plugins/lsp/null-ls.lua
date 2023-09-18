@@ -12,7 +12,12 @@ null_ls.setup({
     debug = true,
     sources = {
         formatting.eslint_d,
-        formatting.prettierd,
+        formatting.prettierd.with({
+            disabled_filetypes = { "markdown" }
+        }),
+        formatting.deno_fmt.with({
+            filetypes = { "markdown" },
+        }),
         formatting.shfmt,
         formatting.taplo, -- for toml
         formatting.black.with({ extra_args = { "--fast" } }),
