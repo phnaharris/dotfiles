@@ -7,7 +7,7 @@
 
     "modules-left": ["hyprland/workspaces"],
     "modules-center": ["clock"],
-    "modules-right": ["custom/updater", "idle_inhibitor", "pulseaudio", /* "network", */  "cpu", "memory", "temperature", "backlight", "keyboard-state", "battery", "tray"],
+    "modules-right": ["custom/github", "custom/updater", "idle_inhibitor", "pulseaudio", /* "network", */  "cpu", "memory", "temperature", "custom/fan", "backlight", "keyboard-state", "battery", "tray"],
 
     // Modules configuration
     "hyprland/workspaces": {
@@ -40,6 +40,13 @@
             "locked": "",
             "unlocked": ""
         }
+    },
+    "custom/github": {
+        "format": "{} ",
+        "return-type": "json",
+        "interval": 60,
+        "exec": "$HOME/.config/waybar/github.sh",
+        "on-click": "xdg-open https://github.com/notifications"
     },
     "custom/updater": {
         "format": "󰏕  {} packages",

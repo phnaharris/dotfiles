@@ -85,6 +85,7 @@ button:hover {
 #wireplumber,
 #custom-media,
 #custom-updater,
+#custon-github,
 #custom-fan,
 #tray,
 #mode,
@@ -150,12 +151,7 @@ label:focus {
   box-shadow: inset 0 -3px #2ecc71;
 }
 
-#fan {
-  /* background-color: #2ecc71; */
-  box-shadow: inset 0 -3px #2ecc71;
-  color: #000000;
-}
-
+#custom-github,
 #custom-updater {
   /* background-color: #964b00; */
   box-shadow: inset 0 -3px #964b00;
