@@ -68,9 +68,10 @@
         "format-alt": "{:%d/%m/%Y} <span color=\"#FFFFFF\"></span>",
         "interval": 1
     },
-    "fan": {
-        "format": "{usage}% ",
-        "tooltip": true
+    "custom/fan": {
+        "format": "{} ☢",
+        "exec": "echo \"$(cat /sys/class/hwmon/hwmon5/fan1_input) | $(cat /sys/class/hwmon/hwmon5/fan2_input)\"",
+        "interval": 1,
     },
     "cpu": {
         "format": "{usage}% ",

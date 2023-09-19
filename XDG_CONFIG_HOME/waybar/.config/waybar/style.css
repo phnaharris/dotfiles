@@ -76,7 +76,6 @@ button:hover {
 /* #clock, */
 #battery,
 #cpu,
-#fan,
 #memory,
 #disk,
 #temperature,
@@ -86,6 +85,7 @@ button:hover {
 #wireplumber,
 #custom-media,
 #custom-updater,
+#custom-fan,
 #tray,
 #mode,
 #idle_inhibitor,
@@ -221,6 +221,7 @@ label:focus {
   background-color: #ffa000;
 }
 
+#custom-fan,
 #temperature {
   /* background-color: #f0932b; */
   box-shadow: inset 0 -3px #f0932b;
