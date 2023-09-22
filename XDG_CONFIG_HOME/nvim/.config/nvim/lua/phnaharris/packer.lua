@@ -129,7 +129,7 @@ packer.startup(function(use)
         as = "dracula",
         after = "nvim-treesitter",
         config = function()
-            vim.cmd.colorscheme("dracula")
+            -- vim.cmd.colorscheme("dracula")
         end
     }
 
@@ -166,7 +166,7 @@ packer.startup(function(use)
         as = "gruvbox-base16",
         after = "nvim-treesitter",
         config = function()
-            -- vim.cmd.colorscheme("base16-gruvbox-dark-hard")
+            vim.cmd.colorscheme("base16-tomorrow-night")
         end
     }
 
