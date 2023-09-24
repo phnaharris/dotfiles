@@ -32,6 +32,13 @@ local function lsp_keymaps(bufnr)
         "<cmd>lua vim.lsp.buf.format()<CR>", opts)
 end
 
+local function telescope_lsp_keymaps(bufnr)
+    local opts = { noremap = true, silent = true }
+
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "gs",
+        "<cmd>Telescope lsp_workspace_symbols<CR>", opts)
+end
+
 local float = {
     border = "single",
     style = "minimal",
@@ -98,6 +105,7 @@ handlers.on_attach = function(client, bufnr)
 
     -- keymap
     lsp_keymaps(bufnr)
+    telescope_lsp_keymaps(bufnr)
 end
 
 -- Enable (broadcasting) snippet capability for completion
