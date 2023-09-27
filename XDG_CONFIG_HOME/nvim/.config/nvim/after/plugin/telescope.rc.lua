@@ -67,7 +67,7 @@ local file_ignore_patterns = {
     ".git/",
     "node_modules/",
     ".cache/",
-    "**/target/"
+    "target/"
 }
 
 local function telescope_keymaps()
