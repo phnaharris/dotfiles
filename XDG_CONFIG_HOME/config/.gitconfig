@@ -3,6 +3,9 @@
 [user]
 	name = phnaharris
 	email = phnanh.harris@gmail.com
+    signingkey = 96E09780F3C57485
+[commit]
+    gpgsign = true
 [diff]
     tool = nvimdiff
 [merge]
