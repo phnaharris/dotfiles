@@ -157,7 +157,12 @@ packer.startup(function(use)
         as = "gruvbox",
         after = "nvim-treesitter",
         config = function()
-            -- vim.cmd.colorscheme("gruvbox")
+            require("gruvbox").setup({
+                palette_overrides = {
+                    dark0 = "#1C1E1F"
+                }
+            })
+            vim.cmd.colorscheme("gruvbox")
         end
     }
 
@@ -166,7 +171,8 @@ packer.startup(function(use)
         as = "gruvbox-base16",
         after = "nvim-treesitter",
         config = function()
-            vim.cmd.colorscheme("base16-tomorrow-night")
+            -- vim.cmd.colorscheme("base16-tomorrow-night")
+            -- vim.cmd.colorscheme("base16-gruvbox-dark-hard")
         end
     }
 
