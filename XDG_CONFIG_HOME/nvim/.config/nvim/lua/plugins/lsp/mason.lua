@@ -7,6 +7,7 @@ local servers = {
     "astro",
     "bashls",
     "clangd",
+    "denols",
     "elixirls",
     -- "julials",
     "gopls",
@@ -43,17 +44,6 @@ for _, server in pairs(servers) do
         on_attach = require("plugins.lsp.handlers").on_attach,
         capabilities = require("plugins.lsp.handlers").capabilities,
     }
-
-    if (server == "rust_analyzer") then
-        local status_rust_tools, rust_tools = pcall(require, "rust-tools")
-        if not status_rust_tools then return end
-        local status_rust_opts, rust_opts = pcall(require,
-            "plugins.lsp.settings.rust_analyzer")
-        if not status_rust_opts then return end
-
-        rust_tools.setup(rust_opts)
-        goto continue
-    end
 
     if (server == "hls") then
         local status_haskell_tools, haskell_tools = pcall(require,

@@ -66,14 +66,6 @@ end
 dapui_setup()
 dap_keymaps(0)
 
-local status_rt, rt = pcall(require, "rust-tools")
-if not status_rt then return end
-
-local extension_path = "/usr/lib/codelldb/"
-local codelldb_path = extension_path .. "adapter/codelldb"
-local liblldb_path = extension_path .. "lldb/lib/liblldb.so"
-
-dap.adapters.codelldb = rt.dap.get_codelldb_adapter(codelldb_path, liblldb_path)
 
 dap.adapters.mix_task = {
     type = "executable",

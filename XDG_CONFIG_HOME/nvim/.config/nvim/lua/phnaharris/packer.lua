@@ -46,23 +46,19 @@ packer.startup(function(use)
     }
     use "williamboman/mason.nvim"
     use "williamboman/mason-lspconfig.nvim"
+    use "hrsh7th/nvim-cmp"                      -- Completion
+    use "hrsh7th/cmp-buffer"                    -- nvim-cmp source for buffer words
+    use "hrsh7th/cmp-nvim-lsp"                  -- nvim-cmp source for neovim's built-in LSP
+    use "saadparwaiz1/cmp_luasnip"              -- nvim-cmp source for luasnip
     use "onsails/lspkind-nvim"                  -- vscode-like pictograms
     use { "j-hui/fidget.nvim", tag = "legacy" } -- nvim-lsp progress
-    use "saadparwaiz1/cmp_luasnip"              -- nvim-cmp source for luasnip
     use "L3MON4D3/LuaSnip"
     use "rafamadriz/friendly-snippets"
     use "jose-elias-alvarez/null-ls.nvim" -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
 
-    use "hrsh7th/nvim-cmp"                -- Completion
-    use "hrsh7th/cmp-buffer"              -- nvim-cmp source for buffer words
-    use "hrsh7th/cmp-nvim-lsp"            -- nvim-cmp source for neovim's built-in LSP
-
-    use "norcalli/nvim-colorizer.lua"
     use "Saecki/crates.nvim"
-    use "simrat39/rust-tools.nvim"
     use { "MrcJkb/haskell-tools.nvim", tag = "1.x.x" }
     use "pmizio/typescript-tools.nvim"
-    use({ "elixir-tools/elixir-tools.nvim", tag = "stable" })
     use({
         "iamcco/markdown-preview.nvim",
         run = function() vim.fn["mkdp#util#install"]() end,
