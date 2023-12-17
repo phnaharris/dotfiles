@@ -11,7 +11,6 @@ local code_actions = null_ls.builtins.code_actions
 null_ls.setup({
     debug = true,
     sources = {
-        formatting.eslint_d,
         formatting.prettierd.with({
             disabled_filetypes = { "markdown" }
         }),
@@ -29,6 +28,9 @@ null_ls.setup({
         }),
 
         diagnostics.zsh,
+        diagnostics.proselint.with({
+            diagnostics_format = "[proselint] #{m}\n(#{c})"
+        }),
         diagnostics.credo.with({
             diagnostics_format = "[credo] #{m}\n(#{c})"
         }),
@@ -39,9 +41,7 @@ null_ls.setup({
             diagnostics_format = "[eslint] #{m}\n(#{c})"
         }),
 
-        code_actions.proselint
+        code_actions.proselint,
     },
-    on_attach = function(client, bufnr)
-        require("plugins.lsp.handlers").formatOnSave(client, bufnr)
-    end,
+    on_attach = require("plugins.lsp.handlers").on_attach,
 })

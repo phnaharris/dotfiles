@@ -1,7 +1,3 @@
-local extension_path = "/usr/lib/codelldb/"
-local codelldb_path = extension_path .. "adapter/codelldb"
-local liblldb_path = extension_path .. "lldb/lib/liblldb.so"
-
 return {
     settings = {
         ["rust-analyzer"] = {

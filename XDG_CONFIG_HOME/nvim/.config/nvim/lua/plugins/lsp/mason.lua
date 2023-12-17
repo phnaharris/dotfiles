@@ -20,7 +20,6 @@ local servers = {
     "solargraph",
     "lua_ls",
     "taplo",
-    "texlab",
     "tsserver",
     "yamlls",
 }
@@ -63,9 +62,13 @@ for _, server in pairs(servers) do
         if not status_typescript_tools then return end
         local status_typescript_opts, typescript_opts = pcall(require,
             "plugins.lsp.settings.tsserver")
-        if not status_typescript_opts then return end
 
-        typescript_tools.setup(typescript_opts)
+        if status_typescript_tools then
+            typescript_tools.setup(ts_opts)
+        else
+            nvim_lsp[server].setup(ts_opts)
+        end
+
         goto continue
     end
 

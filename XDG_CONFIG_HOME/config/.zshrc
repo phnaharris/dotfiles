@@ -2,6 +2,7 @@
 scripts_dir="/data/repos/phnaharris-machos/scripts"
 
 export PATH=$scripts_dir:$scripts_dir/arch-only:$HOME/bin:/usr/sbin:/usr/local/bin:$PATH
+export PATH="$HOME/.cargo/bin:$PATH"
 # export PATH="$HOME/gems/bin:$PATH"
 # export PATH="$HOME/.cabal/bin:$PATH"
 # fnm

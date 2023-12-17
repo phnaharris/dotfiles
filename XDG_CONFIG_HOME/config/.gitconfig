@@ -1,5 +1,9 @@
 [init]
 	defaultBranch = main
+[ui "color"]
+	ui = always
+[color]
+	ui = true
 [user]
 	name = phnaharris
 	email = phnanh.harris@gmail.com
@@ -14,7 +18,7 @@
     a = add
     br = branch
     c = commit -m
-    ca = commit --amend
+    ca = commit --amend --no-edit
     co = checkout
     commit = cz
     d = diff

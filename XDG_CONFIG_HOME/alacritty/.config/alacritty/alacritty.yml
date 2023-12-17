@@ -43,7 +43,7 @@ window:
   # - full: Borders and title bar
   # - none: Neither borders nor title bar
   decorations: full
-  opacity: 0.8
+  opacity: 1
 
   # Startup Mode (changes require restart)
   # - Windowed

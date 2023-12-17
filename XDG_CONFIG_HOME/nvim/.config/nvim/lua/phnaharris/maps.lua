@@ -15,7 +15,6 @@ end
 -- bind("n", "<down>", ':echoe "use j"<CR>')
 -- bind("n", "<up>", ':echoe "use k"<CR>')
 
-bind("n", "<leader>F", ':echo expand("%:p")<CR>')
 bind("n", "<leader>E", ":edit ./.env<CR>")
 bind("n", "<leader>R", ":edit ./README.md<CR>")
 
@@ -63,11 +62,6 @@ bind("n", "<C-u>", "<C-u>zz")
 -- bind({ 'n', 'v' }, '<leader>p', "\"+p")
 -- bind({ 'n', 'v' }, '<leader>P', "\"+P")
 
--- vim.api.nvim_set_keymap("i", "<C-n>", "<Plug>luasnip-next-choice", {})
--- vim.api.nvim_set_keymap("s", "<C-n>", "<Plug>luasnip-next-choice", {})
--- vim.api.nvim_set_keymap("i", "<C-p>", "<Plug>luasnip-prev-choice", {})
--- vim.api.nvim_set_keymap("s", "<C-p>", "<Plug>luasnip-prev-choice", {})
-
 bind("n", "<leader>li", "<cmd>LspInfo<CR>")
 bind("n", "<leader>ls", "<cmd>LspRestart<CR>")
 bind("n", "<leader>ni", "<cmd>NullLsInfo<CR>")
@@ -79,6 +73,10 @@ bind("n", "<leader>cd", "<cmd>Copilot disable<CR>")
 bind("n", "<M-q>", "<cmd>qa<CR>")
 bind("n", "<M-w>", "<cmd>wa<CR>")
 bind("n", "<M-=>", "<cmd>register<CR>")
+-- qf maps
+bind("n", "<M-p>", ":cprev<cr>")
+bind("n", "<M-n>", ":cnext<cr>")
+bind("n", "<C-q>", ":cclose<cr>")
 
 local function has_value(tbl, val)
     for _, v in pairs(tbl) do
@@ -87,17 +85,6 @@ local function has_value(tbl, val)
 
     return false
 end
-
--- qf maps
-bind("n", "<M-p>", ":cprev<cr>")
-bind("n", "<M-n>", ":cnext<cr>")
-bind("n", "<C-q>", ":cclose<cr>")
-
--- Neorg maps
-bind("n", "<leader>N", "<cmd>Neorg return<CR>")
-bind("n", "<leader>nt", "<cmd>Neorg workspace todo<CR>")
-bind("n", "<leader>nl", "<cmd>Neorg workspace learning<CR>")
-bind("n", "<leader>nh", "<cmd>Neorg workspace hcmus<CR>")
 
 bind("n", "<leader>xc", -- remove console.log, println!... and other sucks logs
     function()

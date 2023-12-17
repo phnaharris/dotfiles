@@ -13,6 +13,7 @@ application/xps=org.pwmt.zathura.desktop
 application/vnd.ms-xpsdocument=org.pwmt.zathura.desktop
 text/plain=nvim.desktop
 text/html=brave-browser.desktop
+x-scheme-handler/etcher=balena-etcher.desktop
 
 [Added Associations]
 image/jpeg=org.nomacs.ImageLounge.desktop
