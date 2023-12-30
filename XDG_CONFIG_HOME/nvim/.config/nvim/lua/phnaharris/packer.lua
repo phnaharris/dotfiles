@@ -57,8 +57,7 @@ packer.startup(function(use)
     use "jose-elias-alvarez/null-ls.nvim" -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
 
     use "Saecki/crates.nvim"
-    use { "MrcJkb/haskell-tools.nvim", tag = "1.x.x" }
-    use "pmizio/typescript-tools.nvim"
+    use "pmizio/typescript-tools.nvim" -- pure lua replacement for typescript-language-server
     use({
         "iamcco/markdown-preview.nvim",
         run = function() vim.fn["mkdp#util#install"]() end,

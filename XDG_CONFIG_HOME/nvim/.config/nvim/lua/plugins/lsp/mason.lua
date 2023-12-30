@@ -11,7 +11,7 @@ local servers = {
     "elixirls",
     -- "julials",
     "gopls",
-    "hls",
+    -- "hls",
     "html",
     "jsonls",
     "pyright",
@@ -21,6 +21,7 @@ local servers = {
     "lua_ls",
     "taplo",
     "tsserver",
+    "typst_lsp",
     "yamlls",
 }
 
@@ -44,25 +45,11 @@ for _, server in pairs(servers) do
         capabilities = require("plugins.lsp.handlers").capabilities,
     }
 
-    if (server == "hls") then
-        local status_haskell_tools, haskell_tools = pcall(require,
-            "haskell-tools")
-        if not status_haskell_tools then return end
-        local status_haskell_opts, haskell_opts = pcall(require,
-            "plugins.lsp.settings.hls")
-        if not status_haskell_opts then return end
-
-        haskell_tools.setup(haskell_opts)
-        goto continue
-    end
-
     if (server == "tsserver") then
         local status_typescript_tools, typescript_tools = pcall(require,
             "typescript-tools")
-        if not status_typescript_tools then return end
-        local status_typescript_opts, typescript_opts = pcall(require,
-            "plugins.lsp.settings.tsserver")
-
+        local ts_opts = require("plugins.lsp.settings.tsserver")
+        ts_opts = vim.tbl_deep_extend("force", ts_opts, opts)
         if status_typescript_tools then
             typescript_tools.setup(ts_opts)
         else
@@ -79,7 +66,7 @@ for _, server in pairs(servers) do
 
     local status_lsopts, language_specific_opts = pcall(require,
         "plugins.lsp.settings." .. server)
-    if not status_lsopts then goto continue end
+    if not status_lsopts then language_specific_opts = {} end
     opts = vim.tbl_deep_extend("force", language_specific_opts, opts)
 
     nvim_lsp[server].setup(opts)
