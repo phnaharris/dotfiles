@@ -1,0 +1,4 @@
+#!/bin/sh
+
+swhks &
+pkexec /usr/bin/swhkd -c /home/phnaharris/.config/swhkd/swhkdrc
