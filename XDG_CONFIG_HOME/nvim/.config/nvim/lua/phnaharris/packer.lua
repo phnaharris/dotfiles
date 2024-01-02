@@ -107,6 +107,7 @@ packer.startup(function(use)
     use {
         "lervag/vimtex",
     }
+    use { "kaarmu/typst.vim", ft = { "typst" } }
 
     -- use {
     --     "nvim-neorg/neorg",
