@@ -8,6 +8,12 @@ end
 # A universal variable is a variable whose value is shared across all instances
 # of fish, now and in the future – even after a reboot.
 setenv EDITOR nvim
+# setenv XDG_CONFIG_DIRS /etc/xdg
+# setenv XDG_DATA_DIRS /usr/local/share:/usr/share
+# setenv XDG_CONFIG_HOME $HOME/.config
+# setenv XDG_CACHE_HOME $HOME/.cache
+# setenv XDG_DATA_HOME $HOME/.cache
+# setenv XDG_STATE_HOME $HOME/.local/state
 
 # Some other variables
 # ignore greeting
@@ -26,20 +32,23 @@ abbr -a swd1 'sudo wg-quick down wg1'
 abbr -a swu1 'sudo wg-quick up wg1'
 # Commands
 abbr -a update-grub 'grub-mkconfig -o /boot/grub/grub.cfg'
-abbr -a aur 'paru -Slq | fzf --multi --preview \'paru -Si {1}\' | xargs -ro paru -S'
+abbr -a aurman 'paru -Slq | fzf --multi --preview \'paru -Si {1}\' | xargs -ro paru -S'
 abbr -a sa 'source $(which active-venv)'
 abbr -a up 'sudo pacman -Syu --noconfirm && paru -Sua --noconfirm'
 abbr -a cleanup 'pacman -Qtdq | sudo pacman -Rnsc -'
 abbr -a scheduler 'echo \'notify-send "your message"\' | at 10.20 pm'
 
+abbr -a gah 'git stash; and git pull --rebase; and git stash pop'
+
 abbr -a dev1 'env PRIV=$(pass wallets/beowulf/dev-1@0x9e661c4fe9b0aec733840bdc76cc6a8bd68d6882)'
 abbr -a dev2 'env PRIV=$(pass wallets/beowulf/dev-2@0x0c8f0c147d0e197f1d1ff25f472aca1d4cfdc019)'
+abbr -a trading 'env PRIV=$(pass wallets/trading/metamask/trading@0xd1a41bfdb148a71c90e39aa1d3484634fffb53d9)'
 
-if command -v exa > /dev/null
-	abbr -a l 'exa -lah'
-	abbr -a ls 'exa'
-	abbr -a ll 'exa -lh'
-	abbr -a la 'exa -lAh'
+if command -v eza > /dev/null
+	abbr -a l 'eza -lah'
+	abbr -a ls 'eza'
+	abbr -a ll 'eza -lh'
+	abbr -a la 'eza -lAh'
 else
 	abbr -a l 'ls -lah'
 	abbr -a ls 'ls'
@@ -48,12 +57,7 @@ else
 end
 
 # Evaluate packages manager
-[ -f "/opt/asdf-vm/asdf.fish" ] && source '/opt/asdf-vm/asdf.fish'
-fish_add_path $HOME/.local/share/fnm
-eval "$(fnm env)"
-# tabtab source for packages
-# uninstall by removing these lines
-[ -f ~/.config/tabtab/fish/__tabtab.fish ]; and . ~/.config/tabtab/fish/__tabtab.fish; or true
+[ -x "$(command -v rtx)" ]; and eval "$(rtx activate)"; or true
 
 # Modifying path
 set scripts_dir /data/repos/phnaharris-machos/scripts
@@ -80,17 +84,13 @@ set -g fish_prompt_pwd_dir_length 3
 function fish_prompt
 	set_color brblack
 	echo -n "["(date "+%H:%M")"] "
-	set_color blue
-	echo -n (whoami)@(hostnamectl hostname)
-	if [ $PWD != $HOME ]
-		set_color brblack
-		echo -n ':'
-		set_color yellow
-		echo -n (basename $PWD)
-	end
-	set_color green
-	printf '%s ' (__fish_git_prompt)
-	set_color red
-	echo -n '| '
+	set_color --bold yellow; echo -n (whoami)
+	set_color normal; echo -n "@"
+	set_color --bold blue; echo -n (hostnamectl hostname)
 	set_color normal
+
+    echo -n ' '
+    set_color brgreen; echo -n (prompt_pwd --full-length-dirs=5 --dir-length=1)
+	set_color green; printf '%s ' (__fish_git_prompt)
+	set_color red; echo -n '$ '
 end
