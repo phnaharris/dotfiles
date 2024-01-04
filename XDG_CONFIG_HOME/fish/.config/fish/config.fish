@@ -1,3 +1,5 @@
+theme_gruvbox dark hard
+
 if status --is-interactive
 	if ! set -q TMUX
         tmux attach-session -t "$USER" || tmux new-session -s "$USER"
