@@ -55,5 +55,5 @@ XF86MonBrightnessDown
     brightnessctl -q set 5%-
 
 # Custom script
-ctrl + alt + {b, p, l}
-    {bookmenu, passmenu, hyprmode}
+ctrl + alt + {b, l, o, p}
+    {bookmenu, hyprmode, otpmenu, passmenu}
