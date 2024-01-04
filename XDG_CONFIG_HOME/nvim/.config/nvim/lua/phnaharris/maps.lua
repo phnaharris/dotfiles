@@ -1,25 +1,12 @@
-local opts = { noremap = true, silent = true }
+local default_opts = { noremap = true, silent = true }
 
 function bind(mode, old, new, custom_opts)
-    custom_opts = custom_opts or {} -- default value for Lua style
-
-    if vim.fn.has("nvim-0.7") then
-        vim.keymap.set(mode, old, new,
-            vim.tbl_deep_extend("force", custom_opts, opts)
-        )
-    end
+    custom_opts = custom_opts or {} -- Lua's style for default value
+    local opts = vim.tbl_deep_extend("force", custom_opts, default_opts)
+    vim.keymap.set(mode, old, new, opts)
 end
 
--- bind("n", "<left>", ':echoe "use h"<CR>')
--- bind("n", "<right>", ':echoe "use l"<CR>')
--- bind("n", "<down>", ':echoe "use j"<CR>')
--- bind("n", "<up>", ':echoe "use k"<CR>')
-
-bind("n", "<leader>E", ":edit ./.env<CR>")
-bind("n", "<leader>R", ":edit ./README.md<CR>")
-
-bind("n", "<C-a>", "gg<S-v>G") -- select all
-bind("n", "x", '"_x')          -- do not yank with x
+bind("n", "x", '"_x') -- do not yank with x
 
 -- increment/decrement
 bind("n", "+", "<C-a>")
@@ -50,8 +37,7 @@ bind("n", "<leader>sf", ":NvimTreeToggle<CR>")
 
 bind("v", ">", ">gv")
 bind("v", "<", "<gv")
--- src: ThePrimagen
--- faster moving part of text keeping indent
+
 bind("v", "J", ":m '>+1<CR>gv=gv")
 bind("v", "K", ":m '<-2<CR>gv=gv")
 -- scrolling with centered
@@ -72,7 +58,6 @@ bind("n", "<leader>cd", "<cmd>Copilot disable<CR>")
 
 bind("n", "<M-q>", "<cmd>qa<CR>")
 bind("n", "<M-w>", "<cmd>wa<CR>")
-bind("n", "<M-=>", "<cmd>register<CR>")
 -- qf maps
 bind("n", "<M-p>", ":cprev<cr>")
 bind("n", "<M-n>", ":cnext<cr>")
