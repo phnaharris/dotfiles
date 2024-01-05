@@ -59,7 +59,7 @@ else
 end
 
 # Evaluate packages manager
-[ -x "$(command -v rtx)" ]; and eval "$(rtx activate)"; or true
+[ -x "$(command -v mise)" ]; and eval "$(mise activate)"; or true
 
 # Modifying path
 set scripts_dir /data/repos/phnaharris-machos/scripts
