@@ -1,5 +1,7 @@
 local status, null_ls = pcall(require, "null-ls")
 if (not status) then return end
+local status2, mason_null_ls = pcall(require, "mason-null-ls")
+if (not status2) then return end
 
 local augroup_format = vim.api.nvim_create_augroup("Format", { clear = true })
 
@@ -45,3 +47,8 @@ null_ls.setup({
     },
     on_attach = require("plugins.lsp.handlers").on_attach,
 })
+
+mason_null_ls.setup {
+    ensure_installed = {},
+    automatic_installation = true,
+}

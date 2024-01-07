@@ -91,7 +91,9 @@ handlers.formatOnSave = function(client, bufnr)
             callback = function()
                 vim.lsp.buf.format {
                     filter = function(_client)
-                        return _client.name ~= "tsserver"
+                        return
+                            _client.name ~= "tsserver" or
+                            _client.name ~= "typescript-tools"
                     end
                 }
             end

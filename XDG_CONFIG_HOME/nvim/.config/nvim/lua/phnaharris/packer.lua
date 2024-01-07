@@ -46,6 +46,8 @@ packer.startup(function(use)
     }
     use "williamboman/mason.nvim"
     use "williamboman/mason-lspconfig.nvim"
+    use "jay-babu/mason-null-ls.nvim"
+    use "nvimtools/none-ls.nvim"                -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
     use "hrsh7th/nvim-cmp"                      -- Completion
     use "hrsh7th/cmp-buffer"                    -- nvim-cmp source for buffer words
     use "hrsh7th/cmp-nvim-lsp"                  -- nvim-cmp source for neovim's built-in LSP
@@ -54,7 +56,6 @@ packer.startup(function(use)
     use { "j-hui/fidget.nvim", tag = "legacy" } -- nvim-lsp progress
     use "L3MON4D3/LuaSnip"
     use "rafamadriz/friendly-snippets"
-    use "jose-elias-alvarez/null-ls.nvim" -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
 
     use "Saecki/crates.nvim"
     use "pmizio/typescript-tools.nvim" -- pure lua replacement for typescript-language-server
