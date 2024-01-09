@@ -1,5 +1,5 @@
 [build]
-target-dir = "/data/target"
+target-dir = "~/cargo-target"
 
 [net]
 retry = 3                 # network retries
