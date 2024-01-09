@@ -93,7 +93,8 @@ handlers.formatOnSave = function(client, bufnr)
                     filter = function(_client)
                         return
                             _client.name ~= "tsserver" or
-                            _client.name ~= "typescript-tools"
+                            _client.name ~= "typescript-tools" or
+                            _client.name ~= "astro"
                     end
                 }
             end
