@@ -1,10 +1,10 @@
 # Program launcher
 super + return
-	alacritty
+	$TERMINAL
 super + c
     hyprctl dispatch killactive
 super + e
-    nautilus
+    $FILEMANAGER
 super + {_, shift +} f
     hyprctl dispatch {fullscreen 0, togglefloating}
 super + r
@@ -14,7 +14,7 @@ super + s
 super + t
     telegram-desktop
 super + w
-	firefox-developer-edition
+	$BROWSER
 super + {_, shift +} Escape
     {shutdown now, reboot}
 

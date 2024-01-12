@@ -59,8 +59,8 @@ bind("n", "<leader>cd", "<cmd>Copilot disable<CR>")
 bind("n", "<M-q>", "<cmd>qa<CR>")
 bind("n", "<M-w>", "<cmd>wa<CR>")
 -- qf maps
-bind("n", "<M-p>", ":cprev<cr>")
-bind("n", "<M-n>", ":cnext<cr>")
+bind("n", "<C-p>", ":cprev<cr>")
+bind("n", "<C-n>", ":cnext<cr>")
 bind("n", "<C-q>", ":cclose<cr>")
 
 local function has_value(tbl, val)
