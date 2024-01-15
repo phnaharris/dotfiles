@@ -7,7 +7,7 @@
 
     "modules-left": ["hyprland/workspaces"],
     "modules-center": ["clock"],
-    "modules-right": ["custom/github", "custom/updater", "idle_inhibitor", "pulseaudio", /* "network", */  "cpu", "memory", "temperature", "custom/fan", "backlight", "keyboard-state", "battery", "tray"],
+    "modules-right": ["custom/github", "custom/updater", "idle_inhibitor", "pulseaudio", /* "network", */  "cpu", "memory", "temperature", "custom/fan", "backlight", "keyboard-state", "battery", "custom/cryptoprice", "tray"],
 
     // Modules configuration
     "hyprland/workspaces": {
@@ -29,6 +29,13 @@
             "default": ""
         }
     },
+    "custom/cryptoprice": {
+        "format": "{}",
+        "return-type": "json",
+        "interval": 60,
+        "exec": "cryptoprice",
+        "on-click": "xdg-open https://cias.wtf"
+    },
     "hyprland/window": {
      "format": "{}"
     },
@@ -45,7 +52,7 @@
         "format": "{} ",
         "return-type": "json",
         "interval": 60,
-        "exec": "$HOME/.config/waybar/github.sh",
+        "exec": "gitnoti",
         "on-click": "xdg-open https://github.com/notifications"
     },
     "custom/updater": {

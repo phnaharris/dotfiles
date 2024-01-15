@@ -85,7 +85,8 @@ button:hover {
 #wireplumber,
 #custom-media,
 #custom-updater,
-#custon-github,
+#custom-github,
+#custom-cryptoprice,
 #custom-fan,
 #tray,
 #mode,
@@ -155,6 +156,10 @@ label:focus {
 #custom-updater {
   /* background-color: #964b00; */
   box-shadow: inset 0 -3px #964b00;
+}
+
+#custom-cryptoprice {
+  box-shadow: inset 0 -3px #f7931a;
 }
 
 #memory {
