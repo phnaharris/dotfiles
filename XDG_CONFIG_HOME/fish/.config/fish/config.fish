@@ -1,5 +1,3 @@
-theme_gruvbox dark hard
-
 if status --is-interactive
 	if ! set -q TMUX
         tmux attach-session -t "$USER" || tmux new-session -s "$USER"
@@ -62,7 +60,7 @@ end
 [ -x "$(command -v mise)" ]; and eval "$(mise activate)"; or true
 
 # Modifying path
-set scripts_dir /data/repos/phnaharris-machos/scripts
+set scripts_dir /data/repos/pmachos/scripts
 fish_add_path $scripts_dir/*
 fish_add_path $HOME/.cargo/bin
 # pnpm

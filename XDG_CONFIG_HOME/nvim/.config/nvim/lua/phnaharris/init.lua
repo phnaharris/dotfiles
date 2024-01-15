@@ -1,5 +1,4 @@
-require "phnaharris.base"
-require "phnaharris.maps"
-require "phnaharris.packer"
-require "phnaharris.autocmds"
-require "phnaharris.cmds"
+require("phnaharris.base")
+require("phnaharris.maps")
+require("phnaharris.autocmds")
+require("phnaharris.cmds")

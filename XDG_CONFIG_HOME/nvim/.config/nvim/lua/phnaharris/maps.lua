@@ -1,9 +1,9 @@
 local default_opts = { noremap = true, silent = true }
 
 function bind(mode, old, new, custom_opts)
-    custom_opts = custom_opts or {} -- Lua's style for default value
-    local opts = vim.tbl_deep_extend("force", custom_opts, default_opts)
-    vim.keymap.set(mode, old, new, opts)
+	custom_opts = custom_opts or {} -- Lua's style for default value
+	local opts = vim.tbl_deep_extend("force", custom_opts, default_opts)
+	vim.keymap.set(mode, old, new, opts)
 end
 
 bind("n", "x", '"_x') -- do not yank with x
@@ -19,7 +19,7 @@ bind("n", "to", ":tabonly<CR>") -- only current tab
 -- split
 bind("n", "ss", ":split<CR>")
 bind("n", "sv", ":vsplit<CR>")
-bind("n", "so", ":only<CR>")  -- only current window
+bind("n", "so", ":only<CR>") -- only current window
 bind("n", "sc", ":close<CR>") -- close current window
 -- moving around windows in NORMAL, VISUAL, SELECT, OPERATOR-PENDING mode
 bind("", "sh", "<C-w>h")
@@ -64,27 +64,32 @@ bind("n", "<C-n>", ":cnext<cr>")
 bind("n", "<C-q>", ":cclose<cr>")
 
 local function has_value(tbl, val)
-    for _, v in pairs(tbl) do
-        if v == val then return true end
-    end
+	for _, v in pairs(tbl) do
+		if v == val then
+			return true
+		end
+	end
 
-    return false
+	return false
 end
 
-bind("n", "<leader>xc", -- remove console.log, println!... and other sucks logs
-    function()
-        local console_log = {
-            "javascript",
-            "javascriptreact",
-            "typescript",
-            "typescriptreact",
-        }
+bind(
+	"n",
+	"<leader>xc", -- remove console.log, println!... and other sucks logs
+	function()
+		local console_log = {
+			"javascript",
+			"javascriptreact",
+			"typescript",
+			"typescriptreact",
+		}
 
-        if (vim.bo.filetype == "rust") then
-            vim.api.nvim_command("g/println!(/d")
-        elseif (vim.bo.filetype == "python") then
-            vim.api.nvim_command("g/print(/d")
-        elseif (has_value(console_log, vim.bo.filetype)) then
-            vim.api.nvim_command("g/console.lo/d")
-        end
-    end)
+		if vim.bo.filetype == "rust" then
+			vim.api.nvim_command("g/println!(/d")
+		elseif vim.bo.filetype == "python" then
+			vim.api.nvim_command("g/print(/d")
+		elseif has_value(console_log, vim.bo.filetype) then
+			vim.api.nvim_command("g/console.lo/d")
+		end
+	end
+)
