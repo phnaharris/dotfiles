@@ -1,4 +1,4 @@
-XDG_CONFIG_HOME/nvim/.config/nvim/plugin/packer_compiled.lua
-XDG_CONFIG_HOME/hypr/.config/hypr/hyprlandd.conf
-XDG_CONFIG_HOME/fish/.config/fish/fish_variables
-XDG_CONFIG_HOME/fcitx5/.config/fcitx5/conf/cached_layouts
+nvim/.config/nvim/plugin/packer_compiled.lua
+hypr/.config/hypr/hyprlandd.conf
+fish/.config/fish/fish_variables
+fcitx5/.config/fcitx5/conf/cached_layouts
