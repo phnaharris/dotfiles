@@ -1,12 +1,9 @@
 return {
-	"ellisonleao/gruvbox.nvim",
+	"RRethy/base16-nvim",
 	dependencies = { "nvim-treesitter/nvim-treesitter" },
 	lazy = false,
 	priority = 1000,
 	config = function()
-		require("gruvbox").setup({
-			contrast = "hard",
-		})
-		vim.cmd.colorscheme("gruvbox")
+		vim.cmd.colorscheme("base16-gruvbox-dark-hard")
 	end,
 }
