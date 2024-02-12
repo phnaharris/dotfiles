@@ -41,3 +41,5 @@
     wtp = worktree prune
 [remote]
 	pushDefault = origin
+[rerere]
+	enable = true
