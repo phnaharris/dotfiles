@@ -43,3 +43,5 @@
 	pushDefault = origin
 [rerere]
 	enable = true
+[fetch]
+	writeCommitGraph = true
