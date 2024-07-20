@@ -1,9 +1,9 @@
 local default_opts = { noremap = true, silent = true }
 
 function bind(mode, old, new, custom_opts)
-	custom_opts = custom_opts or {} -- Lua's style for default value
-	local opts = vim.tbl_deep_extend("force", custom_opts, default_opts)
-	vim.keymap.set(mode, old, new, opts)
+  custom_opts = custom_opts or {} -- Lua's style for default value
+  local opts = vim.tbl_deep_extend("force", custom_opts, default_opts)
+  vim.keymap.set(mode, old, new, opts)
 end
 
 bind("n", "x", '"_x') -- do not yank with x
@@ -50,7 +50,6 @@ bind("n", "<C-u>", "<C-u>zz")
 
 bind("n", "<leader>li", "<cmd>LspInfo<CR>")
 bind("n", "<leader>ls", "<cmd>LspRestart<CR>")
-bind("n", "<leader>ni", "<cmd>NullLsInfo<CR>")
 bind("n", "<leader>m", "<cmd>Mason<CR>")
 
 bind("n", "<leader>ce", "<cmd>Copilot enable<CR>")
@@ -64,32 +63,32 @@ bind("n", "<C-n>", ":cnext<cr>")
 bind("n", "<C-q>", ":cclose<cr>")
 
 local function has_value(tbl, val)
-	for _, v in pairs(tbl) do
-		if v == val then
-			return true
-		end
-	end
+  for _, v in pairs(tbl) do
+    if v == val then
+      return true
+    end
+  end
 
-	return false
+  return false
 end
 
 bind(
-	"n",
-	"<leader>xc", -- remove console.log, println!... and other sucks logs
-	function()
-		local console_log = {
-			"javascript",
-			"javascriptreact",
-			"typescript",
-			"typescriptreact",
-		}
+  "n",
+  "<leader>xc", -- remove console.log, println!... and other sucks logs
+  function()
+    local console_log = {
+      "javascript",
+      "javascriptreact",
+      "typescript",
+      "typescriptreact",
+    }
 
-		if vim.bo.filetype == "rust" then
-			vim.api.nvim_command("g/println!(/d")
-		elseif vim.bo.filetype == "python" then
-			vim.api.nvim_command("g/print(/d")
-		elseif has_value(console_log, vim.bo.filetype) then
-			vim.api.nvim_command("g/console.lo/d")
-		end
-	end
+    if vim.bo.filetype == "rust" then
+      vim.api.nvim_command "g/println!(/d"
+    elseif vim.bo.filetype == "python" then
+      vim.api.nvim_command "g/print(/d"
+    elseif has_value(console_log, vim.bo.filetype) then
+      vim.api.nvim_command "g/console.lo/d"
+    end
+  end
 )

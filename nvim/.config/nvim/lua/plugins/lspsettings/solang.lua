@@ -1,3 +1,3 @@
 return {
-	cmd = { "solang", "language-server", "--target", "evm" },
+  cmd = { "solang", "language-server", "--target", "evm" },
 }

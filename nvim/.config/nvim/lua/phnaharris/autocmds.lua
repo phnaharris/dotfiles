@@ -6,13 +6,13 @@ autocmd("BufRead", { pattern = "tsconfig.json", command = "set filetype=jsonc" }
 autocmd("BufRead", { pattern = "*.conf", command = "set filetype=sh" })
 
 autocmd({ "TextYankPost" }, {
-	pattern = "*",
-	callback = function()
-		vim.highlight.on_yank({
-			higroup = "Search",
-			timeout = 40,
-		})
-	end,
+  pattern = "*",
+  callback = function()
+    vim.highlight.on_yank {
+      higroup = "Search",
+      timeout = 40,
+    }
+  end,
 })
 
 -- autocmd({ "ColorScheme" }, {
