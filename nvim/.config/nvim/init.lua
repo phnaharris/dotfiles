@@ -199,7 +199,6 @@ require("lazy").setup {
         "rust_analyzer",
         "lua_ls",
         "taplo",
-        "typst_lsp",
         "yamlls",
       }
       local formatters = { "prettierd", "shfmt", "black", "cmakelang", "stylua", "yamlfmt" }
