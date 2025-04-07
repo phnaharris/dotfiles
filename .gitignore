@@ -2,3 +2,4 @@ nvim/.config/nvim/plugin/packer_compiled.lua
 hypr/.config/hypr/hyprlandd.conf
 fish/.config/fish/fish_variables
 fcitx5/.config/fcitx5/conf/cached_layouts
+nvim/.config/nvim/lazy-lock.json

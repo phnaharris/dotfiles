@@ -62,8 +62,8 @@
   "custom/custom": {
     "format": "{}",
     "return-type": "json",
-    "interval": 60,
-    "exec": "waybar-custom",
+    "interval": 30,
+    "exec": "cryptoprice",
   },
   "custom/github": {
     "format": " {}",
@@ -154,7 +154,7 @@
     "spacing": 10
   },
   "clock": {
-    // "timezone": "America/New_York",
+    "timezone": "Asia/Ho_Chi_Minh",
     "format": "{:%I:%M:%S %p}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><big>{calendar}</big></tt>",
     "format-alt": "{:%d/%m/%Y}",

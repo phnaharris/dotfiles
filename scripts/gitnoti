@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+token=$(cat ${HOME}/.config/github/notifications.token)
+count=$(curl -u ${whoami}:${token} https://api.github.com/notifications | jq '. | length')
+
+if [[ "$count" != "0" ]]; then
+    echo '{"text":'$count',"tooltip":"Click to open your Github notifications website.","class":"$class"}'
+fi

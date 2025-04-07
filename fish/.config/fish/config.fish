@@ -22,11 +22,6 @@ abbr -a c cargo
 abbr -a o xdg-open
 abbr -a t tmux
 abbr -a tmx tmuxinator
-# VPN
-abbr -a swd0 'sudo wg-quick down wg0'
-abbr -a swu0 'sudo wg-quick up wg0'
-abbr -a swd1 'sudo wg-quick down wg1'
-abbr -a swu1 'sudo wg-quick up wg1'
 # Commands
 abbr -a update-grub 'grub-mkconfig -o /boot/grub/grub.cfg'
 abbr -a aurman 'paru -Slq | fzf --multi --preview \'paru -Si {1}\' | xargs -ro paru -S'
@@ -36,10 +31,6 @@ abbr -a cleanup 'pacman -Qtdq | sudo pacman -Rnsc -'
 abbr -a scheduler 'echo \'notify-send "your message"\' | at 10.20 pm'
 
 abbr -a gah 'git stash; and git pull --rebase; and git stash pop'
-
-abbr -a dev1 'env PRIV=$(pass wallets/beowulf/dev-1@0x9e661c4fe9b0aec733840bdc76cc6a8bd68d6882)'
-abbr -a dev2 'env PRIV=$(pass wallets/beowulf/dev-2@0x0c8f0c147d0e197f1d1ff25f472aca1d4cfdc019)'
-abbr -a trading 'env PRIV=$(pass wallets/trading/metamask/trading@0xd1a41bfdb148a71c90e39aa1d3484634fffb53d9)'
 
 if command -v eza > /dev/null
 	abbr -a l 'eza -lah'
@@ -60,6 +51,8 @@ end
 fish_add_path $SCRIPTS
 fish_add_path $HOME/.cargo/bin
 fish_add_path $HOME/.local/share/nvim/mason/bin
+fish_add_path $HOME/.local/share/solana/install/active_release/bin
+fish_add_path /data/repos/phnaharris/scripts/baricon
 
 # pnpm
 fish_add_path $HOME/.local/share/pnpm
@@ -88,7 +81,14 @@ function fish_prompt
 	set_color normal
 
     echo -n ' '
-    set_color brgreen; echo -n (prompt_pwd --full-length-dirs=5 --dir-length=1)
+    set_color magenta; echo -n (prompt_pwd --full-length-dirs=5 --dir-length=1)
 	set_color green; printf '%s ' (__fish_git_prompt)
 	set_color red; echo -n '$ '
 end
+
+fish_add_path -a /home/phnaharris/.foundry/bin
+
+export PATH="$PATH:/home/phnaharris/.sp1/bin"
+export GPG_TTY=$(tty)
+
+export PATH="$PATH:/home/phnaharris/.soundness/bin"
