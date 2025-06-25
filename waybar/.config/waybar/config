@@ -12,6 +12,7 @@
   ],
   "modules-center": [],
   "modules-right": [
+    "custom/portfolio",
     "custom/custom",
     "custom/github",
     "custom/updater",
@@ -77,6 +78,12 @@
     "exec": "checkupdates | wc -l | awk '{ printf \"%s\\n%s packages need to be updated.\", $1, $1 }'",
     "exec-if": "[[ $(checkupdates | wc -l) ]]",
     "interval": 15
+  },
+  "custom/portfolio": {
+    "format": "{} $",
+    "return-type": "json",
+    "interval": 30,
+    "exec": "portfolio",
   },
   "pulseaudio": {
     "scroll-step": 5, 
