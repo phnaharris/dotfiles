@@ -1,0 +1,11 @@
+#!/usr/bin/env fish
+
+set VIRTUAL_ENV "$PWD/$(basename $PWD)/bin/activate.fish"
+
+if test -f "$VIRTUAL_ENV" 
+    source "$VIRTUAL_ENV"
+else
+    python -m venv $(basename $PWD)
+    source "$VIRTUAL_ENV"
+end
+
