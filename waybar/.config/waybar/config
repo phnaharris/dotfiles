@@ -6,14 +6,13 @@
   "fixed-center": false,
 
   "modules-left": [
-    "hyprland/workspaces",
-    "hyprland/submap",
+    "sway/workspaces",
+    "sway/submap",
     "systemd-failed-units"
   ],
   "modules-center": [],
   "modules-right": [
     "custom/portfolio",
-    "custom/custom",
     "custom/github",
     "custom/updater",
     "pulseaudio",
@@ -29,26 +28,18 @@
     "clock"
   ],
 
-  "hyprland/workspaces": {
+  "sway/workspaces": {
     "on-click": "activate",
     "disable-scroll": true,
     "all-outputs": true,
     "format": "{name}: {icon}",
     "format-icons": {
-      "1": "dev ",
-      "2": "www ",
-      "3": "sys ",
-      "4": "chat ",
-      "5": "mus ",
-      "6": "fun ",
-      "7": "gra  ",
-      "8": "virt 󱄔",
       "urgent": "",
       "focused": "",
       "default": ""
     }
   },
-  "hyprland/submap": {
+  "sway/submap": {
     "format": "✌️ {}",
     "max-length": 8
   },
@@ -58,13 +49,6 @@
     "format-ok": "✓",
     "system": true, // Monitor failed systemwide units.
     "user": true // Monitor failed user units.
-  },
-
-  "custom/custom": {
-    "format": "{}",
-    "return-type": "json",
-    "interval": 30,
-    "exec": "cryptoprice",
   },
   "custom/github": {
     "format": " {}",

@@ -8,6 +8,26 @@ end
 # A universal variable is a variable whose value is shared across all instances
 # of fish, now and in the future – even after a reboot.
 
+setenv EDITOR nvim
+setenv BROWSER brave
+setenv TERMINAL alacritty
+setenv FILEMANAGER thunar
+
+setenv GTK_IM_MODULE fcitx
+setenv QT_IM_MODULE fcitx
+setenv XMODIFIERS @im=fcitx
+setenv QT_QPA_PLATFORM wayland
+setenv MOZ_ENABLE_WAYLAND 1
+
+setenv XDG_CURRENT_DESKTOP sway
+setenv XDG_SESSION_TYPE wayland
+setenv XDG_SESSION_DESKTOP sway
+
+# Rust specific
+# env = CARGO_TARGET_DIR, $HOME/cargo-target
+setenv CARGO_INCREMENTAL 1
+setenv RUST_BACKTRACE 1
+
 setenv ANDROID_HOME $HOME/Android/Sdk
 fish_add_path $ANDROID_HOME/emulator
 fish_add_path $ANDROID_HOME/platform-tools
@@ -48,7 +68,7 @@ end
 [ -x "$(command -v mise)" ]; and eval "$(mise activate)"; or true
 
 # Modifying path
-fish_add_path $SCRIPTS
+fish_add_path $HOME/data/dev/phnaharris/dotfiles/scripts/*
 fish_add_path $HOME/.cargo/bin
 fish_add_path $HOME/.local/share/nvim/mason/bin
 fish_add_path $HOME/.local/share/solana/install/active_release/bin
