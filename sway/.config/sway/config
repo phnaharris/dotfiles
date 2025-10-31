@@ -13,7 +13,7 @@ exec --no-startup-id systemctl --user import-environment WAYLAND_DISPLAY XDG_CUR
 exec --no-startup-id dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 exec --no-startup-id solaar --battery-icons symbolic --window hide
 exec --no-startup-id pactl load-module module-switch-on-connect
-exec --no-startup-id run_keybase -a 
+# exec --no-startup-id run_keybase -a 
 
 input "type:keyboard" {
     repeat_rate 60
@@ -60,7 +60,7 @@ bindsym $mod+r exec pkill wofi || wofi --show drun
 bindsym $mod+t exec Telegram
 bindsym $mod+b exec brave
 bindsym $mod+p exec grim -t jpeg -q 100 "$HOME/Pictures/Screenshots/$(date).jpg" && notify-send "Taking Screenshot"
-bindsym $mod+shift+p exec grim -g "$(slurp)" - | swappy -f - 
+bindsym $mod+shift+p exec grim -g "$(slurp)" - | swappy -o "$HOME/Pictures/Screenshots/swappy-$(date).jpg"  -f -
 bindsym Ctrl+Mod1+p exec passmenu
 bindsym Ctrl+Mod1+o exec otpmenu
 
@@ -160,11 +160,12 @@ assign [app_id="Alacritty"] $ws1
 assign [app_id="brave-browser"] $ws2
 assign [app_id="org.telegram.desktop"] $ws4
 assign [app_id="org.telegram.desktop"] $ws4
-assign [class="Signal"] $ws4
+assign [app_id="signal"] $ws4
 
 for_window [app_id="pavucontrol|blueman-manager|xfce-polkit|org.fcitx.fcitx5-config-qt|org.pipewire.Helvum|Pinentry-gtk"] floating enable 
 for_window [app_id="pavucontrol|blueman-manager|xfce-polkit|org.fcitx.fcitx5-config-qt|org.pipewire.Helvum|Pinentry-gtk"] resize set 600 300
 for_window [app_id="pavucontrol|blueman-manager|xfce-polkit|org.fcitx.fcitx5-config-qt|org.pipewire.Helvum|Pinentry-gtk"] center
+for_window [app_id="io.github.Qalculate.qalculate-qt"] move scratchpad 
 for_window [class="pavucontrol|blueman-manager|xfce-polkit|org.fcitx.fcitx5-config-qt|org.pipewire.Helvum|Pinentry-gtk"] floating enable 
 for_window [class="pavucontrol|blueman-manager|xfce-polkit|org.fcitx.fcitx5-config-qt|org.pipewire.Helvum|Pinentry-gtk"] resize set 600 300
 for_window [class="pavucontrol|blueman-manager|xfce-polkit|org.fcitx.fcitx5-config-qt|org.pipewire.Helvum|Pinentry-gtk"] center

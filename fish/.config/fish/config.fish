@@ -68,7 +68,8 @@ end
 [ -x "$(command -v mise)" ]; and eval "$(mise activate)"; or true
 
 # Modifying path
-fish_add_path $HOME/data/dev/phnaharris/dotfiles/scripts/*
+fish_add_path $HOME
+fish_add_path $HOME/data/repos/dotfiles/scripts/*
 fish_add_path $HOME/.cargo/bin
 fish_add_path $HOME/.local/share/nvim/mason/bin
 fish_add_path $HOME/.local/share/solana/install/active_release/bin

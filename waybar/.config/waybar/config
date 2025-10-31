@@ -12,8 +12,6 @@
   ],
   "modules-center": [],
   "modules-right": [
-    "custom/portfolio",
-    "custom/github",
     "custom/updater",
     "pulseaudio",
     "network",
@@ -50,24 +48,11 @@
     "system": true, // Monitor failed systemwide units.
     "user": true // Monitor failed user units.
   },
-  "custom/github": {
-    "format": " {}",
-    "return-type": "json",
-    "interval": 60,
-    "exec": "gitnoti",
-    "on-click": "xdg-open https://github.com/notifications"
-  },
   "custom/updater": {
     "format": "{} 󰏕",
-    "exec": "checkupdates | wc -l | awk '{ printf \"%s\\n%s packages need to be updated.\", $1, $1 }'",
+    "exec": "aur-check-updates | wc -l | awk '{ printf \"%s\\n%s packages need to be updated.\", $1, $1 }'",
     "exec-if": "[[ $(checkupdates | wc -l) ]]",
     "interval": 15
-  },
-  "custom/portfolio": {
-    "format": "{} $",
-    "return-type": "json",
-    "interval": 30,
-    "exec": "portfolio",
   },
   "pulseaudio": {
     "scroll-step": 5, 
