@@ -1,10 +1,7 @@
 #!/usr/bin/env bash
 
-hyprctl dispatch exec "[workspace 2 silent] brave"
-hyprctl dispatch exec "[workspace 3 silent] brave-nightly"
-hyprctl dispatch exec "[workspace 4 silent] sleep 1 && telegram-desktop &"
-# exec-once=[workspace 4 silent] slack --enable-features=WebRTCPipeWireCapturer %U
-hyprctl dispatch exec "[workspace 4 silent] signal-desktop --use-tray-icon --no-sandbox %U"
-hyprctl dispatch exec "[workspace 4 silent] discord --enable-features=WebRTCPipeWireCapturer %U"
-hyprctl dispatch exec "[workspace 10 silent] google-chrome-stable"
-hyprctl dispatch exec "run_keybase -a"
+swaymsg "exec alacritty;"
+swaymsg "exec brave;"
+swaymsg "exec google-chrome-stable;"
+swaymsg "exec Telegram;"
+swaymsg "exec signal-desktop;"

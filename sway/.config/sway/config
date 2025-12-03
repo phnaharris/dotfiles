@@ -158,6 +158,7 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 # window rules
 assign [app_id="Alacritty"] $ws1
 assign [app_id="brave-browser"] $ws2
+assign [app_id="google-chrome"] $ws3
 assign [app_id="org.telegram.desktop"] $ws4
 assign [app_id="org.telegram.desktop"] $ws4
 assign [app_id="signal"] $ws4
