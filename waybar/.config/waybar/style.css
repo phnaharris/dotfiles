@@ -1,15 +1,14 @@
 * {
   /* `otf-font-awesome` is required to be installed for icons */
-  font-family: "Ubuntu Nerd Font";
+  font-family: "Noto Sans Mono";
   font-size: 14px;
   border: none;
   border-radius: 0;
-  font-size: 13px;
   min-height: 0;
 }
 
 window#waybar {
-  background: transparent;
+  background: black;
   color: white;
   transition-property: background-color;
   transition-duration: 0.5s;
@@ -21,7 +20,7 @@ window#waybar.hidden {
 
 #window {
   font-weight: bold;
-  font-family: "Ubuntu";
+  font-family: "Noto Sans Mono";
 }
 
 button {
@@ -59,6 +58,10 @@ button:hover {
   background-color: #eb4d4b;
 }
 
+#workspaces button.focused {
+  background-color: #64727D;
+}
+
 #window,
 #workspaces {
   margin: 0 4px;
@@ -78,12 +81,10 @@ button:hover {
 
 /* ================= RIGHT MODULE ================ */
 
-#custom-custom,
-#custom-updater,
+#power-profiles-daemon,
 #pulseaudio,
 #network,
 #bluetooth,
-#custom-fan,
 #temperature,
 #cpu,
 #memory,
@@ -99,14 +100,8 @@ button:hover {
   font-weight: bold;
 }
 
-#battery {
-}
-
 #battery icon {
   color: red;
-}
-
-#battery.charging {
 }
 
 @keyframes blink {
