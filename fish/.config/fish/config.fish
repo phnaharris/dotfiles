@@ -6,18 +6,6 @@ end
 
 theme_gruvbox dark hard
 
-# setenv GTK_IM_MODULE fcitx
-# setenv QT_IM_MODULE fcitx
-# setenv XMODIFIERS @im=fcitx
-# setenv QT_QPA_PLATFORM wayland
-# setenv MOZ_ENABLE_WAYLAND 1
-
-# Rust specific
-# env = CARGO_TARGET_DIR, $HOME/cargo-target
-# setenv CARGO_INCREMENTAL 1
-# setenv RUST_BACKTRACE 1
-setenv EDITOR nvim
-
 # ignore greeting
 set -g fish_greeting
 

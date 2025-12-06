@@ -11,15 +11,12 @@
 #  KEY="VALUE" does _not_ work!
 
 EDITOR=nvim
-BROWSER=firefox-developer-edition
-TERMINAL=alacritty
-FILEMANAGER=nautilus
 
-GTK_IM_MODULE=fcitx
-QT_IM_MODULE=fcitx
-XMODIFIERS=@im=fcitx
-QT_QPA_PLATFORM=wayland
-MOZ_ENABLE_WAYLAND=1
+# GTK_IM_MODULE=fcitx
+# QT_IM_MODULE=fcitx
+# XMODIFIERS=@im=fcitx
+# QT_QPA_PLATFORM=wayland
+# MOZ_ENABLE_WAYLAND=1
 
 # Rust specific
 CARGO_TARGET_DIR=~/cargo-target
@@ -27,8 +24,6 @@ CARGO_INCREMENTAL=1
 RUST_BACKTRACE=1
 
 # env for folders
-SCRIPTS=/data/repos/pmachos/scripts
-
 # setenv XDG_CONFIG_DIRS /etc/xdg
 # setenv XDG_DATA_DIRS /usr/local/share:/usr/share
 # setenv XDG_CONFIG_HOME $HOME/.config
