@@ -29,6 +29,7 @@ end
 
 # Modifying path
 fish_add_path $HOME/scripts
+fish_add_path $HOME/.local/bin
 fish_add_path $HOME/scripts/dev
 fish_add_path $HOME/.cargo/bin
 fish_add_path $HOME/.local/share/nvim/mason/bin
