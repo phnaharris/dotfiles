@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+swaymsg "exec foot"
+swaymsg "exec flatpak run com.brave.Browser;"
+swaymsg "exec flatpak run com.google.Chrome;"
+swaymsg "exec flatpak run org.signal.Signal;"
+swaymsg "exec flatpak run org.telegram.desktop;"

@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-swaymsg "exec alacritty;"
-swaymsg "exec brave;"
-swaymsg "exec google-chrome-stable;"
-swaymsg "exec Telegram;"
-swaymsg "exec signal-desktop;"

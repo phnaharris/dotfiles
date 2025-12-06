@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+start_tmux() {
+    selected=$1
+    selected_name=$(basename "$selected" | tr . _)
+    tmux_running=$(pgrep tmux)
+
+    if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
+        tmux new-session -s "$selected_name" -c "$selected"
+        exit 0
+    fi
+
+    if ! tmux has-session -t="$selected_name" 2>/dev/null; then
+        tmux new-session -ds "$selected_name" -c "$selected"
+    fi
+
+    tmux switch-client -t "$selected_name"
+}
+
+repos_path=~/tmux-sessionizer.local
+[ -f $repos_path ] && readarray -t folders <$repos_path
+
+if [[ $# -eq 1 ]]; then
+    selected=$1
+else
+    selected=$(find ${folders[@]} -mindepth 1 -maxdepth 1 -type d | fzf -m)
+fi
+
+parent_path=$(
+    cd "$(dirname "${BASH_SOURCE[0]}")" || exit
+    pwd -P
+)
+source "$parent_path"/start-tmux.sh
+
+for selection in $selected; do
+    if [[ -z $selection ]]; then
+        continue
+    fi
+
+    echo "$selection"
+
+    start_tmux "$selection"
+done
