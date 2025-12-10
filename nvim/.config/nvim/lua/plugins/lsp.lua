@@ -6,8 +6,8 @@ return {
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
     "WhoIsSethDaniel/mason-tool-installer.nvim",
-    "pmizio/typescript-tools.nvim",
-    { "j-hui/fidget.nvim", opts = {} },
+    -- "pmizio/typescript-tools.nvim",
+    "j-hui/fidget.nvim",
 
     -- Autoformatting
     "stevearc/conform.nvim",
@@ -94,6 +94,7 @@ return {
         },
       },
       rust_analyzer = {
+        manual_install = true,
         settings = {
           ["rust-analyzer"] = {
             cargo = {
@@ -116,7 +117,6 @@ return {
         },
       },
       lua_ls = {
-        manual_install = true,
         settings = {
           Lua = {
             format = { enable = false },
@@ -147,33 +147,11 @@ return {
           },
         },
       },
-      tsserver = {
-        root_dir = util.root_pattern "package.json",
-        single_file_support = false,
-        settings = {
-          filetypes = {
-            "typescript",
-            "typescriptreact",
-            "typescript.tsx",
-            "javascript",
-            "javascriptreact",
-            "javascript.jsx",
-          },
-        },
-      },
+      vtsls = {},
     }
+
     local formatters = { "prettierd", "shfmt", "black", "cmakelang", "stylua", "yamlfmt" }
     local linters = { "shellcheck", "proselint", "cmakelang", "solhint", "eslint_d" }
-
-    local capabilities = nil
-    if pcall(require, "cmp_nvim_lsp") then
-      capabilities = require("cmp_nvim_lsp").default_capabilities()
-    end
-    require("neodev").setup {}
-    require("typescript-tools").setup {
-      vim.tbl_deep_extend("force", {}, { capabilities = capabilities }, servers.tsserver),
-    }
-
     local ensure_installed = vim.tbl_filter(function(key)
       local t = servers[key]
       if type(t) == "table" then
@@ -186,7 +164,16 @@ return {
     vim.list_extend(ensure_installed, linters)
     require("mason").setup()
     require("mason-lspconfig").setup()
-    require("mason-tool-installer").setup { ensure_installed }
+    require("mason-tool-installer").setup { ensure_installed = ensure_installed }
+
+    local capabilities = nil
+    if pcall(require, "cmp_nvim_lsp") then
+      capabilities = require("cmp_nvim_lsp").default_capabilities()
+    end
+    require("neodev").setup {}
+    -- require("typescript-tools").setup {
+    --   vim.tbl_deep_extend("force", {}, { capabilities = capabilities }, servers.vtsls),
+    -- }
 
     for name, setting in pairs(servers) do
       if setting == true then
