@@ -6,3 +6,5 @@ fcitx5/*
 !fcitx5/.config/fcitx5/conf/xim.conf
 !fcitx5/.config/fcitx5/config
 !fcitx5/.config/fcitx5/profile
+cargo/.cargo/*
+!cargo/.cargo/config.toml
