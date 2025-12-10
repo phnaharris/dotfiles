@@ -9,6 +9,8 @@ theme_gruvbox dark hard
 # ignore greeting
 set -g fish_greeting
 
+setenv EDITOR nvim
+
 abbr -a g git
 # abbr -a gah 'git stash; and git pull --rebase; and git stash pop'
 
@@ -28,9 +30,9 @@ end
 [ -x "$(command -v mise)" ]; and eval "$(mise activate)"; or true
 
 # Modifying path
-fish_add_path $HOME/scripts
+fish_add_path $HOME/bin
+fish_add_path $HOME/bin/dev
 fish_add_path $HOME/.local/bin
-fish_add_path $HOME/scripts/dev
 fish_add_path $HOME/.cargo/bin
 fish_add_path $HOME/.local/share/nvim/mason/bin
 

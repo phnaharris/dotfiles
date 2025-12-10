@@ -1,5 +1,6 @@
 nvim/.config/nvim/plugin/packer_compiled.lua
 fish/.config/fish/fish_variables
+fish/.config/fish/completions
 fcitx5/*
 !fcitx5/.config/fcitx5/conf/unikey.conf
 !fcitx5/.config/fcitx5/conf/waylandim.conf
