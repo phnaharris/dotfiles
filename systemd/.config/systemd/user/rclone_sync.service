@@ -1,0 +1,10 @@
+[Unit]
+Description=rclone_sync obsidian
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/rclone -v sync data/obsidian drive-namanh269:obsidian 
+ExecStart=/usr/bin/rclone -v sync data/obsidian mega:obsidian
+
+[Install]
+WantedBy=default.target
