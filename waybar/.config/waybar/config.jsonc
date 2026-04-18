@@ -16,35 +16,18 @@
         "pulseaudio",
         "network",
         "bluetooth",
-        "temperature",
         "cpu",
         "memory",
         "backlight",
+        "custom/fcitx5",
         "battery",
-        "tray",
         "clock"
     ],
 
     "sway/workspaces": {
         "on-click": "activate",
         "disable-scroll": true,
-        "all-outputs": true,
-        "format": "{name}: {icon}",
-        "format-icons": {
-            "1": "dev",
-            "2": "www",
-            "3": "trade",
-            "4": "chat",
-            "5": "note",
-            "6": "fun",
-            "7": "virt",
-            "8": "",
-            "9": "",
-            "10": "",
-            "urgent": "",
-            "focused": "",
-            "default": ""
-        }
+        "all-outputs": true
     },
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
@@ -103,15 +86,8 @@
         "format-connected": "{num_connections} ",
         "tooltip-format": "{controller_alias}\t{controller_address}",
         "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
-        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
-    },
-    "temperature": {
-        // "thermal-zone": 2,
-        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-        "critical-threshold": 80,
-        // "format-critical": "{temperatureC}°C {icon}",
-        "format": "{temperatureC}°C {icon}",
-        "format-icons": ["", "", ""]
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "on-click": "blueman-manager"
     },
     "cpu": {
         "format": "{usage}% ",
@@ -123,6 +99,12 @@
     "backlight": {
         "format": "{percent}% {icon}",
         "format-icons": ["🌑", "🌘", "🌗", "🌖", "🌕"]
+    },
+    "custom/fcitx5": {
+        "interval": 1,
+        "exec": "fcitx5-remote -n | sed 's/keyboard-//g'",
+        "format": "{text}",
+        "on-click": "fcitx5-remote -t"
     },
     "battery": {
         "states": {
@@ -138,14 +120,22 @@
         // "format-full": "",
         "format-icons": ["", "", "", "", ""]
     },
-    "tray": {
-        "spacing": 10
-    },
     "clock": {
-        "timezone": "Asia/Ho_Chi_Minh",
-        "format": "{:%d/%m/%Y %I:%M:%S %p}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><big>{calendar}</big></tt>",
-        "format-alt": "{:%d/%m/%Y}",
-        "interval": 1
+        "format": "{:%m/%d/%Y %I:%M:%S %p}",
+        "format-alt": "{:%H:%M %d %B %Y}",
+        "interval": 1,
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "year",
+            "weeks-pos": "right",
+            "mode-mon-col": 3,
+            "format": {
+                "months":   "<span color='#acb0d0'><b>{}</b></span>",
+                "weeks":    "<span color='#7aa2f7'><b>W{}</b></span>",
+                "weekdays": "<span color='#e0af68'><b>{}</b></span>",
+                "days":     "<span color='#acb0d0'><b>{}</b></span>",
+                "today":    "<span color='#41a6b5'><b><u>{}</u></b></span>"
+            }
+        }
     }
 }

@@ -18,10 +18,10 @@ window#waybar.hidden {
   opacity: 0.2;
 }
 
-#window {
-  font-weight: bold;
-  font-family: "Noto Sans Mono";
-}
+/* #window { */
+  /* font-weight: bold; */
+  /* font-family: "Noto Sans Mono"; */
+/* } */
 
 button {
   /* Use box-shadow instead of border so the text isn't offset */
@@ -85,19 +85,14 @@ button:hover {
 #pulseaudio,
 #network,
 #bluetooth,
-#temperature,
 #cpu,
 #memory,
 #backlight,
+#custom-fcitx5,
 #battery,
-#tray,
 #clock {
   padding: 0 8px;
   color: #ffffff;
-}
-
-#clock {
-  font-weight: bold;
 }
 
 #battery icon {
@@ -120,7 +115,6 @@ button:hover {
   animation-direction: alternate;
 }
 
-#temperature.critical,
 #battery.critical:not(.charging) {
   background-color: #f53c3c;
   color: #ffffff;
