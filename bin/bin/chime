@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Find the active user's audio session bus
+USER_ID=$(id -u "${SUDO_USER:-$USER}")
+export XDG_RUNTIME_DIR="/run/user/$USER_ID"
+
+# Path to your chime sound file
+# (Change this to any .ogg or .wav file you prefer)
+CHIME_SOUND="/usr/share/sounds/freedesktop/stereo/complete.oga"
+
+# Play the sound
+if [ -f "$CHIME_SOUND" ]; then
+    sudo -u "${SUDO_USER:-$USER}" DBUS_SESSION_BUS_ADDRESS="unix:path=$XDG_RUNTIME_DIR/bus" paplay "$CHIME_SOUND"
+else
+    # Fallback: PC speaker beep if the sound file doesn't exist
+    echo -e "\a"
+fi

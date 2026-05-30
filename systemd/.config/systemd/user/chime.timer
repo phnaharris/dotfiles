@@ -1,0 +1,10 @@
+[Unit]
+Description=Run Chime Service Every 15 Minutes
+
+[Timer]
+# Syncs to the top of the hour and every 15 mins after
+OnCalendar=*:0,15,30,45:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target

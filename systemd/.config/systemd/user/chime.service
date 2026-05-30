@@ -1,0 +1,9 @@
+[Unit]
+Description=Quarterly Hour Chime Service
+
+[Service]
+Type=oneshot
+ExecStart=/home/phnaharris/bin/chime
+
+[Install]
+WantedBy=default.target
