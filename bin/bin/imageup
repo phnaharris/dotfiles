@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+
+# --- CONFIGURATION ---
+API_KEY="$IMGBB"
+TEMP_FILE="/tmp/screenshot_$(date +%Y%m%d_%H%M%S).png"
+# ---------------------
+
+! [[ -n $API_KEY ]] && notify-send "API_KEY" "API_KEY is empty!" -i dialog-error && exit 1
+
+# 1. Take the screenshot using slurp (selection) and grim (capture)
+if ! grim -g "$(slurp)" "$TEMP_FILE"; then
+    notify-send "Screenshot" "Screenshot cancelled or failed." -i dialog-error
+    exit 1
+fi
+
+# 2. Upload to ImgBB using curl
+# We use jq to parse the JSON response and grab the direct image URL
+RESPONSE=$(curl -s --location --request POST "https://api.imgbb.com/1/upload?key=$API_KEY" \
+    --form "image=@$TEMP_FILE")
+
+# 3. Clean up the temporary local file
+rm "$TEMP_FILE"
+
+# 4. Check if the upload was successful
+SUCCESS=$(echo "$RESPONSE" | jq -r '.success')
+
+if [ "$SUCCESS" = "true" ]; then
+    # Extract the direct URL from the JSON
+    IMAGE_URL=$(echo "$RESPONSE" | jq -r '.data.url_viewer')
+
+    # Pure Wayland clipboard copy
+    echo -n "$IMAGE_URL" | wl-copy
+
+    # Send a success notification
+    notify-send "Upload Successful!" "URL copied to clipboard:\n$IMAGE_URL" -i dialog-information
+else
+    # Extract error message if available
+    ERROR_MSG=$(echo "$RESPONSE" | jq -r '.error.message')
+    notify-send "Upload Failed" "Reason: $ERROR_MSG" -i dialog-error
+fi
